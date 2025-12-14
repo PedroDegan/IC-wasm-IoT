@@ -1,0 +1,191 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/esp/test/simulador/build/wamr-simple.elf /home/pedrod/esp/test/simulador/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 10 2025 10:38:27[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=120f8h ( 73976) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=00022120 vaddr=3ffb0000 size=039d8h ( 14808) load[0m
+[0;32mI (118) esp_image: segment 2: paddr=00025b00 vaddr=40080000 size=0a518h ( 42264) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=4d5d8h (316888) map[0m
+[0;32mI (244) esp_image: segment 4: paddr=0007d600 vaddr=4008a518 size=031f8h ( 12792) load[0m
+[0;32mI (249) esp_image: segment 5: paddr=00080800 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (256) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (256) boot: Disabling RNG early entropy source...[0m
+[0;32mI (269) cpu_start: Multicore app[0m
+[0;32mI (278) cpu_start: Pro cpu start user code[0m
+[0;32mI (278) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (278) app_init: Application information:[0m
+[0;32mI (278) app_init: Project name:     wamr-simple[0m
+[0;32mI (282) app_init: App version:      1[0m
+[0;32mI (285) app_init: Compile time:     Dec 10 2025 11:52:26[0m
+[0;32mI (290) app_init: ELF file SHA256:  526353e88...[0m
+[0;32mI (295) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (299) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (302) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (306) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (310) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (317) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (322) heap_init: At 3FFB5088 len 0002AF78 (171 KiB): DRAM[0m
+[0;32mI (327) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (332) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (338) heap_init: At 4008D710 len 000128F0 (74 KiB): IRAM[0m
+[0;32mI (345) spi_flash: detected chip: generic[0m
+[0;32mI (347) spi_flash: flash io: dio[0m
+[0;33mW (350) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (362) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+[0;32mI (372) wamr: Initialize WASM runtime[0m
+[0;32mI (372) wamr: Host function 'sensor_read' registered successfully.[0m
+[0;32mI (372) wamr: Run wamr with interpreter[0m
+[0;32mI (382) wamr: Instantiate WASM runtime[0m
+[0;32mI (382) wamr: run main() of the application[0m
+[0;32mI (382) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3938
+[0;32mI (392) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (5402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 678
+[0;32mI (5402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (10402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 812
+[0;32mI (10402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (15402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1698
+[0;32mI (15402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (20402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1871
+[0;32mI (20402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (25402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2119
+[0;32mI (25402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (30402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3268
+[0;32mI (30402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (35402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 717
+[0;32mI (35402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (40402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2621
+[0;32mI (40402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (45402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 599
+[0;32mI (45402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (50402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1289
+[0;32mI (50402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (55402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1884
+[0;32mI (55402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (60402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2936
+[0;32mI (60402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (65402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 618
+[0;32mI (65402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (70402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 977
+[0;32mI (70402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (75402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 245
+[0;32mI (75402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (80402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2499
+[0;32mI (80402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (85402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3446
+[0;32mI (85402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (90402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3816
+[0;32mI (90402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (95402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2664
+[0;32mI (95402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (100402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1228
+[0;32mI (100402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (105402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1630
+[0;32mI (105402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (110402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 127
+[0;32mI (110402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (115402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1507
+[0;32mI (115402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (120402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 543
+[0;32mI (120402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (125402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2950
+[0;32mI (125402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (130402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 231
+[0;32mI (130402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (135402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 165
+[0;32mI (135402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (140402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1297
+[0;32mI (140402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (145402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2677
+[0;32mI (145402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (150402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1253
+[0;32mI (150402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (155402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1154
+[0;32mI (155402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (160402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2849
+[0;32mI (160402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (165402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3495
+[0;32mI (165402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (170402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3630
+[0;32mI (170402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (175402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3487
+[0;32mI (175402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (180402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1057
+[0;32mI (180402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (185402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2558
+[0;32mI (185402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (190402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 2021
+[0;32mI (190402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (195402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1561
+[0;32mI (195402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (200402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3891
+[0;32mI (200402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (205402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 1507
+[0;32mI (205402) wamr: Host Function: Atrasando por 5000 ms[0m
+[0;32mI (210402) wamr: Host Function: Simulação de leitura de sensor [25][0m
+WASM: Leitura Fixa: 25 | Random (0-4095): 3683
+[0;32mI (210402) wamr: Host Function: Atrasando por 5000 ms[0m

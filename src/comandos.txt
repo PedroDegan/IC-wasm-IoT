@@ -1,0 +1,5 @@
+clang --target=wasm32-unknown-unknown-wasm       -nostdinc -nostdlib -ffreestanding       -O3       -c test.c -o test.o
+
+clang --target=wasm32-unknown-unknown-wasm       -nostdlib       -nostartfiles       -Wl,--no-entry       -Wl,--allow-undefined       -Wl,--export=main       test.o -o test.wasm
+
+xxd -i test.wasm > wasm_test_file_interp.h

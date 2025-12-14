@@ -1,0 +1,66 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/esp/test/simulador/build/wamr-simple.elf /home/pedrod/esp/test/simulador/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 10 2025 10:38:27[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=13978h ( 80248) map[0m
+[0;32mI (115) esp_image: segment 1: paddr=000239a0 vaddr=3ffb0000 size=04048h ( 16456) load[0m
+[0;32mI (121) esp_image: segment 2: paddr=000279f0 vaddr=40080000 size=08628h ( 34344) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=54480h (345216) map[0m
+[0;32mI (253) esp_image: segment 4: paddr=000844a8 vaddr=40088628 size=050e8h ( 20712) load[0m
+[0;32mI (261) esp_image: segment 5: paddr=00089598 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (269) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (269) boot: Disabling RNG early entropy source...[0m
+[0;32mI (281) cpu_start: Multicore app[0m
+[0;32mI (289) cpu_start: Pro cpu start user code[0m
+[0;32mI (289) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (289) app_init: Application information:[0m
+[0;32mI (289) app_init: Project name:     wamr-simple[0m
+[0;32mI (294) app_init: App version:      1[0m
+[0;32mI (297) app_init: Compile time:     Dec 10 2025 10:38:17[0m
+[0;32mI (302) app_init: ELF file SHA256:  eb4f48135...[0m
+[0;32mI (306) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (310) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (314) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (318) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (322) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (328) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (333) heap_init: At 3FFB56F8 len 0002A908 (170 KiB): DRAM[0m
+[0;32mI (338) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (344) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (349) heap_init: At 4008D710 len 000128F0 (74 KiB): IRAM[0m
+[0;32mI (356) spi_flash: detected chip: generic[0m
+[0;32mI (358) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (374) main_task: Started on CPU0[0m
+[0;32mI (384) main_task: Calling app_main()[0m
+[0;32mI (384) wamr: Initialize WASM runtime[0m
+[0;32mI (384) wamr: Host function 'sensor_read' registered successfully.[0m
+[0;32mI (384) wamr: Run wamr with interpreter[0m
+[0;32mI (394) wamr: Instantiate WASM runtime[0m
+[1;31mE (394) wamr: Error while instantiating: WASM module instantiate failed: allocate linear memory failed[0m
+[0;32mI (404) wamr: Unload WASM module[0m
+[0;32mI (404) wamr: Destroy WASM runtime[0m
+[0;32mI (404) wamr: Exiting...[0m
+[0;32mI (404) main_task: Returned from app_main()[0m

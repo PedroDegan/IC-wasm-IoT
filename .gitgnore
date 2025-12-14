@@ -1,0 +1,13 @@
+# ESP-IDF
+build/
+sdkconfig
+sdkconfig.old
+managed_components/
+
+# Toolchains / env
+.espressif/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
