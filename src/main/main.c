@@ -1,201 +1,147 @@
-/*
- * Copyright (C) 2019-21 Intel Corporation and others.  All rights reserved.
- * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
- */
+//main.c
 
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "wasm_export.h"
 #include "bh_platform.h"
-#include "test_wasm.h"
-
+#include "test_wasm.h" // arquivo
+#include "driver/gpio.h"
+#include "esp_adc/adc_oneshot.h"
 #include "esp_log.h"
 
-#define IWASM_MAIN_STACK_SIZE 5120
+// --- MAPEAMENTO DE PINOS (Lado 3.3V/Vin) ---
+#define MOISTURE_ADC_CHAN ADC_CHANNEL_4 // GPIO 32
+#define RELAY_GPIO        23
+#define LED_RED           18
+#define LED_GREEN         19
+#define LED_BLUE          21
 
-#define WASM_STACK_SIZE (8 * 1024) // 8 KB
-#define WASM_HEAP_SIZE (8 * 1024)
+static adc_oneshot_unit_handle_t adc1_handle = NULL;
+#define LOG_TAG "WAMR_IRRIGADOR"
 
-#define LOG_TAG "wamr"
+// --- NATIVE FUNCTIONS (Para o Guest chamar) ---
 
-static void *
-app_instance_main(wasm_module_inst_t module_inst)
-{
-    const char *exception;
+// Lê sensores analógicos (0 = Umidade)
+static int32_t host_read_sensor(wasm_exec_env_t exec_env, int32_t sensor_type) {
+    int sum = 0;
+    int raw = 0;
+    adc_channel_t chan = MOISTURE_ADC_CHAN;
 
-    wasm_application_execute_main(module_inst, 0, NULL);
-    if ((exception = wasm_runtime_get_exception(module_inst)))
-        printf("%s\n", exception);
-    return NULL;
-}
-
-static int32_t
-sensor_read(wasm_exec_env_t exec_env)
-{
-    // Lógica de simulação: Retorna um valor fixo (25)
-    ESP_LOGI(LOG_TAG, "Host Function: Simulação de leitura de sensor [25]");
-    return 25; 
-}
-
-// Função de atraso (Host)
-static void
-wasm_delay(wasm_exec_env_t exec_env, int32_t ms)
-{
-    ESP_LOGI(LOG_TAG, "Host Function: Atrasando por %d ms", (int)ms);
-    // Converte milissegundos para Ticks
-    vTaskDelay(pdMS_TO_TICKS(ms)); 
-}
-
-// Função de randomização (Host)
-static int32_t
-wasm_rand(wasm_exec_env_t exec_env)
-{
-    // Retorna um valor randomico de 32 bits
-    return (int32_t)esp_random(); 
-}
-
-// Estrutura que descreve a função a ser exportada
-static NativeSymbol extended_native_symbols[] = {
-    {
-        // Nome que o código WASM (Guest) usará para importar
-        .symbol = "sensor_read", 
-        // A função C/C++ real que será chamada
-        .func_ptr = (void*)sensor_read, 
-        // A assinatura da função (tipo de retorno e argumentos)
-        // 'i()' -> retorna i32, sem argumentos
-        .signature = "()i",
-        
-        .attachment = NULL 
-    },
-    {
-    	// Nome que o código WASM (Guest) usará para importar
-        .symbol = "delay_ms", 
-        // A função C/C++ real que será chamada
-        .func_ptr = (void*)wasm_delay, 
-        // A assinatura da função (tipo de retorno e argumentos)
-        // Assinatura: i32 (argumento) -> nada (void)
-        .signature = "(i)",
-        
-        .attachment = NULL 
-    },
-    {
-    	// Nome que o código WASM (Guest) usará para importar
-        .symbol = "get_random", 
-        // A função C/C++ real que será chamada
-        .func_ptr = (void*)wasm_rand, 
-        // A assinatura da função (tipo de retorno e argumentos)
-        // 'i()' -> retorna i32, sem argumentos
-        .signature = "()i",
-        
-        .attachment = NULL 
+    for (int i = 0; i < 16; i++) {
+        adc_oneshot_read(adc1_handle, chan, &raw);
+        sum += raw;
+        sys_delay_ms(10);
     }
+    adc_oneshot_read(adc1_handle, chan, &raw);
+    return sum / 16;
+}
+
+
+// Controla saídas digitais (Relé e LEDs)
+static void host_set_output(wasm_exec_env_t exec_env, int32_t pin, int32_t state) {
+    gpio_set_level((gpio_num_t)pin, state);
+}
+
+// Delay usando FreeRTOS
+static void host_delay_ms(wasm_exec_env_t exec_env, int32_t ms) {
+    vTaskDelay(pdMS_TO_TICKS(ms));
+}
+
+static void host_log_int(wasm_exec_env_t exec_env, int32_t value) {
+    ESP_LOGI("WASM_VAL", "Sensor = %d", value);
+}
+
+// Printf customizado para o WASM não precisar de stdio.h
+static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {
+    wasm_module_inst_t module_inst =
+        wasm_runtime_get_module_inst(exec_env);
+
+    if (!wasm_runtime_validate_app_str_addr(module_inst, msg_offset)) {
+        ESP_LOGE("WASM_LOG", "String invalida recebida do WASM");
+        return;
+    }
+
+    const char *native_msg =
+        wasm_runtime_addr_app_to_native(module_inst, msg_offset);
+
+    ESP_LOGI("WASM_LOG", "%s", native_msg);
+}
+
+
+// --- TABELA DE SÍMBOLOS ---
+static NativeSymbol extended_native_symbols[] = {
+    { "read_sensor", host_read_sensor, "(i)i", NULL },
+    { "set_output",  host_set_output,  "(ii)", NULL },
+    { "delay_ms",    host_delay_ms,    "(i)",  NULL },
+    { "wasm_log",    host_print,       "(i)",  NULL },
+    { "log_int",     host_log_int,     "(i)",  NULL },
+
 };
 
-void *
-iwasm_main(void *arg)
-{
-    (void)arg; /* unused */
-    /* setup variables for instantiating and running the wasm module */
-    uint8_t *wasm_file_buf = NULL;
-    unsigned wasm_file_buf_size = 0;
+// --- INICIALIZAÇÃO DE HARDWARE ---
+void init_hardware() {
+    // Configura Saídas (Relé e LEDs)
+    gpio_config_t io_conf = {
+        .pin_bit_mask = (1ULL<<RELAY_GPIO) | (1ULL<<LED_RED) | (1ULL<<LED_GREEN) | (1ULL<<LED_BLUE),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_down_en = 0, .pull_up_en = 0, .intr_type = GPIO_INTR_DISABLE
+    };
+    gpio_config(&io_conf);
+
+    // Configura ADC (Unit 1)
+    adc_oneshot_unit_init_cfg_t init_config = { .unit_id = ADC_UNIT_1, .clk_src = 0 };
+    adc_oneshot_new_unit(&init_config, &adc1_handle);
+    adc_oneshot_chan_cfg_t config = { .bitwidth = ADC_BITWIDTH_12, .atten = ADC_ATTEN_DB_12 };
+    adc_oneshot_config_channel(adc1_handle, MOISTURE_ADC_CHAN, &config);
+}
+
+// --- IWASM MAIN (Lógica do WAMR) ---
+void *iwasm_main(void *arg) {
+    uint8_t *wasm_file_buf = os_malloc(test_wasm_len);
+    if (!wasm_file_buf) {
+        ESP_LOGE(LOG_TAG, "Falha ao alocar buffer do WASM");
+        return NULL;
+    }
+
+    memcpy(wasm_file_buf, test_wasm, test_wasm_len);
+    unsigned wasm_file_buf_size = test_wasm_len;
+    
     wasm_module_t wasm_module = NULL;
     wasm_module_inst_t wasm_module_inst = NULL;
     char error_buf[128];
-    void *ret;
     RuntimeInitArgs init_args;
 
-    /* configure memory allocation */
     memset(&init_args, 0, sizeof(RuntimeInitArgs));
-#if WASM_ENABLE_GLOBAL_HEAP_POOL == 0
     init_args.mem_alloc_type = Alloc_With_Allocator;
     init_args.mem_alloc_option.allocator.malloc_func = (void *)os_malloc;
     init_args.mem_alloc_option.allocator.realloc_func = (void *)os_realloc;
     init_args.mem_alloc_option.allocator.free_func = (void *)os_free;
-#else
-#error The usage of a global heap pool is not implemented yet for esp-idf.
-#endif
 
-    ESP_LOGI(LOG_TAG, "Initialize WASM runtime");
-    /* initialize runtime environment */
-    if (!wasm_runtime_full_init(&init_args)) {
-        ESP_LOGE(LOG_TAG, "Init runtime failed.");
-        return NULL;
-    }
-    
-    
-    /* register the native functions */
-    if (!wasm_runtime_register_natives("env",             // Nome do módulo WASM
-    				       extended_native_symbols, // Array de símbolos
-                                       sizeof(extended_native_symbols) / sizeof(NativeSymbol))) {
-        ESP_LOGE(LOG_TAG, "Failed to register native functions.");
-        wasm_runtime_destroy();
-        return NULL;
-    }
-    ESP_LOGI(LOG_TAG, "Host function 'sensor_read' registered successfully.");
+    if (!wasm_runtime_full_init(&init_args)) return NULL;
 
+    wasm_runtime_register_natives("env", extended_native_symbols, sizeof(extended_native_symbols) / sizeof(NativeSymbol));
 
-#if WASM_ENABLE_INTERP != 0
-    ESP_LOGI(LOG_TAG, "Run wamr with interpreter");
+    if (!(wasm_module = wasm_runtime_load(wasm_file_buf, wasm_file_buf_size, error_buf, sizeof(error_buf)))) goto fail;
 
-    wasm_file_buf = (uint8_t *)test_wasm;
-    wasm_file_buf_size = test_wasm_len;
+    if (!(wasm_module_inst = wasm_runtime_instantiate(wasm_module, 8*1024, 8*1024, error_buf, sizeof(error_buf)))) goto fail;
 
-    /* load WASM module */
-    if (!(wasm_module = wasm_runtime_load(wasm_file_buf, wasm_file_buf_size,
-                                          error_buf, sizeof(error_buf)))) {
-        ESP_LOGE(LOG_TAG, "Error in wasm_runtime_load: %s", error_buf);
-        goto fail1interp;
-    }
+    wasm_application_execute_main(wasm_module_inst, 0, NULL);
 
-    ESP_LOGI(LOG_TAG, "Instantiate WASM runtime");
-    if (!(wasm_module_inst =
-              wasm_runtime_instantiate(wasm_module, WASM_STACK_SIZE, // stack size
-                                       WASM_HEAP_SIZE,              // heap size
-                                       error_buf, sizeof(error_buf)))) {
-        ESP_LOGE(LOG_TAG, "Error while instantiating: %s", error_buf);
-        goto fail2interp;
-    }
-
-    ESP_LOGI(LOG_TAG, "run main() of the application");
-    ret = app_instance_main(wasm_module_inst);
-    assert(!ret);
-
-    /* destroy the module instance */
-    ESP_LOGI(LOG_TAG, "Deinstantiate WASM runtime");
     wasm_runtime_deinstantiate(wasm_module_inst);
-
-fail2interp:
-    /* unload the module */
-    ESP_LOGI(LOG_TAG, "Unload WASM module");
     wasm_runtime_unload(wasm_module);
-
-fail1interp:
-#endif
-
-    /* destroy runtime environment */
-    ESP_LOGI(LOG_TAG, "Destroy WASM runtime");
+fail:
+    os_free(wasm_file_buf);
     wasm_runtime_destroy();
-
     return NULL;
 }
 
-void
-app_main(void)
-{
+void app_main(void) {
+    init_hardware();
     pthread_t t;
-    int res;
-
     pthread_attr_t tattr;
     pthread_attr_init(&tattr);
-    pthread_attr_setdetachstate(&tattr, PTHREAD_CREATE_JOINABLE);
-    pthread_attr_setstacksize(&tattr, IWASM_MAIN_STACK_SIZE);
-
-    res = pthread_create(&t, &tattr, iwasm_main, (void *)NULL);
-    assert(res == 0);
-
-    res = pthread_join(t, NULL);
-    assert(res == 0);
-
-    ESP_LOGI(LOG_TAG, "Exiting...");
+    pthread_attr_setstacksize(&tattr, 5120);
+    pthread_create(&t, &tattr, iwasm_main, NULL);
+    pthread_join(t, NULL);
 }

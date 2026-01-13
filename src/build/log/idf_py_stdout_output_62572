@@ -1,0 +1,512 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/wamr-simple.elf /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+J��ѥ���饹�� RAM avaets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 14 2025 20:23:41[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12a98h ( 76440) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=00022ac0 vaddr=3ffb0000 size=03bc8h ( 15304) load[0m
+[0;32mI (119) esp_image: segment 2: paddr=00026690 vaddr=40080000 size=09988h ( 39304) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=4f820h (325664) map[0m
+[0;32mI (246) esp_image: segment 4: paddr=0007f848 vaddr=40089988 size=03d88h ( 15752) load[0m
+[0;32mI (253) esp_image: segment 5: paddr=000835d8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (260) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (260) boot: Disabling RNG early entropy source...[0m
+[0;32mI (272) cpu_start: Multicore app[0m
+[0;32mI (280) cpu_start: Pro cpu start user code[0m
+[0;32mI (280) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (281) app_init: Application information:[0m
+[0;32mI (281) app_init: Project name:     wamr-simple[0m
+[0;32mI (285) app_init: App version:      357d820-dirty[0m
+[0;32mI (289) app_init: Compile time:     Dec 14 2025 20:23:21[0m
+[0;32mI (294) app_init: ELF file SHA256:  5a7a542c1...[0m
+[0;32mI (299) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (302) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (306) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (310) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (314) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (320) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (325) heap_init: At 3FFB5298 len 0002AD68 (171 KiB): DRAM[0m
+[0;32mI (331) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (336) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (342) heap_init: At 4008D710 len 000128F0 (74 KiB): IRAM[0m
+[0;32mI (348) spi_flash: detected chip: generic[0m
+[0;32mI (351) spi_flash: flash io: dio[0m
+[0;33mW (353) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (366) main_task: Started on CPU0[0m
+[0;32mI (376) main_task: Calling app_main()[0m
+[0;32mI (386) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (546) WASM_VAL: Sensor = 2713[0m
+[0;32mI (546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (3706) WASM_VAL: Sensor = 2693[0m
+[0;32mI (3706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (6866) WASM_VAL: Sensor = 1652[0m
+[0;32mI (6866) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (9866) WASM_LOG: Rega finalizada.[0m
+[0;32mI (13026) WASM_VAL: Sensor = 1476[0m
+[0;32mI (13026) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (16026) WASM_LOG: Rega finalizada.[0m
+[0;32mI (19186) WASM_VAL: Sensor = 2689[0m
+[0;32mI (19186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (22346) WASM_VAL: Sensor = 2697[0m
+[0;32mI (22346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (25506) WASM_VAL: Sensor = 2693[0m
+[0;32mI (25506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (28666) WASM_VAL: Sensor = 2691[0m
+[0;32mI (28666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (31826) WASM_VAL: Sensor = 2691[0m
+[0;32mI (31826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (34986) WASM_VAL: Sensor = 2690[0m
+[0;32mI (34986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (38146) WASM_VAL: Sensor = 2695[0m
+[0;32mI (38146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (41306) WASM_VAL: Sensor = 2692[0m
+[0;32mI (41306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (44466) WASM_VAL: Sensor = 2697[0m
+[0;32mI (44466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (47626) WASM_VAL: Sensor = 2691[0m
+[0;32mI (47626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (50786) WASM_VAL: Sensor = 2689[0m
+[0;32mI (50786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (53946) WASM_VAL: Sensor = 2695[0m
+[0;32mI (53946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (57106) WASM_VAL: Sensor = 2694[0m
+[0;32mI (57106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (60266) WASM_VAL: Sensor = 2689[0m
+[0;32mI (60266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (63426) WASM_VAL: Sensor = 2691[0m
+[0;32mI (63426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (66586) WASM_VAL: Sensor = 2693[0m
+[0;32mI (66586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (69746) WASM_VAL: Sensor = 2694[0m
+[0;32mI (69746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (72906) WASM_VAL: Sensor = 2696[0m
+[0;32mI (72906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (76066) WASM_VAL: Sensor = 2695[0m
+[0;32mI (76066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (79226) WASM_VAL: Sensor = 2687[0m
+[0;32mI (79226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (82386) WASM_VAL: Sensor = 2691[0m
+[0;32mI (82386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (85546) WASM_VAL: Sensor = 2690[0m
+[0;32mI (85546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (88706) WASM_VAL: Sensor = 2695[0m
+[0;32mI (88706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (91866) WASM_VAL: Sensor = 2691[0m
+[0;32mI (91866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (95026) WASM_VAL: Sensor = 2689[0m
+[0;32mI (95026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (98186) WASM_VAL: Sensor = 2688[0m
+[0;32mI (98186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (101346) WASM_VAL: Sensor = 2687[0m
+[0;32mI (101346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (104506) WASM_VAL: Sensor = 2689[0m
+[0;32mI (104506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (107666) WASM_VAL: Sensor = 2692[0m
+[0;32mI (107666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (110826) WASM_VAL: Sensor = 2692[0m
+[0;32mI (110826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (113986) WASM_VAL: Sensor = 2692[0m
+[0;32mI (113986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (117146) WASM_VAL: Sensor = 2686[0m
+[0;32mI (117146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (120306) WASM_VAL: Sensor = 2679[0m
+[0;32mI (120306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (123466) WASM_VAL: Sensor = 2693[0m
+[0;32mI (123466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (126626) WASM_VAL: Sensor = 2694[0m
+[0;32mI (126626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (129786) WASM_VAL: Sensor = 2687[0m
+[0;32mI (129786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (132946) WASM_VAL: Sensor = 2691[0m
+[0;32mI (132946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (136106) WASM_VAL: Sensor = 2689[0m
+[0;32mI (136106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (139266) WASM_VAL: Sensor = 2688[0m
+[0;32mI (139266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (142426) WASM_VAL: Sensor = 2691[0m
+[0;32mI (142426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (145586) WASM_VAL: Sensor = 2691[0m
+[0;32mI (145586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (148746) WASM_VAL: Sensor = 2690[0m
+[0;32mI (148746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (151906) WASM_VAL: Sensor = 2686[0m
+[0;32mI (151906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (155066) WASM_VAL: Sensor = 2689[0m
+[0;32mI (155066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (158226) WASM_VAL: Sensor = 2684[0m
+[0;32mI (158226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (161386) WASM_VAL: Sensor = 2687[0m
+[0;32mI (161386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (164546) WASM_VAL: Sensor = 2695[0m
+[0;32mI (164546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (167706) WASM_VAL: Sensor = 2686[0m
+[0;32mI (167706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (170866) WASM_VAL: Sensor = 2692[0m
+[0;32mI (170866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (174026) WASM_VAL: Sensor = 2684[0m
+[0;32mI (174026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (177186) WASM_VAL: Sensor = 2688[0m
+[0;32mI (177186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (180346) WASM_VAL: Sensor = 2692[0m
+[0;32mI (180346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (183506) WASM_VAL: Sensor = 2690[0m
+[0;32mI (183506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (186666) WASM_VAL: Sensor = 2694[0m
+[0;32mI (186666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (189826) WASM_VAL: Sensor = 2698[0m
+[0;32mI (189826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (192986) WASM_VAL: Sensor = 2690[0m
+[0;32mI (192986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (196146) WASM_VAL: Sensor = 2688[0m
+[0;32mI (196146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (199306) WASM_VAL: Sensor = 2695[0m
+[0;32mI (199306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (202466) WASM_VAL: Sensor = 2687[0m
+[0;32mI (202466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (205626) WASM_VAL: Sensor = 2690[0m
+[0;32mI (205626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (208786) WASM_VAL: Sensor = 2690[0m
+[0;32mI (208786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (211946) WASM_VAL: Sensor = 2687[0m
+[0;32mI (211946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (215106) WASM_VAL: Sensor = 2689[0m
+[0;32mI (215106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (218266) WASM_VAL: Sensor = 2690[0m
+[0;32mI (218266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (221426) WASM_VAL: Sensor = 2682[0m
+[0;32mI (221426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (224586) WASM_VAL: Sensor = 2686[0m
+[0;32mI (224586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (227746) WASM_VAL: Sensor = 2690[0m
+[0;32mI (227746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (230906) WASM_VAL: Sensor = 2683[0m
+[0;32mI (230906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (234066) WASM_VAL: Sensor = 2690[0m
+[0;32mI (234066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (237226) WASM_VAL: Sensor = 2689[0m
+[0;32mI (237226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (240386) WASM_VAL: Sensor = 2688[0m
+[0;32mI (240386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (243546) WASM_VAL: Sensor = 2687[0m
+[0;32mI (243546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (246706) WASM_VAL: Sensor = 2695[0m
+[0;32mI (246706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (249866) WASM_VAL: Sensor = 2684[0m
+[0;32mI (249866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (253026) WASM_VAL: Sensor = 2688[0m
+[0;32mI (253026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (256186) WASM_VAL: Sensor = 2687[0m
+[0;32mI (256186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (259346) WASM_VAL: Sensor = 2687[0m
+[0;32mI (259346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (262506) WASM_VAL: Sensor = 2684[0m
+[0;32mI (262506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (265666) WASM_VAL: Sensor = 2689[0m
+[0;32mI (265666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (268826) WASM_VAL: Sensor = 2686[0m
+[0;32mI (268826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (271986) WASM_VAL: Sensor = 2689[0m
+[0;32mI (271986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (275146) WASM_VAL: Sensor = 2689[0m
+[0;32mI (275146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (278306) WASM_VAL: Sensor = 2689[0m
+[0;32mI (278306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (281466) WASM_VAL: Sensor = 2688[0m
+[0;32mI (281466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (284626) WASM_VAL: Sensor = 2688[0m
+[0;32mI (284626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (287786) WASM_VAL: Sensor = 2685[0m
+[0;32mI (287786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (290946) WASM_VAL: Sensor = 2691[0m
+[0;32mI (290946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (294106) WASM_VAL: Sensor = 2689[0m
+[0;32mI (294106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (297266) WASM_VAL: Sensor = 2687[0m
+[0;32mI (297266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (300426) WASM_VAL: Sensor = 2682[0m
+[0;32mI (300426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (303586) WASM_VAL: Sensor = 2686[0m
+[0;32mI (303586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (306746) WASM_VAL: Sensor = 2687[0m
+[0;32mI (306746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (309906) WASM_VAL: Sensor = 2683[0m
+[0;32mI (309906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (313066) WASM_VAL: Sensor = 2687[0m
+[0;32mI (313066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (316226) WASM_VAL: Sensor = 2682[0m
+[0;32mI (316226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (319386) WASM_VAL: Sensor = 2692[0m
+[0;32mI (319386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (322546) WASM_VAL: Sensor = 2686[0m
+[0;32mI (322546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (325706) WASM_VAL: Sensor = 2684[0m
+[0;32mI (325706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (328866) WASM_VAL: Sensor = 2684[0m
+[0;32mI (328866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (332026) WASM_VAL: Sensor = 2684[0m
+[0;32mI (332026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (335186) WASM_VAL: Sensor = 2689[0m
+[0;32mI (335186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (338346) WASM_VAL: Sensor = 2688[0m
+[0;32mI (338346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (341506) WASM_VAL: Sensor = 2687[0m
+[0;32mI (341506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (344666) WASM_VAL: Sensor = 2683[0m
+[0;32mI (344666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (347826) WASM_VAL: Sensor = 2687[0m
+[0;32mI (347826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (350986) WASM_VAL: Sensor = 2685[0m
+[0;32mI (350986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (354146) WASM_VAL: Sensor = 2692[0m
+[0;32mI (354146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (357306) WASM_VAL: Sensor = 2692[0m
+[0;32mI (357306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (360466) WASM_VAL: Sensor = 2688[0m
+[0;32mI (360466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (363626) WASM_VAL: Sensor = 2689[0m
+[0;32mI (363626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (366786) WASM_VAL: Sensor = 2686[0m
+[0;32mI (366786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (369946) WASM_VAL: Sensor = 2684[0m
+[0;32mI (369946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (373106) WASM_VAL: Sensor = 2690[0m
+[0;32mI (373106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (376266) WASM_VAL: Sensor = 2688[0m
+[0;32mI (376266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (379426) WASM_VAL: Sensor = 2683[0m
+[0;32mI (379426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (382586) WASM_VAL: Sensor = 2689[0m
+[0;32mI (382586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (385746) WASM_VAL: Sensor = 2689[0m
+[0;32mI (385746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (388906) WASM_VAL: Sensor = 2688[0m
+[0;32mI (388906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (392066) WASM_VAL: Sensor = 2691[0m
+[0;32mI (392066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (395226) WASM_VAL: Sensor = 2685[0m
+[0;32mI (395226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (398386) WASM_VAL: Sensor = 2691[0m
+[0;32mI (398386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (401546) WASM_VAL: Sensor = 2693[0m
+[0;32mI (401546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (404706) WASM_VAL: Sensor = 2685[0m
+[0;32mI (404706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (407866) WASM_VAL: Sensor = 2676[0m
+[0;32mI (407866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (411026) WASM_VAL: Sensor = 2688[0m
+[0;32mI (411026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (414186) WASM_VAL: Sensor = 2686[0m
+[0;32mI (414186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (417346) WASM_VAL: Sensor = 2692[0m
+[0;32mI (417346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (420506) WASM_VAL: Sensor = 2686[0m
+[0;32mI (420506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (423666) WASM_VAL: Sensor = 2690[0m
+[0;32mI (423666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (426826) WASM_VAL: Sensor = 2688[0m
+[0;32mI (426826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (429986) WASM_VAL: Sensor = 2682[0m
+[0;32mI (429986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (433146) WASM_VAL: Sensor = 2683[0m
+[0;32mI (433146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (436306) WASM_VAL: Sensor = 2688[0m
+[0;32mI (436306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (439466) WASM_VAL: Sensor = 2685[0m
+[0;32mI (439466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (442626) WASM_VAL: Sensor = 2689[0m
+[0;32mI (442626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (445786) WASM_VAL: Sensor = 2687[0m
+[0;32mI (445786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (448946) WASM_VAL: Sensor = 2694[0m
+[0;32mI (448946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (452106) WASM_VAL: Sensor = 2687[0m
+[0;32mI (452106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (455266) WASM_VAL: Sensor = 2692[0m
+[0;32mI (455266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (458426) WASM_VAL: Sensor = 2687[0m
+[0;32mI (458426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (461586) WASM_VAL: Sensor = 2681[0m
+[0;32mI (461586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (464746) WASM_VAL: Sensor = 2684[0m
+[0;32mI (464746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (467906) WASM_VAL: Sensor = 2687[0m
+[0;32mI (467906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (471066) WASM_VAL: Sensor = 2686[0m
+[0;32mI (471066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (474226) WASM_VAL: Sensor = 2686[0m
+[0;32mI (474226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (477386) WASM_VAL: Sensor = 2683[0m
+[0;32mI (477386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (480546) WASM_VAL: Sensor = 2683[0m
+[0;32mI (480546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (483706) WASM_VAL: Sensor = 2685[0m
+[0;32mI (483706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (486866) WASM_VAL: Sensor = 2684[0m
+[0;32mI (486866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (490026) WASM_VAL: Sensor = 2681[0m
+[0;32mI (490026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (493186) WASM_VAL: Sensor = 2683[0m
+[0;32mI (493186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (496346) WASM_VAL: Sensor = 2687[0m
+[0;32mI (496346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (3706) WASM_VAL: Sensor = 2680[0m
+[0;32mI (3706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (6866) WASM_VAL: Sensor = 2684[0m
+[0;32mI (6866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (10026) WASM_VAL: Sensor = 2681[0m
+[0;32mI (10026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (13186) WASM_VAL: Sensor = 2685[0m
+[0;32mI (13186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (16346) WASM_VAL: Sensor = 2682[0m
+[0;32mI (16346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (19506) WASM_VAL: Sensor = 2677[0m
+[0;32mI (19506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (22666) WASM_VAL: Sensor = 2678[0m
+[0;32mI (22666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (25826) WASM_VAL: Sensor = 2679[0m
+[0;32mI (25826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (28986) WASM_VAL: Sensor = 2683[0m
+[0;32mI (28986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (32146) WASM_VAL: Sensor = 2670[0m
+[0;32mI (32146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (35306) WASM_VAL: Sensor = 2685[0m
+[0;32mI (35306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (38466) WASM_VAL: Sensor = 2675[0m
+[0;32mI (38466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (41626) WASM_VAL: Sensor = 2679[0m
+[0;32mI (41626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (44786) WASM_VAL: Sensor = 2681[0m
+[0;32mI (44786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (47946) WASM_VAL: Sensor = 2677[0m
+[0;32mI (47946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (51106) WASM_VAL: Sensor = 2683[0m
+[0;32mI (51106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (54266) WASM_VAL: Sensor = 2687[0m
+[0;32mI (54266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (57426) WASM_VAL: Sensor = 2682[0m
+[0;32mI (57426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (60586) WASM_VAL: Sensor = 2678[0m
+[0;32mI (60586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (63746) WASM_VAL: Sensor = 2687[0m
+[0;32mI (63746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (66906) WASM_VAL: Sensor = 2690[0m
+[0;32mI (66906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (70066) WASM_VAL: Sensor = 2679[0m
+[0;32mI (70066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (73226) WASM_VAL: Sensor = 2676[0m
+[0;32mI (73226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (76386) WASM_VAL: Sensor = 2673[0m
+[0;32mI (76386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (79546) WASM_VAL: Sensor = 2676[0m
+[0;32mI (79546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (82706) WASM_VAL: Sensor = 2676[0m
+[0;32mI (82706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (85866) WASM_VAL: Sensor = 2691[0m
+[0;32mI (85866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (89026) WASM_VAL: Sensor = 2680[0m
+[0;32mI (89026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (92186) WASM_VAL: Sensor = 2672[0m
+[0;32mI (92186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (95346) WASM_VAL: Sensor = 2686[0m
+[0;32mI (95346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (98506) WASM_VAL: Sensor = 2690[0m
+[0;32mI (98506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (101666) WASM_VAL: Sensor = 2675[0m
+[0;32mI (101666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (104826) WASM_VAL: Sensor = 2684[0m
+[0;32mI (104826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (107986) WASM_VAL: Sensor = 2691[0m
+[0;32mI (107986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (111146) WASM_VAL: Sensor = 2678[0m
+[0;32mI (111146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (114306) WASM_VAL: Sensor = 2684[0m
+[0;32mI (114306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (117466) WASM_VAL: Sensor = 2684[0m
+[0;32mI (117466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (120626) WASM_VAL: Sensor = 2682[0m
+[0;32mI (120626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (123786) WASM_VAL: Sensor = 2678[0m
+[0;32mI (123786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (126946) WASM_VAL: Sensor = 2672[0m
+[0;32mI (126946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (130106) WASM_VAL: Sensor = 2682[0m
+[0;32mI (130106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (133266) WASM_VAL: Sensor = 2688[0m
+[0;32mI (133266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (136426) WASM_VAL: Sensor = 2683[0m
+[0;32mI (136426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (139586) WASM_VAL: Sensor = 2683[0m
+[0;32mI (139586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (142746) WASM_VAL: Sensor = 2690[0m
+[0;32mI (142746) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (145906) WASM_VAL: Sensor = 2674[0m
+[0;32mI (145906) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (149066) WASM_VAL: Sensor = 2683[0m
+[0;32mI (149066) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (152226) WASM_VAL: Sensor = 2680[0m
+[0;32mI (152226) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (155386) WASM_VAL: Sensor = 2690[0m
+[0;32mI (155386) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (158546) WASM_VAL: Sensor = 2680[0m
+[0;32mI (158546) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (161706) WASM_VAL: Sensor = 2693[0m
+[0;32mI (161706) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (164866) WASM_VAL: Sensor = 2678[0m
+[0;32mI (164866) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (168026) WASM_VAL: Sensor = 2684[0m
+[0;32mI (168026) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (171186) WASM_VAL: Sensor = 2680[0m
+[0;32mI (171186) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (174346) WASM_VAL: Sensor = 2685[0m
+[0;32mI (174346) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (177506) WASM_VAL: Sensor = 2684[0m
+[0;32mI (177506) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (180666) WASM_VAL: Sensor = 2680[0m
+[0;32mI (180666) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (183826) WASM_VAL: Sensor = 2678[0m
+[0;32mI (183826) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (186986) WASM_VAL: Sensor = 2688[0m
+[0;32mI (186986) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (190146) WASM_VAL: Sensor = 2686[0m
+[0;32mI (190146) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (193306) WASM_VAL: Sensor = 2683[0m
+[0;32mI (193306) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (196466) WASM_VAL: Sensor = 2689[0m
+[0;32mI (196466) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (199626) WASM_VAL: Sensor = 2686[0m
+[0;32mI (199626) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (202786) WASM_VAL: Sensor = 2684[0m
+[0;32mI (202786) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (205946) WASM_VAL: Sensor = 2686[0m
+[0;32mI (205946) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (209106) WASM_VAL: Sensor = 2681[0m
+[0;32mI (209106) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (212266) WASM_VAL: Sensor = 2677[0m
+[0;32mI (212266) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (215426) WASM_VAL: Sensor = 2684[0m
+[0;32mI (215426) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (218586) WASM_VAL: Sensor = 2677[0m
+[0;32mI (218586) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (221746) WASM_VAL: Sensor = 2687[0m
+[0;32mI (221746) WASM_LOG: Status: Solo OK.[0m

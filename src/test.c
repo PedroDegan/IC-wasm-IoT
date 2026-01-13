@@ -1,31 +1,47 @@
-// test.c
+//test.c
 
-// Declarar as Host Functions fornecidas pelo Host (ESP-IDF)
-extern int printf(const char *format, ...);
-extern int sensor_read(void);
-extern void delay_ms(int ms);           // Novo: Atraso
-extern int get_random(void);            // Novo: Randomização
+// Importações do Host
+extern int read_sensor(int sensor_type);
+extern void set_output(int pin, int state);
+extern void delay_ms(int ms);
+extern void wasm_log(const char* msg);
+extern void log_int(int value);
 
-#define LOOP_DELAY_MS 5000 // 5 segundos
+// Definição de pinos conforme o Host
+//#define RELAY_PIN 23
+#define LED_RED   18
+#define LED_GREEN 19
+#define LED_BLUE  21
+
+// CALIBRAÇÃO (Ajuste conforme seus testes)
+#define LIMIAR_SECO 1700 
 
 int main() {
-    
-    // Loop principal 
-    while (1) {
+    wasm_log("Iniciando Sistema de Irrigacao WASM...");
+
+    while(1) {
+        int umidade = read_sensor(0); // 0 = Umidade (GPIO 32)
+        log_int(umidade);
         
-        // 1. Simular Leitura do Sensor (usa o valor fixo 25)
-        int valor_sensor = sensor_read();
-        
-        // 2. Gerar Valor Randomico 
-        // Usamos & 0xFFF para manter o número pequeno (0 a 4095, como um ADC)
-        int valor_random = get_random() & 0xFFF; 
-        
-        // 3. Imprimir Log
-        printf("WASM: Leitura Fixa: %d | Random (0-4095): %d\n", valor_sensor, valor_random);
-        
-        // 4. Atrasar
-        delay_ms(LOOP_DELAY_MS);
+        if (umidade < LIMIAR_SECO) {
+            // SOLO SECO
+            wasm_log("Status: Solo Seco! Ligando Bomba.");
+            set_output(LED_GREEN, 0);
+            set_output(LED_RED, 1);
+            //set_output(RELAY_PIN, 0); // Ativa Relé
+            
+            delay_ms(3000); // Rega por 3 segundos
+            
+            //set_output(RELAY_PIN, 1);
+            wasm_log("Rega finalizada.");
+        } else {
+            // SOLO ÚMIDO
+            wasm_log("Status: Solo OK.");
+            set_output(LED_RED, 0);
+            set_output(LED_GREEN, 1);
+            }
+
+        delay_ms(3000); // Aguarda 3 segundos para nova leitura
     }
-    
     return 0;
 }

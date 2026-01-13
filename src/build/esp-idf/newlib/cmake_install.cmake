@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pedrod/esp/test/simulador/build/esp-idf/newlib/src/port/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/newlib/src/port/cmake_install.cmake")
 endif()
 

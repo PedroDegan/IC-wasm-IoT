@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pedrod/esp/test/simulador/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pedrod/esp/test/simulador/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

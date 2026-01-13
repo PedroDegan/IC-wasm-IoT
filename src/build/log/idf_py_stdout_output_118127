@@ -1,0 +1,57 @@
+Command: ninja flash
+[1/5] cd /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/esptool_py && /home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/pedrod/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/partition_table/partition-table.bin /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/wamr-simple.bin
+wamr-simple.bin binary size 0x73410 bytes. Smallest app partition is 0x100000 bytes. 0x8cbf0 bytes (55%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/esp-idf/esptool_py && /home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/pedrod/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/bootloader.bin
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[2/3] cd /home/pedrod/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/pedrod/esp/esp-idf -D "SERIAL_TOOL=/home/pedrod/.espressif/python_env/idf5.5_py3.10_env/bin/python;;/home/pedrod/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build -P /home/pedrod/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 wamr-simple.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.11.dev1
+Serial port /dev/ttyUSB0
+Connecting......
+Chip is ESP32-D0WD (revision v1.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 80:64:6f:e8:6c:80
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00083fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 26240 bytes to 16486...
+Writing at 0x00001000... (50 %)
+Writing at 0x000075fc... (100 %)
+Wrote 26240 bytes (16486 compressed) at 0x00001000 in 0.9 seconds (effective 238.3 kbit/s)...
+Hash of data verified.
+Compressed 472080 bytes to 265890...
+Writing at 0x00010000... (5 %)
+Writing at 0x0001c8ff... (11 %)
+Writing at 0x00027d9b... (17 %)
+Writing at 0x0002d9ff... (23 %)
+Writing at 0x00033bbb... (29 %)
+Writing at 0x00039aed... (35 %)
+Writing at 0x0003f818... (41 %)
+Writing at 0x00046e68... (47 %)
+Writing at 0x0004d7a4... (52 %)
+Writing at 0x00053b24... (58 %)
+Writing at 0x0005a103... (64 %)
+Writing at 0x0005fb77... (70 %)
+Writing at 0x00065816... (76 %)
+Writing at 0x0006b477... (82 %)
+Writing at 0x00070f69... (88 %)
+Writing at 0x0007b953... (94 %)
+Writing at 0x00081a84... (100 %)
+Wrote 472080 bytes (265890 compressed) at 0x00010000 in 6.1 seconds (effective 615.7 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 332.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pedrod/esp/test/simulador/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("/home/pedrod/esp/test/simulador/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("/home/pedrod/esp/test/simulador/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/home/pedrod/esp/test/simulador/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
 
 endif()
 

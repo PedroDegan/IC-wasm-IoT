@@ -1,4 +1,4 @@
-# Install script for directory: /home/pedrod/esp/test/simulador/main
+# Install script for directory: /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

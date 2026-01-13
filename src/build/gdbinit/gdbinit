@@ -1,2 +1,2 @@
-source /home/pedrod/esp/test/simulador/build/gdbinit/symbols
-source /home/pedrod/esp/test/simulador/build/gdbinit/connect
+source /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/gdbinit/symbols
+source /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/gdbinit/connect

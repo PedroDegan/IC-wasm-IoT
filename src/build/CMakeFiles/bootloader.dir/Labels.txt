@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/pedrod/esp/test/simulador/build/CMakeFiles/bootloader
-/home/pedrod/esp/test/simulador/build/CMakeFiles/bootloader.rule
-/home/pedrod/esp/test/simulador/build/CMakeFiles/bootloader-complete.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/pedrod/esp/test/simulador/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/CMakeFiles/bootloader
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/CMakeFiles/bootloader.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/CMakeFiles/bootloader-complete.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

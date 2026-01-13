@@ -1,5 +1,7 @@
-clang --target=wasm32-unknown-unknown-wasm       -nostdinc -nostdlib -ffreestanding       -O3       -c test.c -o test.o
+// WASM Build comands
 
-clang --target=wasm32-unknown-unknown-wasm       -nostdlib       -nostartfiles       -Wl,--no-entry       -Wl,--allow-undefined       -Wl,--export=main       test.o -o test.wasm
+clang --target=wasm32 -nostdlib -O3 -c test.c -o test.o
 
-xxd -i test.wasm > wasm_test_file_interp.h
+wasm-ld test.o -o test.wasm --no-entry --export-all --allow-undefined
+
+xxd -i test.wasm > wasm_test.h
