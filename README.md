@@ -180,12 +180,72 @@ This enables:
 
 ---
 
+## 🌱 Current Implementation — Smart Irrigation System (ESP32 + WASM)
+
+This stage of the project implements a **real smart irrigation prototype** using an **ESP32**, a **capacitive soil moisture sensor**, and **WebAssembly (WASM)** logic executed via **WAMR**.
+
+### 🔧 Hardware Used
+
+- ESP32 (ESP-IDF / FreeRTOS)
+- Capacitive Soil Moisture Sensor (analog output)
+- Relay Module (5V, 2 channels, without optocoupler)
+- Mini Submersible Water Pump (2.5V–6V, ~200mA)
+- Status LEDs (Red / Green / Blue)
+
+### 🧠 Software Architecture
+
+- **Host (ESP-IDF / C):**
+  - Configures ADC (oneshot mode).
+  - Reads raw analog values from soil moisture sensor.
+  - Exposes hardware access through Host Functions:
+    - `read_sensor()`
+    - `set_output()`
+    - `delay_ms()`
+    - `wasm_log()`
+  - Runs the WASM module inside WAMR with memory isolation.
+
+- **Guest (WASM / C):**
+  - Implements irrigation decision logic.
+  - Evaluates soil moisture thresholds.
+  - Requests actuator control via Host Functions.
+  - Runs in an infinite loop with controlled delays (simulating low-frequency sampling, e.g. every few minutes).
+
+### ⚠️ Relay & Actuation Considerations
+
+- The relay module used operates at **5V logic**, while ESP32 GPIOs output **3.3V**.
+- Direct GPIO drive results in unreliable activation (LED dimming without relay switching).
+- This highlights the need for:
+  - Logic-level compatible relay modules, **or**
+  - Transistor / optocoupler / MOSFET-based driver stages.
+
+As an alternative path, direct pump control via:
+- Logic-level N-MOSFET
+- External power supply
+is being evaluated.
+
+### 🔬 Research Relevance
+
+This implementation validates that:
+
+- **WebAssembly is viable for real sensor-driven control loops** on microcontrollers.
+- Business logic can be safely isolated from hardware access.
+- Edge devices can support **dynamic behavior updates** via WASM without reflashing firmware.
+
+This directly supports the research goals related to:
+- **Computational continuum (cloud–fog–edge)**,
+- **Safe execution models**,
+- **OTA-friendly embedded architectures**.
+
+---
+
 ## 🚀 Next Steps in the Research Project
 
-* Advanced WASM security model on embedded devices.
-* Full OTA pipeline for module replacement.
-* Deploying WASM across cloud–fog–edge layers.
-* Benchmarking performance & memory usage.
+- Implement hysteresis and temporal validation in Guest logic.
+- Apply digital filtering techniques (EMA / moving average).
+- Design a safe actuator driver stage (MOSFET / opto-isolated relay).
+- Develop a real OTA pipeline for dynamic WASM replacement.
+- Deploy the same WASM module across cloud, fog and edge nodes.
+- Benchmark latency, memory footprint and energy consumption.
 
 ---
 
