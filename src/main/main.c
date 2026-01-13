@@ -10,7 +10,7 @@
 #include "esp_adc/adc_oneshot.h"
 #include "esp_log.h"
 
-// --- MAPEAMENTO DE PINOS (Lado 3.3V/Vin) ---
+// --- MAPEAMENTO DE PINOS ---
 #define MOISTURE_ADC_CHAN ADC_CHANNEL_4 // GPIO 32
 #define RELAY_GPIO        23
 #define LED_RED           18
@@ -20,7 +20,7 @@
 static adc_oneshot_unit_handle_t adc1_handle = NULL;
 #define LOG_TAG "WAMR_IRRIGADOR"
 
-// --- NATIVE FUNCTIONS (Para o Guest chamar) ---
+// --- NATIVE FUNCTIONS ---
 
 // Lê sensores analógicos (0 = Umidade)
 static int32_t host_read_sensor(wasm_exec_env_t exec_env, int32_t sensor_type) {
@@ -38,7 +38,7 @@ static int32_t host_read_sensor(wasm_exec_env_t exec_env, int32_t sensor_type) {
 }
 
 
-// Controla saídas digitais (Relé e LEDs)
+// Controla saidas digitais (Rele e LEDs)
 static void host_set_output(wasm_exec_env_t exec_env, int32_t pin, int32_t state) {
     gpio_set_level((gpio_num_t)pin, state);
 }
@@ -52,7 +52,7 @@ static void host_log_int(wasm_exec_env_t exec_env, int32_t value) {
     ESP_LOGI("WASM_VAL", "Sensor = %d", value);
 }
 
-// Printf customizado para o WASM não precisar de stdio.h
+// Printf customizado para o WASM nao precisar de stdio.h
 static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {
     wasm_module_inst_t module_inst =
         wasm_runtime_get_module_inst(exec_env);
@@ -69,7 +69,7 @@ static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {
 }
 
 
-// --- TABELA DE SÍMBOLOS ---
+// --- TABELA DE SIMBOLOS ---
 static NativeSymbol extended_native_symbols[] = {
     { "read_sensor", host_read_sensor, "(i)i", NULL },
     { "set_output",  host_set_output,  "(ii)", NULL },
@@ -79,9 +79,9 @@ static NativeSymbol extended_native_symbols[] = {
 
 };
 
-// --- INICIALIZAÇÃO DE HARDWARE ---
+// --- INICIALIZACAO DE HARDWARE ---
 void init_hardware() {
-    // Configura Saídas (Relé e LEDs)
+    // Configura Saidas (Rele e LEDs)
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL<<RELAY_GPIO) | (1ULL<<LED_RED) | (1ULL<<LED_GREEN) | (1ULL<<LED_BLUE),
         .mode = GPIO_MODE_OUTPUT,
@@ -96,7 +96,7 @@ void init_hardware() {
     adc_oneshot_config_channel(adc1_handle, MOISTURE_ADC_CHAN, &config);
 }
 
-// --- IWASM MAIN (Lógica do WAMR) ---
+// --- IWASM MAIN (Logica do WAMR) ---
 void *iwasm_main(void *arg) {
     uint8_t *wasm_file_buf = os_malloc(test_wasm_len);
     if (!wasm_file_buf) {

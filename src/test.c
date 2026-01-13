@@ -1,19 +1,19 @@
 //test.c
 
-// Importações do Host
+// Importacoes do Host
 extern int read_sensor(int sensor_type);
 extern void set_output(int pin, int state);
 extern void delay_ms(int ms);
 extern void wasm_log(const char* msg);
 extern void log_int(int value);
 
-// Definição de pinos conforme o Host
+// Definicao de pinos conforme o Host
 //#define RELAY_PIN 23
 #define LED_RED   18
 #define LED_GREEN 19
 #define LED_BLUE  21
 
-// CALIBRAÇÃO (Ajuste conforme seus testes)
+// CALIBRACAO
 #define LIMIAR_SECO 1700 
 
 int main() {
@@ -28,7 +28,7 @@ int main() {
             wasm_log("Status: Solo Seco! Ligando Bomba.");
             set_output(LED_GREEN, 0);
             set_output(LED_RED, 1);
-            //set_output(RELAY_PIN, 0); // Ativa Relé
+            //set_output(RELAY_PIN, 0); // Ativa Rele
             
             delay_ms(3000); // Rega por 3 segundos
             
