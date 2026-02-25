@@ -1,2 +1,2 @@
-source /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/gdbinit/symbols
-source /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/gdbinit/connect
+source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/bootloader/gdbinit/symbols
+source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/bootloader/gdbinit/connect

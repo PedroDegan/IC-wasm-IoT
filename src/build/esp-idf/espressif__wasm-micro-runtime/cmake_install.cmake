@@ -1,4 +1,4 @@
-# Install script for directory: /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/managed_components/espressif__wasm-micro-runtime
+# Install script for directory: /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/managed_components/espressif__wasm-micro-runtime
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

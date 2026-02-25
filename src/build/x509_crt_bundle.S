@@ -1,4 +1,4 @@
-/* * Data converted from /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

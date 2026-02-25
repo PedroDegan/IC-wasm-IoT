@@ -1,7 +1,7 @@
 // WASM Build comands
 
-clang --target=wasm32 -nostdlib -O3 -c test.c -o test.o
+clang --target=wasm32 -nostdlib -O3 -c guest.c -o guest.o
 
-wasm-ld test.o -o test.wasm --no-entry --export-all --allow-undefined
+wasm-ld guest.o -o guest.wasm --no-entry --export-all --allow-undefined
 
-xxd -i test.wasm > wasm_test.h
+xxd -i guest.wasm > guest.h

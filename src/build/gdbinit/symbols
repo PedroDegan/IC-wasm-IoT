@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/bootloader/bootloader.elf
+    add-symbol-file /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file /home/pedrod/_projetos/UFABC/IC/IC-wasm-IoT/src/build/wamr-simple.elf
+file /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/wamr-simple.elf
