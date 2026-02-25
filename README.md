@@ -1,55 +1,90 @@
 # WebAssembly (WASM) on ESP32 with WAMR / ESP-IDF
 
+![ESP32](https://img.shields.io/badge/ESP32-IoT-red)
+![WASM](https://img.shields.io/badge/WebAssembly-WASM-blue)
+![WAMR](https://img.shields.io/badge/WAMR-2.4.0-green)
+![ESP-IDF](https://img.shields.io/badge/ESP--IDF-5.5.1-orange)
+![Research](https://img.shields.io/badge/Research-Embedded%20Systems-purple)
+
+---
+
 ## 📌 Project Overview
 
-This project integrates and executes **WebAssembly (WASM)** modules on an **ESP32**, using the **WebAssembly Micro Runtime (WAMR)** within the **ESP-IDF/FreeRTOS** environment. The goal is to isolate the business logic (Guest) from the firmware (Host), improving security, portability, and enabling OTA updates that replace only the `.wasm` module.
+This project demonstrates the execution of **WebAssembly (WASM)** modules on an **ESP32** microcontroller using **WebAssembly Micro Runtime (WAMR)** integrated with **ESP-IDF / FreeRTOS**.
 
-This repository is part of a **Scientific Initiation project**, focused on computational continuum and safe execution of code in embedded devices.
+The core idea is to separate:
 
-The project was initially created from the official Espressif example using the command:
+- 🔵 **Host (Firmware / Hardware Control)**
+- 🟠 **Guest (Business Logic in WASM)**
+
+This architecture enables:
+
+- Memory isolation (sandboxing)
+- OTA updates replacing only the `.wasm` module
+- Hardware abstraction
+- CPU-agnostic logic execution
+- Safer embedded software architectures
+
+This repository is part of a **Scientific Initiation research project (UFABC)** focused on:
+
+- Computational continuum (cloud–fog–edge)
+- Secure execution models
+- Embedded virtualization strategies
+
+---
+
+## 🎯 Why WebAssembly on Microcontrollers?
+
+Traditional embedded systems tightly couple firmware and logic.
+
+With WASM:
+
+- Logic becomes portable
+- Firmware remains stable
+- OTA becomes lightweight
+- Risk surface is reduced
+- Cloud/Edge logic reuse becomes feasible
+
+This project validates that **WASM is viable for real-time sensor-driven control loops on constrained devices**.
+
+---
+
+## 🧱 System Architecture
+
+### 🔵 Host (ESP-IDF + WAMR)
+
+- Runs on ESP32 (Xtensa architecture)
+- Loads and validates `.wasm` module
+- Registers Host Functions
+- Controls hardware (ADC, GPIO, relay, pump)
+- Enforces memory isolation
+
+### 🟠 Guest (WASM Module)
+
+- Written in C
+- Compiled for `wasm32-unknown-unknown-wasm`
+- Freestanding (no libc, no syscalls)
+- Calls hardware indirectly via imported Host Functions
+
+---
+
+## 🛠️ Toolchain & Versions
+
+- **ESP-IDF v5.5.1**
+- **WAMR v2.4.0**
+- **LLVM/Clang (wasm32 target)**
+
+Project originally created from:
 
 ```bash
 idf.py create-project-from-example "espressif/wasm-micro-runtime=2.4.0~1:esp-idf"
 ```
 
-The implementation uses:
-
-* **ESP-IDF v5.5.1**
-* **WAMR v2.4.0**
-
 ---
 
-## 🎯 Project Goals
+## ⚙️ Building the WASM Guest (Freestanding)
 
-* **Sandboxing & Isolation:** Guest code cannot compromise the Host firmware.
-* **Portability:** WASM binaries are CPU‑agnostic and not tied to the Xtensa architecture.
-* **OTA-Friendly Architecture:** Only the `.wasm` module needs updating—no reflashing.
-* **Clean Separation:** The Host manages hardware; the Guest requests actions through Host Functions.
-
----
-
-## 🧱 Architecture Overview
-
-### 🟦 Guest (WASM Module)
-
-* Written in C.
-* Compiled using LLVM/Clang for `wasm32-unknown-unknown-wasm`.
-* Freestanding environment (no libc, no crt0, no syscalls).
-* Uses imported Host Functions to interact with hardware.
-
-### 🟧 Host (ESP-IDF + WAMR)
-
-* Loads, validates, and runs the WASM module.
-* Exposes hardware access APIs (sensor read, delay, random generation, etc.).
-* Ensures memory isolation between Host and Guest.
-
----
-
-## 🛠️ WASM Freestanding Toolchain
-
-The Guest code is compiled using **LLVM/Clang** without standard libraries.
-
-### 🔹 Compilation (produces test.o)
+### 🔹 Step 1 — Compile
 
 ```bash
 clang --target=wasm32-unknown-unknown-wasm \
@@ -58,7 +93,7 @@ clang --target=wasm32-unknown-unknown-wasm \
       -c test.c -o test.o
 ```
 
-### 🔹 Linking (produces test.wasm)
+### 🔹 Step 2 — Link
 
 ```bash
 clang --target=wasm32-unknown-unknown-wasm \
@@ -70,16 +105,16 @@ clang --target=wasm32-unknown-unknown-wasm \
       test.o -o test.wasm
 ```
 
-### ℹ️ Key Flags Explained
+### 🔎 Important Flags
 
-* `-ffreestanding`: removes libc assumptions.
-* `-nostdlib -nostartfiles`: prevents search for startup files (crt1.o) and libc.
-* `--allow-undefined`: enables Guest code to call Host Functions.
-* `--export=main`: exposes the entry point for WAMR.
+- `-ffreestanding` → removes libc assumptions
+- `-nostdlib -nostartfiles` → avoids crt1.o and libc
+- `--allow-undefined` → allows Host Function imports
+- `--export=main` → exposes entrypoint to WAMR
 
 ---
 
-## 📄 Example Guest Code (test.c)
+## 📄 Example Guest Code
 
 ```c
 extern int printf(const char *format, ...);
@@ -94,17 +129,20 @@ int main() {
         int leitura_fixa = sensor_read();
         int valor_random = get_random() & 0xFFF;
 
-        printf("WASM: Fixed Reading: %d | Random: %d
-", leitura_fixa, valor_random);
+        printf("WASM: Fixed Reading: %d | Random: %d\n",
+               leitura_fixa,
+               valor_random);
+
         delay_ms(delay);
     }
+
     return 0;
 }
 ```
 
 ---
 
-## 🔗 Host Function Registration (ESP-IDF Host Side)
+## 🔗 Host Function Registration
 
 ```c
 static NativeSymbol extended_native_symbols[] = {
@@ -114,154 +152,162 @@ static NativeSymbol extended_native_symbols[] = {
 };
 ```
 
+Signature format examples:
+
+- `()i` → returns int
+- `(i)` → receives int, returns void
+
 ---
 
-## 🐞 Troubleshooting — Errors & Solutions
+## 🌱 Current Implementation — Smart Irrigation Prototype
 
-### ❌ **1. Linker searching for crt1.o / libc**
+This stage implements a **real smart irrigation system** using:
+
+### 🔧 Hardware
+
+- ESP32
+- Capacitive Soil Moisture Sensor (analog)
+- 2-channel 5V Relay Module
+- Mini Submersible Pump (2.5–6V, ~200mA)
+- Status LEDs (Red / Green / Blue)
+
+---
+
+### 🧠 Software Flow
+
+**Host (ESP-IDF)**
+
+- Configures ADC (oneshot mode)
+- Reads soil moisture
+- Exposes:
+  - `read_sensor()`
+  - `set_output()`
+  - `delay_ms()`
+  - `wasm_log()`
+- Instantiates WAMR runtime
+- Executes Guest logic in isolation
+
+**Guest (WASM)**
+
+- Applies irrigation threshold logic
+- Controls pump via Host calls
+- Runs periodic loop (low-frequency sampling)
+
+---
+
+## ⚠️ Hardware Lessons Learned
+
+The relay module requires **5V logic**, while ESP32 outputs **3.3V**.
+
+Observed issue:
+- Relay LED activates weakly
+- Relay does not switch reliably
+
+Implication:
+- Need logic-level relay module
+- OR transistor/MOSFET driver stage
+- OR opto-isolated interface
+
+Alternative approach under evaluation:
+- Logic-level N-MOSFET
+- Dedicated external power rail
+
+---
+
+## 🐞 Troubleshooting
+
+### Linker Error — crt1.o
 
 ```
 wasm-ld: error: cannot open crt1.o
 ```
 
-✔ Add `-nostdlib -nostartfiles`.
+✔ Add `-nostdlib -nostartfiles`
 
-### ❌ **2. WAMR could not find main()**
+---
+
+### Entry Point Not Found
 
 ```
 lookup the entry point symbol failed
 ```
 
-✔ Add `-Wl,--export=main`.
+✔ Add `-Wl,--export=main`
 
-### ❌ **3. Missing extern declarations**
+---
 
-```
-warning: implicit declaration of function 'printf'
-```
-
-✔ Declare all Host Functions explicitly with `extern`.
-
-### ❌ **4. Incorrect Host Function signatures**
+### Signature Mismatch
 
 ```
 failed to check signature '(i)' for import
 ```
 
-✔ Ensure signatures match exactly (e.g., `()i`, `(i)`).
+✔ Ensure exact signature match
 
-### ❌ **5. WAMR memory allocation failure**
+---
+
+### Memory Allocation Failure
 
 ```
-WASM module instantiate failed: allocate linear memory failed
+WASM module instantiate failed
 ```
 
-✔ Reduce WASM module stack/heap (e.g., 8 KB + 8 KB).
+✔ Reduce WASM stack/heap allocation
 
 ---
 
 ## 📦 Integration Workflow
 
 1. Compile Guest → `test.wasm`
-2. Convert to C header:
+2. Convert to header:
 
 ```bash
 xxd -i test.wasm > test_wasm.h
 ```
 
-3. Register Host Functions.
-4. Load and execute the WASM module safely under WAMR.
-
-This enables:
-
-* isolated business logic execution;
-* OTA updates by swapping the `.wasm` file;
-* hardware access only through validated Host APIs.
+3. Register native symbols
+4. Instantiate WAMR
+5. Execute safely under sandbox
 
 ---
 
-## 🌱 Current Implementation — Smart Irrigation System (ESP32 + WASM)
+## 🔬 Research Impact
 
-This stage of the project implements a **real smart irrigation prototype** using an **ESP32**, a **capacitive soil moisture sensor**, and **WebAssembly (WASM)** logic executed via **WAMR**.
+This project validates:
 
-### 🔧 Hardware Used
-
-- ESP32 (ESP-IDF / FreeRTOS)
-- Capacitive Soil Moisture Sensor (analog output)
-- Relay Module (5V, 2 channels, without optocoupler)
-- Mini Submersible Water Pump (2.5V–6V, ~200mA)
-- Status LEDs (Red / Green / Blue)
-
-### 🧠 Software Architecture
-
-- **Host (ESP-IDF / C):**
-  - Configures ADC (oneshot mode).
-  - Reads raw analog values from soil moisture sensor.
-  - Exposes hardware access through Host Functions:
-    - `read_sensor()`
-    - `set_output()`
-    - `delay_ms()`
-    - `wasm_log()`
-  - Runs the WASM module inside WAMR with memory isolation.
-
-- **Guest (WASM / C):**
-  - Implements irrigation decision logic.
-  - Evaluates soil moisture thresholds.
-  - Requests actuator control via Host Functions.
-  - Runs in an infinite loop with controlled delays (simulating low-frequency sampling, e.g. every few minutes).
-
-### ⚠️ Relay & Actuation Considerations
-
-- The relay module used operates at **5V logic**, while ESP32 GPIOs output **3.3V**.
-- Direct GPIO drive results in unreliable activation (LED dimming without relay switching).
-- This highlights the need for:
-  - Logic-level compatible relay modules, **or**
-  - Transistor / optocoupler / MOSFET-based driver stages.
-
-As an alternative path, direct pump control via:
-- Logic-level N-MOSFET
-- External power supply
-is being evaluated.
-
-### 🔬 Research Relevance
-
-This implementation validates that:
-
-- **WebAssembly is viable for real sensor-driven control loops** on microcontrollers.
-- Business logic can be safely isolated from hardware access.
-- Edge devices can support **dynamic behavior updates** via WASM without reflashing firmware.
-
-This directly supports the research goals related to:
-- **Computational continuum (cloud–fog–edge)**,
-- **Safe execution models**,
-- **OTA-friendly embedded architectures**.
+- WASM feasibility in microcontrollers
+- Safe execution of dynamic logic
+- OTA replacement of behavior without reflashing firmware
+- Hardware abstraction through controlled imports
+- Foundations for cloud–edge logic portability
 
 ---
 
-## 🚀 Next Steps in the Research Project
+## 🚀 Next Research Steps
 
-- Implement hysteresis and temporal validation in Guest logic.
-- Apply digital filtering techniques (EMA / moving average).
-- Design a safe actuator driver stage (MOSFET / opto-isolated relay).
-- Develop a real OTA pipeline for dynamic WASM replacement.
-- Deploy the same WASM module across cloud, fog and edge nodes.
-- Benchmark latency, memory footprint and energy consumption.
+- Implement hysteresis and temporal filtering
+- Apply EMA / moving average filtering
+- Design safe MOSFET-based driver stage
+- Develop real OTA pipeline for WASM swapping
+- Benchmark latency, memory footprint and energy consumption
+- Deploy same WASM logic across edge, fog and cloud
 
 ---
 
 ## 📚 References
 
-* WebAssembly Micro Runtime (WAMR)
-* LLVM/Clang
-* ESP-IDF / FreeRTOS
+- WebAssembly Micro Runtime (WAMR)
+- LLVM / Clang
+- ESP-IDF / FreeRTOS
 
 ---
 
 ## 🧑‍💻 Author
 
-**Pedro Henrique Silva Degan**
-Scientific Initiation Project — UFABC
+**Pedro Henrique Silva Degan**  
+Scientific Initiation Project — UFABC  
+Embedded Systems & Secure Execution Research
 
 ---
 
-If this repository was helpful, ⭐ star it!
+⭐ If this project contributes to your research, consider starring it.
