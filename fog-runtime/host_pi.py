@@ -33,29 +33,31 @@ def on_message(client, userdata, msg):
 # ================================
 # WASM INIT
 # ================================
-# 1. Importe o FuncType
 from wasmtime import Store, Engine, Linker, Module, FuncType
 
 engine = Engine()
-store = Store(engine)
 linker = Linker(engine)
+store = Store(engine)
 
-# 2. A função agora recebe um parâmetro 'caller' (obrigatório pelo Wasmtime)
+# A função precisa do argumento 'caller'
 def wasm_log_caller(caller):
     print("GUEST WASM LOG called")
 
-# 3. Defina o tipo da função: FuncType([parâmetros], [retornos])
-# Como sua função não recebe nada e não retorna nada, usamos listas vazias.
+# Defina o tipo: sem argumentos [], sem retorno []
 log_type = FuncType([], [])
 
-# 4. Use a nova assinatura do define_func
-linker.define_func(store, "env", "wasm_log", log_type, wasm_log_caller)
+# CORREÇÃO: Remova o 'store' do primeiro argumento.
+# A assinatura correta para a maioria das versões recentes é:
+# linker.define_func(modulo, nome, tipo, callback)
+linker.define_func("env", "wasm_log", log_type, wasm_log_caller)
 
 module = Module.from_file(engine, "guest_pi.wasm")
 instance = linker.instantiate(store, module)
 
-# Acessa função exportada
-guest_filter_func = instance.exports(store)["filter_value"]
+# Acessa a função exportada
+# Nota: em algumas versões é instance.exports(store), em outras é apenas instance.exports
+exports = instance.exports(store)
+guest_filter_func = exports["filter_value"]
 
 # ================================
 # MQTT
