@@ -1,7 +1,7 @@
 // main.c
 
 #include <stdio.h>
-#include <string.h>                     // >>> ADDED
+#include <string.h>                     
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "wasm_export.h"
@@ -11,19 +11,26 @@
 #include "esp_adc/adc_oneshot.h"
 #include "esp_log.h"
 
-#include "esp_wifi.h"                   // >>> ADDED
-#include "esp_event.h"                  // >>> ADDED
-#include "nvs_flash.h"                  // >>> ADDED
-#include "mqtt_client.h"                // >>> ADDED
+#include "esp_wifi.h"                   
+#include "esp_event.h"                  
+#include "nvs_flash.h"                  
+#include "mqtt_client.h"      
+#include "mdns.h"          
 
 // --- CONFIG WIFI ---
-#define WIFI_SSID     "Preguica"        // >>> MODIFIQUE
-#define WIFI_PASS     "$GuiGiPe14"       // >>> MODIFIQUE
+#define WIFI_SSID_2     "Preguica"        
+#define WIFI_PASS_2  "$GuiGiPe14"      
+
+#define WIFI_SSID_1   "Iphone de Pedroi"        
+#define WIFI_PASS_1   "12345678" 
+
+static int s_retry_num = 0;
+static bool usando_backup = false;
 
 // --- CONFIG MQTT ---
 #define MQTT_BROKER_URI "mqtt://192.168.0.122"  // >>> COLOQUE IP DA RASPBERRY
 
-static esp_mqtt_client_handle_t mqtt_client = NULL; // >>> ADDED
+static esp_mqtt_client_handle_t mqtt_client = NULL; 
 
 // --- MAPEAMENTO DE PINOS ---
 #define MOISTURE_ADC_CHAN ADC_CHANNEL_4
@@ -38,11 +45,42 @@ static adc_oneshot_unit_handle_t adc1_handle = NULL;
 
 
 // ============================================================
-// WIFI INIT  >>> ADDED BLOCO COMPLETO
+// WIFI INIT 
 // ============================================================
 
-static void wifi_init(void)
+// Handler para gerenciar a troca de rede
+static void event_handler(void* arg, esp_event_base_t event_base,
+                          int32_t event_id, void* event_data)
 {
+    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry_num < 5) {
+            esp_wifi_connect();
+            s_retry_num++;
+            ESP_LOGI("WIFI", "Tentando conectar...");
+        } else {
+            // Se falhou 5 vezes na primeira rede, tenta a segunda
+            if (!usando_backup) {
+                ESP_LOGW("WIFI", "Falha na rede principal. Tentando backup...");
+                wifi_config_t wifi_config_backup = {
+                    .sta = { .ssid = WIFI_SSID_2, .password = WIFI_PASS_2 }
+                };
+                esp_wifi_set_config(WIFI_IF_STA, &wifi_config_backup);
+                usando_backup = true;
+                s_retry_num = 0;
+                esp_wifi_connect();
+            } else {
+                ESP_LOGE("WIFI", "Ambas as redes falharam.");
+            }
+        }
+    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        s_retry_num = 0;
+        ESP_LOGI("WIFI", "Conectado com sucesso!");
+    }
+}
+
+static void wifi_init(void) {
     nvs_flash_init();
     esp_netif_init();
     esp_event_loop_create_default();
@@ -51,23 +89,22 @@ static void wifi_init(void)
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     esp_wifi_init(&cfg);
 
+    // Registra o handler para capturar desconexões
+    esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, NULL);
+    esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, NULL);
+
     wifi_config_t wifi_config = {
-        .sta = {
-            .ssid = WIFI_SSID,
-            .password = WIFI_PASS
-        }
+        .sta = { .ssid = WIFI_SSID_1, .password = WIFI_PASS_1 }
     };
 
     esp_wifi_set_mode(WIFI_MODE_STA);
     esp_wifi_set_config(WIFI_IF_STA, &wifi_config);
     esp_wifi_start();
-    esp_wifi_connect();
 }
 
 
-
 // ============================================================
-// MQTT INIT  >>> ADDED BLOCO COMPLETO
+// MQTT INIT
 // ============================================================
 
 static void mqtt_event_handler(void *handler_args,
@@ -75,7 +112,7 @@ static void mqtt_event_handler(void *handler_args,
                                 int32_t event_id,
                                 void *event_data)
 {
-    esp_mqtt_event_handle_t event = event_data;
+    //esp_mqtt_event_handle_t event = event_data;
 
     switch ((esp_mqtt_event_id_t)event_id) {
 
@@ -99,17 +136,45 @@ static void mqtt_event_handler(void *handler_args,
 
 static void mqtt_start(void)
 {
+    // 1. Inicializa o mDNS
+    esp_err_t err = mdns_init();
+    if (err) {
+        ESP_LOGE("mDNS", "Falha ao iniciar mDNS: %d", err);
+        return;
+    }
+
+    ESP_LOGI("mDNS", "Buscando IP do broker: raspberrypi.local");
+    struct esp_ip4_addr addr;
+    addr.addr = 0;
+
+    // 2. Tenta encontrar o IP do Raspberry (espera até 5 segundos)
+    int timeout = 0;
+    while (addr.addr == 0 && timeout < 10) {
+        mdns_query_a("raspberrypi", 2000, &addr); // Busca por raspberrypi.local
+        if (addr.addr == 0) {
+            ESP_LOGW("mDNS", "Ainda buscando...");
+            vTaskDelay(pdMS_TO_TICKS(1000));
+            timeout++;
+        }
+    }
+
+    char broker_uri[64];
+    if (addr.addr != 0) {
+        // Se achou, monta a URI com o IP descoberto
+        sprintf(broker_uri, "mqtt://" IPSTR, IP2STR(&addr));
+        ESP_LOGI("mDNS", "Broker encontrado em: %s", broker_uri);
+    } else {
+        // Se falhou, usa o IP fixo de casa como último recurso
+        sprintf(broker_uri, "mqtt://192.168.0.122");
+        ESP_LOGW("mDNS", "mDNS falhou, usando IP de backup.");
+    }
+
     esp_mqtt_client_config_t mqtt_cfg = {
-        .broker.address.uri = MQTT_BROKER_URI,
+        .broker.address.uri = broker_uri,
     };
 
     mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
-
-    esp_mqtt_client_register_event(mqtt_client,
-                                   ESP_EVENT_ANY_ID,
-                                   mqtt_event_handler,
-                                   NULL);
-
+    esp_mqtt_client_register_event(mqtt_client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
     esp_mqtt_client_start(mqtt_client);
 }
 
@@ -163,7 +228,7 @@ static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {
 
 
 // ============================================================
-// MQTT HOST FUNCTION  >>> ADDED
+// MQTT HOST FUNCTION
 // ============================================================
 
 static int32_t host_mqtt_publish(wasm_exec_env_t exec_env,
@@ -193,7 +258,7 @@ static int32_t host_mqtt_publish(wasm_exec_env_t exec_env,
 
 
 // ============================================================
-// TABELA DE SIMBOLOS  >>> MODIFIED
+// TABELA DE SIMBOLOS 
 // ============================================================
 
 static NativeSymbol extended_native_symbols[] = {
@@ -203,13 +268,13 @@ static NativeSymbol extended_native_symbols[] = {
     { "wasm_log",    host_print,       "(i)",  NULL },
     { "log_int",     host_log_int,     "(i)",  NULL },
 
-    { "mqtt_publish", host_mqtt_publish, "(ii)i", NULL }, // >>> ADDED
+    { "mqtt_publish", host_mqtt_publish, "(ii)i", NULL },
 };
 
 
 
 // ============================================================
-// HARDWARE INIT (igual)
+// HARDWARE INIT
 // ============================================================
 
 void init_hardware() {
@@ -234,7 +299,7 @@ void init_hardware() {
 
 
 // ============================================================
-// IWASM MAIN (igual)
+// IWASM MAIN
 // ============================================================
 
 void *iwasm_main(void *arg) {
@@ -274,23 +339,23 @@ void *iwasm_main(void *arg) {
 
 
 // ============================================================
-// APP MAIN  >>> MODIFIED
+// APP MAIN
 // ============================================================
 
 void app_main(void)
 {
     init_hardware();
 
-    wifi_init();        // >>> ADDED
-    vTaskDelay(pdMS_TO_TICKS(3000));  // >>> ADDED (espera wifi)
+    wifi_init();        
+    vTaskDelay(pdMS_TO_TICKS(3000)); 
 
-    mqtt_start();       // >>> ADDED
-    vTaskDelay(pdMS_TO_TICKS(2000));  // >>> ADDED (espera mqtt)
+    mqtt_start();       
+    vTaskDelay(pdMS_TO_TICKS(2000));
 
     pthread_t t;
     pthread_attr_t tattr;
     pthread_attr_init(&tattr);
-    pthread_attr_setstacksize(&tattr, 8192); // >>> aumentei stack
+    pthread_attr_setstacksize(&tattr, 8192);
 
     pthread_create(&t, &tattr, iwasm_main, NULL);
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/main
+# Install script for directory: /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,2 +1,2 @@
-source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/gdbinit/symbols
-source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/src/build/gdbinit/connect
+source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/gdbinit/symbols
+source /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/gdbinit/connect

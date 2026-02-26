@@ -1,0 +1,354 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/wamr-simple.elf /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Feb 26 2026 16:25:38[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=25b3ch (154428) map[0m
+[0;32mI (140) esp_image: segment 1: paddr=00035b64 vaddr=3ffb0000 size=066dch ( 26332) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0003c248 vaddr=40080000 size=03dd0h ( 15824) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=d4530h (869680) map[0m
+[0;32mI (454) esp_image: segment 4: paddr=00114558 vaddr=40083dd0 size=149e4h ( 84452) load[0m
+[0;32mI (487) esp_image: segment 5: paddr=00128f44 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (500) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (500) boot: Disabling RNG early entropy source...[0m
+[0;32mI (510) cpu_start: Multicore app[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) app_init: Application information:[0m
+[0;32mI (519) app_init: Project name:     wamr-simple[0m
+[0;32mI (523) app_init: App version:      173cba5-dirty[0m
+[0;32mI (527) app_init: Compile time:     Feb 26 2026 16:25:30[0m
+[0;32mI (533) app_init: ELF file SHA256:  0647d1228...[0m
+[0;32mI (537) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (541) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (545) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (548) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (553) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (559) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFBB9C0 len 00024640 (145 KiB): DRAM[0m
+[0;32mI (569) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (574) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (580) heap_init: At 400987B4 len 0000784C (30 KiB): IRAM[0m
+[0;32mI (587) spi_flash: detected chip: generic[0m
+[0;32mI (589) spi_flash: flash io: dio[0m
+[0;33mW (592) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+[0;32mI (645) wifi:wifi driver task: 3ffc44e4, prio:23, stack:6656, core=0[0m
+[0;32mI (655) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (655) wifi:wifi certification version: v7.0[0m
+[0;32mI (655) wifi:config NVS flash: enabled[0m
+[0;32mI (655) wifi:config nano formatting: disabled[0m
+[0;32mI (665) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (665) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (665) wifi:Init management short buffer num: 32[0m
+[0;32mI (675) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (675) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (685) wifi:Init static rx buffer num: 10[0m
+[0;32mI (685) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: accept mbox: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5760[0m
+[0;32mI (705) wifi_init: tcp rx win: 5760[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (715) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (725) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (765) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (845) wifi:mode : sta (80:64:6f:e8:6c:80)[0m
+[0;32mI (845) wifi:enable tsf[0m
+[0;32mI (3265) WIFI: Tentando conectar...[0m
+[0;32mI (3845) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3845) mDNS: Buscando IP do broker: raspberrypi.local[0m
+[0;32mI (5685) WIFI: Tentando conectar...[0m
+[0;33mW (5945) mDNS: Ainda buscando...[0m
+[0;32mI (8095) WIFI: Tentando conectar...[0m
+[0;33mW (9045) mDNS: Ainda buscando...[0m
+[0;32mI (10515) WIFI: Tentando conectar...[0m
+[0;33mW (12145) mDNS: Ainda buscando...[0m
+[0;32mI (12925) WIFI: Tentando conectar...[0m
+[0;33mW (15245) mDNS: Ainda buscando...[0m
+[0;33mW (15345) WIFI: Falha na rede principal. Tentando backup...[0m
+[0;33mW (15345) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (15385) wifi:new:<5,0>, old:<1,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (15385) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (15395) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (15405) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (15415) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:5, ssn:0, winSize:64[0m
+[0;32mI (15425) wifi:connected with Preguica, aid = 4, channel 5, BW20, bssid = 48:4b:d4:a0:09:80[0m
+[0;32mI (15425) wifi:security: WPA2-PSK, phy: bgn, rssi: -63[0m
+[0;32mI (15445) wifi:pm start, type: 1[0m
+
+[0;32mI (15445) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (15465) wifi:<ba-add>idx:1 (ifx:0, 48:4b:d4:a0:09:80), tid:6, ssn:0, winSize:64[0m
+[0;32mI (15495) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (16475) esp_netif_handlers: sta ip: 192.168.0.66, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (16475) WIFI: Conectado com sucesso![0m
+[0;33mW (18345) mDNS: Ainda buscando...[0m
+[0;32mI (20485) mDNS: Broker encontrado em: mqtt://192.168.0.122[0m
+[0;32mI (20495) wifi:<ba-del>idx:0, tid:5[0m
+[0;32mI (20505) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:0, ssn:0, winSize:64[0m
+[0;32mI (22275) MQTT: Conectado ao broker![0m
+[0;32mI (22525) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (22525) main_task: Returned from app_main()[0m
+[0;32mI (22685) WASM_VAL: Sensor = 2654[0m
+[0;32mI (22685) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (25685) WASM_LOG: Rega finalizada.[0m
+[0;32mI (28845) WASM_VAL: Sensor = 2665[0m
+[0;32mI (28845) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (31845) WASM_LOG: Rega finalizada.[0m
+[0;32mI (35005) WASM_VAL: Sensor = 2658[0m
+[0;32mI (35005) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (38005) WASM_LOG: Rega finalizada.[0m
+[0;32mI (41165) WASM_VAL: Sensor = 2653[0m
+[0;32mI (41165) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (44165) WASM_LOG: Rega finalizada.[0m
+[0;32mI (47325) WASM_VAL: Sensor = 2654[0m
+[0;32mI (47325) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (50325) WASM_LOG: Rega finalizada.[0m
+[0;32mI (53485) WASM_VAL: Sensor = 2664[0m
+[0;32mI (53485) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (56495) WASM_LOG: Rega finalizada.[0m
+[0;32mI (59655) WASM_VAL: Sensor = 2645[0m
+[0;32mI (59655) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (62655) WASM_LOG: Rega finalizada.[0m
+[0;32mI (65815) WASM_VAL: Sensor = 2658[0m
+[0;32mI (65815) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (68815) WASM_LOG: Rega finalizada.[0m
+[0;32mI (71975) WASM_VAL: Sensor = 2646[0m
+[0;32mI (71975) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (74985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (78145) WASM_VAL: Sensor = 2666[0m
+[0;32mI (78145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (81155) WASM_LOG: Rega finalizada.[0m
+[0;32mI (84315) WASM_VAL: Sensor = 2657[0m
+[0;32mI (84315) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (87315) WASM_LOG: Rega finalizada.[0m
+[0;32mI (90475) WASM_VAL: Sensor = 2658[0m
+[0;32mI (90475) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (93475) WASM_LOG: Rega finalizada.[0m
+[0;32mI (96635) WASM_VAL: Sensor = 2654[0m
+[0;32mI (96635) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (99635) WASM_LOG: Rega finalizada.[0m
+[0;32mI (102795) WASM_VAL: Sensor = 2662[0m
+[0;32mI (102795) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (105805) WASM_LOG: Rega finalizada.[0m
+[0;32mI (108965) WASM_VAL: Sensor = 2661[0m
+[0;32mI (108965) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (111965) WASM_LOG: Rega finalizada.[0m
+[0;32mI (115125) WASM_VAL: Sensor = 2669[0m
+[0;32mI (115125) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (118125) WASM_LOG: Rega finalizada.[0m
+[0;32mI (121285) WASM_VAL: Sensor = 2656[0m
+[0;32mI (121285) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (124295) WASM_LOG: Rega finalizada.[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (28) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Feb 26 2026 16:25:38[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=25b3ch (154428) map[0m
+[0;32mI (140) esp_image: segment 1: paddr=00035b64 vaddr=3ffb0000 size=066dch ( 26332) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0003c248 vaddr=40080000 size=03dd0h ( 15824) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=d4530h (869680) map[0m
+[0;32mI (454) esp_image: segment 4: paddr=00114558 vaddr=40083dd0 size=149e4h ( 84452) load[0m
+[0;32mI (487) esp_image: segment 5: paddr=00128f44 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (500) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (500) boot: Disabling RNG early entropy source...[0m
+[0;32mI (510) cpu_start: Multicore app[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) app_init: Application information:[0m
+[0;32mI (519) app_init: Project name:     wamr-simple[0m
+[0;32mI (523) app_init: App version:      173cba5-dirty[0m
+[0;32mI (527) app_init: Compile time:     Feb 26 2026 16:25:30[0m
+[0;32mI (532) app_init: ELF file SHA256:  0647d1228...[0m
+[0;32mI (537) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (541) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (544) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (548) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (553) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (559) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFBB9C0 len 00024640 (145 KiB): DRAM[0m
+[0;32mI (569) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (574) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (580) heap_init: At 400987B4 len 0000784C (30 KiB): IRAM[0m
+[0;32mI (587) spi_flash: detected chip: generic[0m
+[0;32mI (589) spi_flash: flash io: dio[0m
+[0;33mW (592) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+[0;32mI (645) wifi:wifi driver task: 3ffc44e4, prio:23, stack:6656, core=0[0m
+[0;32mI (655) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (655) wifi:wifi certification version: v7.0[0m
+[0;32mI (655) wifi:config NVS flash: enabled[0m
+[0;32mI (655) wifi:config nano formatting: disabled[0m
+[0;32mI (665) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (665) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (665) wifi:Init management short buffer num: 32[0m
+[0;32mI (675) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (675) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (685) wifi:Init static rx buffer num: 10[0m
+[0;32mI (685) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: accept mbox: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5760[0m
+[0;32mI (705) wifi_init: tcp rx win: 5760[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (715) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (725) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (765) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (845) wifi:mode : sta (80:64:6f:e8:6c:80)[0m
+[0;32mI (845) wifi:enable tsf[0m
+[0;32mI (855) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (855) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1835) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1865) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1905) wifi:connected with Iphone de Pedroi, aid = 1, channel 6, BW20, bssid = 36:8b:b4:c8:84:00[0m
+[0;32mI (1905) wifi:security: WPA3-SAE, phy: bgn, rssi: -14[0m
+[0;32mI (1925) wifi:pm start, type: 1[0m
+
+[0;32mI (1925) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1935) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (3455) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (3455) WIFI: Conectado com sucesso![0m
+[0;32mI (3845) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3845) mDNS: Buscando IP do broker: raspberrypi.local[0m
+[0;33mW (5945) mDNS: Ainda buscando...[0m
+[0;33mW (9045) mDNS: Ainda buscando...[0m
+[0;33mW (12145) mDNS: Ainda buscando...[0m
+[0;33mW (15245) mDNS: Ainda buscando...[0m
+[0;33mW (18345) mDNS: Ainda buscando...[0m
+[0;33mW (21445) mDNS: Ainda buscando...[0m
+[0;33mW (24545) mDNS: Ainda buscando...[0m
+[0;33mW (27645) mDNS: Ainda buscando...[0m
+[0;33mW (30745) mDNS: Ainda buscando...[0m
+[0;33mW (33845) mDNS: Ainda buscando...[0m
+[0;33mW (34845) mDNS: mDNS falhou, usando IP de backup.[0m
+[0;32mI (34865) wifi:<ba-add>idx:0 (ifx:0, 36:8b:b4:c8:84:00), tid:0, ssn:2, winSize:64[0m
+[1;31mE (35015) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (35025) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (35025) mqtt_client: Error transport connect[0m
+[1;31mE (35025) MQTT: Erro na conexao MQTT[0m
+[0;32mI (36875) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (36875) main_task: Returned from app_main()[0m
+[0;32mI (37035) WASM_VAL: Sensor = 2645[0m
+[0;32mI (37035) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (40035) WASM_LOG: Rega finalizada.[0m
+[0;32mI (43195) WASM_VAL: Sensor = 2638[0m
+[0;32mI (43195) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (46195) WASM_LOG: Rega finalizada.[0m
+[0;32mI (49355) WASM_VAL: Sensor = 2651[0m
+[0;32mI (49355) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (50275) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (50275) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (50275) mqtt_client: Error transport connect[0m
+[1;31mE (50285) MQTT: Erro na conexao MQTT[0m
+[0;32mI (52355) WASM_LOG: Rega finalizada.[0m
+[0;32mI (55515) WASM_VAL: Sensor = 2658[0m
+[0;32mI (55515) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (58515) WASM_LOG: Rega finalizada.[0m
+[0;32mI (61675) WASM_VAL: Sensor = 2659[0m
+[0;32mI (61675) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (64675) WASM_LOG: Rega finalizada.[0m
+[1;31mE (65425) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (65435) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (65435) mqtt_client: Error transport connect[0m
+[1;31mE (65435) MQTT: Erro na conexao MQTT[0m
+[0;32mI (67835) WASM_VAL: Sensor = 2651[0m
+[0;32mI (67835) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (70835) WASM_LOG: Rega finalizada.[0m
+[0;32mI (73995) WASM_VAL: Sensor = 2650[0m
+[0;32mI (73995) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (76995) WASM_LOG: Rega finalizada.[0m
+[0;32mI (80155) WASM_VAL: Sensor = 2655[0m
+[0;32mI (80155) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (80585) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (80585) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (80585) mqtt_client: Error transport connect[0m
+[1;31mE (80595) MQTT: Erro na conexao MQTT[0m
+[0;32mI (83155) WASM_LOG: Rega finalizada.[0m
+[0;32mI (86315) WASM_VAL: Sensor = 2673[0m
+[0;32mI (86315) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (89315) WASM_LOG: Rega finalizada.[0m
+[0;32mI (92475) WASM_VAL: Sensor = 2661[0m
+[0;32mI (92475) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (95475) WASM_LOG: Rega finalizada.[0m
+[1;31mE (95845) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (95845) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (95845) mqtt_client: Error transport connect[0m
+[1;31mE (95855) MQTT: Erro na conexao MQTT[0m
+[0;32mI (98635) WASM_VAL: Sensor = 2649[0m
+[0;32mI (98635) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (101635) WASM_LOG: Rega finalizada.[0m
+[0;32mI (104795) WASM_VAL: Sensor = 2644[0m
+[0;32mI (104795) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (107795) WASM_LOG: Rega finalizada.[0m
+[0;32mI (110955) WASM_VAL: Sensor = 2649[0m
+[1;31mE (111205) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (111205) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (111205) mqtt_client: Error transport connect[0m
+[1;31mE (111205) MQTT: Erro na conexao MQTT[0m
+[0;32mI (111215) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (114215) WASM_LOG: Rega finalizada.[0m
+[0;32mI (117375) WASM_VAL: Sensor = 2648[0m
+[0;32mI (117375) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (120375) WASM_LOG: Rega finalizada.[0m
+[0;32mI (123535) WASM_VAL: Sensor = 2653[0m
+[0;32mI (123535) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (126535) WASM_LOG: Rega finalizada.[0m
+[1;31mE (126565) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (126565) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (126565) mqtt_client: Error transport connect[0m
+[1;31mE (126575) MQTT: Erro na conexao MQTT[0m
+[0;32mI (129735) WASM_VAL: Sensor = 2651[0m
+[0;32mI (129735) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (132735) WASM_LOG: Rega finalizada.[0m

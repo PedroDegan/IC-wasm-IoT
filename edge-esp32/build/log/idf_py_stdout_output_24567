@@ -1,0 +1,472 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/wamr-simple.elf /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (28) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Feb 26 2026 16:25:38[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=25b3ch (154428) map[0m
+[0;32mI (140) esp_image: segment 1: paddr=00035b64 vaddr=3ffb0000 size=066dch ( 26332) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0003c248 vaddr=40080000 size=03dd0h ( 15824) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=d4530h (869680) map[0m
+[0;32mI (454) esp_image: segment 4: paddr=00114558 vaddr=40083dd0 size=149e4h ( 84452) load[0m
+[0;32mI (487) esp_image: segment 5: paddr=00128f44 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (500) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (500) boot: Disabling RNG early entropy source...[0m
+[0;32mI (510) cpu_start: Multicore app[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) app_init: Application information:[0m
+[0;32mI (519) app_init: Project name:     wamr-simple[0m
+[0;32mI (523) app_init: App version:      173cba5-dirty[0m
+[0;32mI (527) app_init: Compile time:     Feb 26 2026 16:25:30[0m
+[0;32mI (532) app_init: ELF file SHA256:  0647d1228...[0m
+[0;32mI (537) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (541) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (544) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (548) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (553) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (559) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFBB9C0 len 00024640 (145 KiB): DRAM[0m
+[0;32mI (569) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (574) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (580) heap_init: At 400987B4 len 0000784C (30 KiB): IRAM[0m
+[0;32mI (587) spi_flash: detected chip: generic[0m
+[0;32mI (589) spi_flash: flash io: dio[0m
+[0;33mW (592) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+[0;32mI (645) wifi:wifi driver task: 3ffc44e4, prio:23, stack:6656, core=0[0m
+[0;32mI (655) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (655) wifi:wifi certification version: v7.0[0m
+[0;32mI (655) wifi:config NVS flash: enabled[0m
+[0;32mI (655) wifi:config nano formatting: disabled[0m
+[0;32mI (665) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (665) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (665) wifi:Init management short buffer num: 32[0m
+[0;32mI (675) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (675) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (685) wifi:Init static rx buffer num: 10[0m
+[0;32mI (685) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: accept mbox: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5760[0m
+[0;32mI (705) wifi_init: tcp rx win: 5760[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (715) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (725) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (735) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (815) wifi:mode : sta (80:64:6f:e8:6c:80)[0m
+[0;32mI (815) wifi:enable tsf[0m
+[0;32mI (835) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (835) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1805) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1815) wifi:Association refused temporarily time 196, comeback time 296 (TUs)[0m
+[0;32mI (2125) wifi:state: assoc -> auth (0xb0)[0m
+[0;32mI (3095) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3135) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3815) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3815) mDNS: Buscando IP do broker: raspberrypi.local[0m
+[0;33mW (5915) mDNS: Ainda buscando...[0m
+[0;32mI (7165) wifi:state: run -> init (0x2c0)[0m
+[0;32mI (7185) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (7185) WIFI: Tentando conectar...[0m
+[0;33mW (9015) mDNS: Ainda buscando...[0m
+[0;32mI (9605) WIFI: Tentando conectar...[0m
+[0;32mI (9615) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (9615) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (10595) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (10645) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (10715) wifi:connected with Iphone de Pedroi, aid = 1, channel 6, BW20, bssid = 36:8b:b4:c8:84:00[0m
+[0;32mI (10715) wifi:security: WPA3-SAE, phy: bgn, rssi: -28[0m
+[0;32mI (10715) wifi:pm start, type: 1[0m
+
+[0;32mI (10715) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (10795) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (11785) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (11785) WIFI: Conectado com sucesso![0m
+[0;33mW (12215) mDNS: Ainda buscando...[0m
+[0;32mI (12635) wifi:starting SA query procedure with AP(36:8b:b4:c8:84:00)[0m
+[0;32mI (12645) wifi:Send SA Query req with transaction id 1445[0m
+[0;32mI (12835) wifi:Send SA Query req with transaction id eb58[0m
+[0;32mI (13045) wifi:Send SA Query req with transaction id 11f2[0m
+[0;32mI (13245) wifi:Send SA Query req with transaction id be14[0m
+[0;32mI (13445) wifi:Send SA Query req with transaction id 9b2e[0m
+[0;32mI (13645) wifi:Send SA Query req with transaction id 1ae7[0m
+[0;32mI (13665) wifi:No response to 6 SA Queries, reset connection sending disassoc[0m
+[0;32mI (13665) wifi:state: run -> init (0xd100)[0m
+[0;32mI (13675) wifi:pm stop, total sleep time: 1291734 us / 2952952 us[0m
+
+[0;32mI (13675) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (13685) WIFI: Tentando conectar...[0m
+[0;32mI (13695) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (13695) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (13815) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (13825) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (13865) wifi:connected with Iphone de Pedroi, aid = 1, channel 6, BW20, bssid = 36:8b:b4:c8:84:00[0m
+[0;32mI (13865) wifi:security: WPA3-SAE, phy: bgn, rssi: -23[0m
+[0;32mI (13875) wifi:pm start, type: 1[0m
+
+[0;32mI (13965) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (14945) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (14945) WIFI: Conectado com sucesso![0m
+[0;33mW (15315) mDNS: Ainda buscando...[0m
+[0;33mW (18415) mDNS: Ainda buscando...[0m
+[0;33mW (21515) mDNS: Ainda buscando...[0m
+[0;33mW (24615) mDNS: Ainda buscando...[0m
+[0;33mW (27715) mDNS: Ainda buscando...[0m
+[0;33mW (30815) mDNS: Ainda buscando...[0m
+[0;33mW (33915) mDNS: Ainda buscando...[0m
+[0;33mW (34915) mDNS: mDNS falhou, usando IP de backup.[0m
+[0;32mI (34935) wifi:<ba-add>idx:0 (ifx:0, 36:8b:b4:c8:84:00), tid:0, ssn:2, winSize:64[0m
+[1;31mE (35075) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (35075) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (35075) mqtt_client: Error transport connect[0m
+[1;31mE (35075) MQTT: Erro na conexao MQTT[0m
+[0;32mI (36935) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (36935) main_task: Returned from app_main()[0m
+[0;32mI (37095) WASM_VAL: Sensor = 2659[0m
+[0;32mI (37095) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (40095) WASM_LOG: Rega finalizada.[0m
+[0;32mI (43255) WASM_VAL: Sensor = 2659[0m
+[0;32mI (43255) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (46255) WASM_LOG: Rega finalizada.[0m
+[0;32mI (49415) WASM_VAL: Sensor = 2671[0m
+[0;32mI (49415) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (50345) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (50345) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (50345) mqtt_client: Error transport connect[0m
+[1;31mE (50355) MQTT: Erro na conexao MQTT[0m
+[0;32mI (52415) WASM_LOG: Rega finalizada.[0m
+[0;32mI (55575) WASM_VAL: Sensor = 2665[0m
+[0;32mI (55575) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (58575) WASM_LOG: Rega finalizada.[0m
+[0;32mI (61735) WASM_VAL: Sensor = 2665[0m
+[0;32mI (61735) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (64735) WASM_LOG: Rega finalizada.[0m
+[1;31mE (65585) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (65585) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (65585) mqtt_client: Error transport connect[0m
+[1;31mE (65595) MQTT: Erro na conexao MQTT[0m
+[0;32mI (67895) WASM_VAL: Sensor = 2657[0m
+[0;32mI (67895) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (70895) WASM_LOG: Rega finalizada.[0m
+[0;32mI (74055) WASM_VAL: Sensor = 2657[0m
+[0;32mI (74055) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (77055) WASM_LOG: Rega finalizada.[0m
+[0;32mI (80215) WASM_VAL: Sensor = 2663[0m
+[0;32mI (80215) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (80745) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (80745) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (80745) mqtt_client: Error transport connect[0m
+[1;31mE (80745) MQTT: Erro na conexao MQTT[0m
+[0;32mI (83215) WASM_LOG: Rega finalizada.[0m
+[0;32mI (86375) WASM_VAL: Sensor = 2659[0m
+[0;32mI (86375) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (89375) WASM_LOG: Rega finalizada.[0m
+[0;32mI (92535) WASM_VAL: Sensor = 2668[0m
+[0;32mI (92535) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (95535) WASM_LOG: Rega finalizada.[0m
+[1;31mE (95995) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (95995) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (95995) mqtt_client: Error transport connect[0m
+[1;31mE (96005) MQTT: Erro na conexao MQTT[0m
+[0;32mI (98695) WASM_VAL: Sensor = 2667[0m
+[0;32mI (98695) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (101695) WASM_LOG: Rega finalizada.[0m
+[0;32mI (104855) WASM_VAL: Sensor = 2663[0m
+[0;32mI (104855) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (107855) WASM_LOG: Rega finalizada.[0m
+[0;32mI (111015) WASM_VAL: Sensor = 2665[0m
+[1;31mE (111255) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (111255) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (111255) mqtt_client: Error transport connect[0m
+[1;31mE (111265) MQTT: Erro na conexao MQTT[0m
+[0;32mI (111265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (114265) WASM_LOG: Rega finalizada.[0m
+[0;32mI (117425) WASM_VAL: Sensor = 2658[0m
+[0;32mI (117425) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (120425) WASM_LOG: Rega finalizada.[0m
+[0;32mI (123585) WASM_VAL: Sensor = 2659[0m
+[0;32mI (123585) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (126515) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (126515) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (126515) mqtt_client: Error transport connect[0m
+[1;31mE (126515) MQTT: Erro na conexao MQTT[0m
+[0;32mI (126585) WASM_LOG: Rega finalizada.[0m
+[0;32mI (129745) WASM_VAL: Sensor = 2665[0m
+[0;32mI (129745) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (132745) WASM_LOG: Rega finalizada.[0m
+[0;32mI (135905) WASM_VAL: Sensor = 2665[0m
+[0;32mI (135905) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (138905) WASM_LOG: Rega finalizada.[0m
+[1;31mE (141775) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (141775) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (141775) mqtt_client: Error transport connect[0m
+[1;31mE (141785) MQTT: Erro na conexao MQTT[0m
+[0;32mI (142065) WASM_VAL: Sensor = 2662[0m
+[0;32mI (142065) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (145065) WASM_LOG: Rega finalizada.[0m
+[0;32mI (148225) WASM_VAL: Sensor = 2668[0m
+[0;32mI (148225) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (151225) WASM_LOG: Rega finalizada.[0m
+[0;32mI (154385) WASM_VAL: Sensor = 2668[0m
+[0;32mI (154385) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (157135) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (157135) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (157135) mqtt_client: Error transport connect[0m
+[1;31mE (157135) MQTT: Erro na conexao MQTT[0m
+[0;32mI (157385) WASM_LOG: Rega finalizada.[0m
+[0;32mI (160545) WASM_VAL: Sensor = 2659[0m
+[0;32mI (160545) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (163545) WASM_LOG: Rega finalizada.[0m
+[0;32mI (166705) WASM_VAL: Sensor = 2662[0m
+[0;32mI (166705) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (169705) WASM_LOG: Rega finalizada.[0m
+[1;31mE (172205) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (172205) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (172205) mqtt_client: Error transport connect[0m
+[1;31mE (172215) MQTT: Erro na conexao MQTT[0m
+[0;32mI (172865) WASM_VAL: Sensor = 2667[0m
+[0;32mI (172865) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (175865) WASM_LOG: Rega finalizada.[0m
+[0;32mI (179025) WASM_VAL: Sensor = 2660[0m
+[0;32mI (179025) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (182025) WASM_LOG: Rega finalizada.[0m
+[0;32mI (185185) WASM_VAL: Sensor = 2670[0m
+[0;32mI (185185) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (187435) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (187445) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (187445) mqtt_client: Error transport connect[0m
+[1;31mE (187445) MQTT: Erro na conexao MQTT[0m
+[0;32mI (188185) WASM_LOG: Rega finalizada.[0m
+[0;32mI (191345) WASM_VAL: Sensor = 2664[0m
+[0;32mI (191345) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (194345) WASM_LOG: Rega finalizada.[0m
+[0;32mI (197505) WASM_VAL: Sensor = 2659[0m
+[0;32mI (197505) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (200505) WASM_LOG: Rega finalizada.[0m
+[1;31mE (202805) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (202805) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (202805) mqtt_client: Error transport connect[0m
+[1;31mE (202805) MQTT: Erro na conexao MQTT[0m
+[0;32mI (203665) WASM_VAL: Sensor = 2675[0m
+[0;32mI (203665) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (206665) WASM_LOG: Rega finalizada.[0m
+[0;32mI (209825) WASM_VAL: Sensor = 2659[0m
+[0;32mI (209825) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (212825) WASM_LOG: Rega finalizada.[0m
+[0;32mI (215985) WASM_VAL: Sensor = 2666[0m
+[0;32mI (215985) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (218055) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (218055) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (218055) mqtt_client: Error transport connect[0m
+[1;31mE (218065) MQTT: Erro na conexao MQTT[0m
+[0;32mI (218985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (222145) WASM_VAL: Sensor = 2665[0m
+[0;32mI (222145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (225145) WASM_LOG: Rega finalizada.[0m
+[0;32mI (228305) WASM_VAL: Sensor = 2660[0m
+[0;32mI (228305) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (231305) WASM_LOG: Rega finalizada.[0m
+[1;31mE (233415) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (233415) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (233425) mqtt_client: Error transport connect[0m
+[1;31mE (233425) MQTT: Erro na conexao MQTT[0m
+[0;32mI (234465) WASM_VAL: Sensor = 2661[0m
+[0;32mI (234465) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (237465) WASM_LOG: Rega finalizada.[0m
+[0;32mI (240625) WASM_VAL: Sensor = 2663[0m
+[0;32mI (240625) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (243625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (246785) WASM_VAL: Sensor = 2660[0m
+[0;32mI (246785) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (248795) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (248795) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (248795) mqtt_client: Error transport connect[0m
+[1;31mE (248795) MQTT: Erro na conexao MQTT[0m
+[0;32mI (249785) WASM_LOG: Rega finalizada.[0m
+[0;32mI (252945) WASM_VAL: Sensor = 2661[0m
+[0;32mI (252945) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (255945) WASM_LOG: Rega finalizada.[0m
+[0;32mI (259105) WASM_VAL: Sensor = 2653[0m
+[0;32mI (259105) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (262105) WASM_LOG: Rega finalizada.[0m
+[1;31mE (264035) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (264035) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (264035) mqtt_client: Error transport connect[0m
+[1;31mE (264045) MQTT: Erro na conexao MQTT[0m
+[0;32mI (265265) WASM_VAL: Sensor = 2659[0m
+[0;32mI (265265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (268265) WASM_LOG: Rega finalizada.[0m
+[0;32mI (271425) WASM_VAL: Sensor = 2672[0m
+[0;32mI (271425) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (274425) WASM_LOG: Rega finalizada.[0m
+[0;32mI (277585) WASM_VAL: Sensor = 2666[0m
+[0;32mI (277585) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (279105) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (279105) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (279105) mqtt_client: Error transport connect[0m
+[1;31mE (279115) MQTT: Erro na conexao MQTT[0m
+[0;32mI (280585) WASM_LOG: Rega finalizada.[0m
+[0;32mI (283745) WASM_VAL: Sensor = 2658[0m
+[0;32mI (283745) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (286745) WASM_LOG: Rega finalizada.[0m
+[0;32mI (289905) WASM_VAL: Sensor = 2671[0m
+[0;32mI (289905) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (292905) WASM_LOG: Rega finalizada.[0m
+[1;31mE (294345) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (294345) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (294345) mqtt_client: Error transport connect[0m
+[1;31mE (294355) MQTT: Erro na conexao MQTT[0m
+[0;32mI (296065) WASM_VAL: Sensor = 2669[0m
+[0;32mI (296065) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (299065) WASM_LOG: Rega finalizada.[0m
+[0;32mI (302225) WASM_VAL: Sensor = 2665[0m
+[0;32mI (302225) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (305225) WASM_LOG: Rega finalizada.[0m
+[0;32mI (308385) WASM_VAL: Sensor = 2673[0m
+[0;32mI (308385) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (309605) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (309605) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (309605) mqtt_client: Error transport connect[0m
+[1;31mE (309615) MQTT: Erro na conexao MQTT[0m
+[0;32mI (311385) WASM_LOG: Rega finalizada.[0m
+[0;32mI (314545) WASM_VAL: Sensor = 2660[0m
+[0;32mI (314545) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (317545) WASM_LOG: Rega finalizada.[0m
+[0;32mI (320705) WASM_VAL: Sensor = 2661[0m
+[0;32mI (320705) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (323705) WASM_LOG: Rega finalizada.[0m
+[1;31mE (324865) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (324865) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (324865) mqtt_client: Error transport connect[0m
+[1;31mE (324865) MQTT: Erro na conexao MQTT[0m
+[0;32mI (326865) WASM_VAL: Sensor = 2664[0m
+[0;32mI (326865) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (329865) WASM_LOG: Rega finalizada.[0m
+[0;32mI (333025) WASM_VAL: Sensor = 2671[0m
+[0;32mI (333025) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (336025) WASM_LOG: Rega finalizada.[0m
+[0;32mI (339185) WASM_VAL: Sensor = 2667[0m
+[0;32mI (339185) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (339935) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (339935) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (339935) mqtt_client: Error transport connect[0m
+[1;31mE (339935) MQTT: Erro na conexao MQTT[0m
+[0;32mI (342185) WASM_LOG: Rega finalizada.[0m
+[0;32mI (345345) WASM_VAL: Sensor = 2666[0m
+[0;32mI (345345) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (348345) WASM_LOG: Rega finalizada.[0m
+[1;31mE (350355) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (350355) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (350355) mqtt_client: Error transport connect[0m
+[1;31mE (350365) MQTT: Erro na conexao MQTT[0m
+[0;32mI (351505) WASM_VAL: Sensor = 2661[0m
+[0;32mI (351505) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (354505) WASM_LOG: Rega finalizada.[0m
+[0;32mI (357665) WASM_VAL: Sensor = 2665[0m
+[0;32mI (357665) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (360665) WASM_LOG: Rega finalizada.[0m
+[0;32mI (363825) WASM_VAL: Sensor = 2665[0m
+[0;32mI (363825) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (365515) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (365515) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (365515) mqtt_client: Error transport connect[0m
+[1;31mE (365515) MQTT: Erro na conexao MQTT[0m
+[0;32mI (366825) WASM_LOG: Rega finalizada.[0m
+[0;32mI (369985) WASM_VAL: Sensor = 2666[0m
+[0;32mI (369985) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (372985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (376145) WASM_VAL: Sensor = 2662[0m
+[0;32mI (376145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (379145) WASM_LOG: Rega finalizada.[0m
+[1;31mE (380675) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (380675) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (380675) mqtt_client: Error transport connect[0m
+[1;31mE (380675) MQTT: Erro na conexao MQTT[0m
+[0;32mI (382305) WASM_VAL: Sensor = 2668[0m
+[0;32mI (382305) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (385305) WASM_LOG: Rega finalizada.[0m
+[0;32mI (388465) WASM_VAL: Sensor = 2667[0m
+[0;32mI (388465) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (391465) WASM_LOG: Rega finalizada.[0m
+[0;32mI (394625) WASM_VAL: Sensor = 2667[0m
+[0;32mI (394625) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (396025) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (396035) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (396035) mqtt_client: Error transport connect[0m
+[1;31mE (396035) MQTT: Erro na conexao MQTT[0m
+[0;32mI (397625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (400785) WASM_VAL: Sensor = 2654[0m
+[0;32mI (400785) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (403785) WASM_LOG: Rega finalizada.[0m
+[0;32mI (406945) WASM_VAL: Sensor = 2671[0m
+[0;32mI (406945) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (409945) WASM_LOG: Rega finalizada.[0m
+[1;31mE (411085) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (411085) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (411085) mqtt_client: Error transport connect[0m
+[1;31mE (411085) MQTT: Erro na conexao MQTT[0m
+[0;32mI (413105) WASM_VAL: Sensor = 2661[0m
+[0;32mI (413105) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (416105) WASM_LOG: Rega finalizada.[0m
+[0;32mI (419265) WASM_VAL: Sensor = 2665[0m
+[0;32mI (419265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (422265) WASM_LOG: Rega finalizada.[0m
+[0;32mI (425425) WASM_VAL: Sensor = 2663[0m
+[0;32mI (425425) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (426145) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (426145) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (426145) mqtt_client: Error transport connect[0m
+[1;31mE (426155) MQTT: Erro na conexao MQTT[0m
+[0;32mI (428425) WASM_LOG: Rega finalizada.[0m
+[0;32mI (431585) WASM_VAL: Sensor = 2662[0m
+[0;32mI (431585) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (434585) WASM_LOG: Rega finalizada.[0m
+[0;32mI (437745) WASM_VAL: Sensor = 2663[0m
+[0;32mI (437745) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (440745) WASM_LOG: Rega finalizada.[0m
+[1;31mE (441425) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (441425) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (441425) mqtt_client: Error transport connect[0m
+[1;31mE (441435) MQTT: Erro na conexao MQTT[0m
+[0;32mI (443905) WASM_VAL: Sensor = 2661[0m
+[0;32mI (443905) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (446905) WASM_LOG: Rega finalizada.[0m
+[0;32mI (450065) WASM_VAL: Sensor = 2669[0m
+[0;32mI (450065) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (453065) WASM_LOG: Rega finalizada.[0m
+[0;32mI (456225) WASM_VAL: Sensor = 2665[0m
+[0;32mI (456225) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[1;31mE (456645) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (456645) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (456645) mqtt_client: Error transport connect[0m
+[1;31mE (456655) MQTT: Erro na conexao MQTT[0m
+[0;32mI (459225) WASM_LOG: Rega finalizada.[0m
+[0;32mI (462385) WASM_VAL: Sensor = 2668[0m
+[0;32mI (462385) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (465385) WASM_LOG: Rega finalizada.[0m

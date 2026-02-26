@@ -1,4 +1,14 @@
 dependencies:
+  espressif/mdns:
+    component_hash: 043f989435fd88f771c70507bfde854380c259a8fec8c0d60bcfd8714f16960e
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.10.0
   espressif/wasm-micro-runtime:
     component_hash: 04f25aad2896b5e906397a061d35cce560609bebd3913a4be7e365ecbf2dd9d6
     dependencies:
@@ -21,8 +31,9 @@ dependencies:
       type: idf
     version: 5.5.1
 direct_dependencies:
+- espressif/mdns
 - espressif/wasm-micro-runtime
 - idf
-manifest_hash: 0428204a97ca11bb369dc4ceaae6450f6291e4996cd9a6505fa4705247b14a70
+manifest_hash: 1af052249fa05b455754dd4118ed78087d56b9dfde95afa1bc7db572e500edc0
 target: esp32
 version: 2.0.0
