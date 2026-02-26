@@ -49,20 +49,20 @@ def on_message(client, userdata, msg):
 # -----------------------------
 store = wasmtime.Store()
 module = wasmtime.Module.from_file(store.engine, "guest_pi.wasm")
-linker = wasmtime.Linker(store.engine)
+linker = wasmtime.Linker(store)  # <-- usar store aqui
 
-# função de log para WASM
-def wasm_log():
+# função de log do WASM
+def wasm_log_caller():
     print("GUEST WASM LOG called")
 
-# define import "env"
-linker.define_func("env", "wasm_log", wasm_log)
+ftype = wasmtime.FuncType([], [])
+linker.define_func(store, "env", "wasm_log", ftype, wasm_log_caller)  # <-- store como primeiro arg
 
-# instancia via linker
 instance = linker.instantiate(store, module)
 
-# acessa a função exportada do WASM (ex: filter_value)
-guest_filter_func = instance.exports(store)["filter_value"]
+# acessa a função exportada
+def guest_filter_func(value):
+    return instance.exports(store)["filter_value"](store, value)
 
 # -----------------------------
 # MQTT CLIENT
