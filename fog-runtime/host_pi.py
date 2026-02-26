@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-import wasmtime
+from wasmtime import Store, Engine, Linker, Module, FuncType, ValType
 import time
 import json
 
