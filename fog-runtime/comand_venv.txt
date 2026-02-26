@@ -1,0 +1,6 @@
+cd ~/IC-wasm-IoT/fog-runtime && \
+python3 -m venv venv && \
+source venv/bin/activate && \
+pip install --upgrade pip && \
+pip install paho-mqtt wasmtime && \
+python host_pi.py
