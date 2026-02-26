@@ -1,93 +1,170 @@
-# 🚀 Project Roadmap — Distributed WASM Edge Architecture
+# 🚀 Research Roadmap — WebAssembly Across the Computational Continuum (IoTinuum)
 
-This roadmap defines the structured evolution of a distributed secure embedded execution system.
+This project investigates WebAssembly (WASM) as a **unified execution layer across the entire Computational Continuum (Edge–Fog–Cloud)**.
+
+Instead of restricting WASM to embedded devices, this research evaluates the feasibility, portability, performance, and security implications of deploying the same WebAssembly modules across heterogeneous nodes.
 
 ---
 
-## ✅ Phase 1 — Edge WASM Foundation (Completed)
+# 🎯 Research Hypothesis
+
+WebAssembly can act as a lightweight, secure, and portable execution layer capable of unifying distributed IoT application logic across Edge, Fog, and Cloud environments.
+
+---
+
+# 🎯 Research Objectives
+
+## General Objective
+
+Investigate the use of WebAssembly as a portable distributed execution model for smart irrigation systems deployed across the Computational Continuum (IoTinuum).
+
+## Specific Objectives
+
+- Deploy identical WASM modules across heterogeneous nodes
+- Evaluate WASM portability via WASI
+- Compare distributed execution strategies
+- Analyze performance, memory, energy, and security trade-offs
+- Compare C and Rust WASM implementations
+- Provide reproducible experimental results
+
+---
+
+# 📚 Phase 0 — Research & Conceptual Foundation
+
+- [X] Study IoT and the Computational Continuum (IoTinuum)
+- [X] Analyze smart irrigation system requirements
+- [X] Study WebAssembly architecture and sandbox model
+- [X] Study WASI portability layer
+- [ ] Compare WASM vs container-based virtualization
+- [ ] Define system and threat model
+
+---
+
+# 🧩 Phase 1 — WASM Execution Layer on Edge (ESP32)
 
 - [x] Integrate WAMR into ESP-IDF
-- [x] Compile freestanding WASM module
+- [x] Compile freestanding WASM module (C)
 - [x] Register Host Functions
 - [x] Execute sandboxed irrigation logic
-- [x] Validate hardware interaction
+- [ ] Measure memory footprint
+- [ ] Measure execution latency
+- [ ] Evaluate sandbox overhead
 
 ---
 
-## 🔄 Phase 2 — MQTT Communication Layer
+# 🌫️ Phase 2 — WASM Execution on Fog (Raspberry Pi)
 
-- [ ] Implement MQTT client on ESP32
-- [ ] Publish structured JSON sensor data
-- [ ] Define topic architecture
-- [ ] Validate message reliability
-- [ ] Measure transmission latency
-
----
-
-## 🟣 Phase 3 — Fog Node (Raspberry Pi)
-
-- [ ] Implement MQTT subscriber (Python)
-- [ ] Apply temporal filtering
-- [ ] Implement EMA / moving average smoothing
-- [ ] Detect anomalous sensor readings
-- [ ] Forward processed data to server
+- [ ] Deploy WASM irrigation module on Raspberry Pi
+- [ ] Implement host runtime for Fog environment
+- [ ] Execute filtering (EMA) and anomaly detection inside WASM
+- [ ] Compare native vs WASM execution
+- [ ] Measure latency and memory usage
+- [ ] Analyze portability constraints
 
 ---
 
-## 🟢 Phase 4 — Cloud / Laptop Server
+# ☁️ Phase 3 — WASM Execution on Cloud / Server
 
-- [ ] Implement TCP or HTTP ingestion server
-- [ ] Store historical sensor data
-- [ ] Add structured logging
-- [ ] Build visualization endpoint
-- [ ] Design monitoring dashboard prototype
+- [ ] Deploy identical WASM module on server environment
+- [ ] Implement WASI-based runtime (e.g., Wasmtime)
+- [ ] Execute cloud-side logic within WASM sandbox
+- [ ] Compare native vs WASM server execution
+- [ ] Evaluate scalability implications
 
 ---
 
-## 🔒 Phase 5 — Security Enhancements
+# 🔄 Phase 4 — Distributed Communication Layer
 
+- [ ] Implement MQTT client on Edge
+- [ ] Define structured topic architecture
+- [ ] Transmit data between WASM-enabled nodes
+- [ ] Evaluate QoS reliability
+- [ ] Measure end-to-end pipeline latency
+- [ ] Analyze bandwidth consumption
+
+---
+
+# 🔒 Phase 5 — Security & Isolation Analysis
+
+- [ ] Evaluate Host–Guest isolation guarantees
+- [ ] Analyze sandboxing across all nodes
 - [ ] Enable MQTT over TLS
-- [ ] Validate integrity of transmitted data
-- [ ] Analyze attack surface
-- [ ] Formalize Host–Guest isolation guarantees
+- [ ] Compare WASM isolation vs container isolation
+- [ ] Document attack surface across continuum
 
 ---
 
-## 🌍 Phase 6 — Computational Continuum Validation
+# 🌍 Phase 6 — Deployment Strategy Comparison
 
-- [ ] Deploy identical logic across:
-  - ESP32 (Edge)
-  - Raspberry Pi (Fog)
-  - Laptop (Cloud)
-- [ ] Compare execution models
-- [ ] Measure energy consumption
-- [ ] Analyze distributed processing trade-offs
+Evaluate different WASM placement strategies across the continuum:
+
+- [ ] Strategy A: WASM only on Edge
+- [ ] Strategy B: WASM on Edge + Fog
+- [ ] Strategy C: WASM on Edge + Fog + Cloud (Full Continuum)
+- [ ] Strategy D: Native Fog/Cloud + WASM Edge
+- [ ] Strategy E: Fully native baseline
+
+For each strategy:
+
+- [ ] Measure end-to-end latency
+- [ ] Measure memory usage per node
+- [ ] Measure energy consumption (Edge)
+- [ ] Measure processing distribution efficiency
+- [ ] Analyze fault tolerance behavior
 
 ---
 
-## 🦀 Phase 7 — Rust WASM Experiment
+# 🦀 Phase 7 — Rust WASM Comparative Experiment
 
 - [ ] Compile Rust to `wasm32-unknown-unknown`
-- [ ] Compare memory footprint vs C
-- [ ] Evaluate safety guarantees
-- [ ] Benchmark performance impact
+- [ ] Deploy Rust WASM across Edge, Fog, Cloud
+- [ ] Compare binary size (C vs Rust)
+- [ ] Compare memory footprint
+- [ ] Compare performance impact
+- [ ] Evaluate safety and maintainability
 
 ---
 
-## 📊 Phase 8 — Research Output
+# 📈 Phase 8 — Experimental Evaluation
 
-- [ ] Benchmark full pipeline latency
-- [ ] Produce architecture diagrams
-- [ ] Write conference paper draft
-- [ ] Document reproducibility steps
+- [ ] Define evaluation metrics:
+  - Latency
+  - Memory usage
+  - Energy consumption
+  - Reliability
+  - Security overhead
+- [ ] Benchmark full distributed pipeline
+- [ ] Analyze sandbox overhead across environments
+- [ ] Evaluate portability limits of WASI
+- [ ] Perform qualitative and quantitative analysis
+- [ ] Document experimental methodology
+
+---
+
+# 🔁 Phase 9 — Reproducibility & Open Science
+
+- [ ] Publish source code
+- [ ] Provide deployment scripts
+- [ ] Document hardware configurations
+- [ ] Provide replication guide
+- [ ] Release experimental datasets
+- [ ] Provide architecture diagrams
+
+---
+
+# 📊 Phase 10 — Research Output
+
+- [ ] Write IC technical reports
+- [ ] Draft conference paper
 - [ ] Prepare academic presentation
+- [ ] Prepare public demonstration
+- [ ] Document lessons learned
 
 ---
 
-# 🎯 Long-Term Vision
+# 🌟 Long-Term Vision
 
-Transform this into:
-
-- A secure distributed embedded execution framework
-- A reference architecture for edge–fog–cloud WASM systems
-- A research foundation for embedded virtualization
+- Establish WebAssembly as a unified execution layer for the Computational Continuum
+- Provide a reference architecture for WASM-based IoT systems
+- Contribute to research on lightweight embedded virtualization
+- Enable secure, portable distributed execution without heavy containerization
