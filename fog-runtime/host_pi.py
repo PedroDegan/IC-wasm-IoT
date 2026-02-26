@@ -19,7 +19,7 @@ def on_message(client, userdata, msg):
         
         if data and "umidade" in data:
 
-            umidade = data("umidade")
+            umidade = data["umidade"]
             filtered = guest_filter_func(store, umidade)
             
             result = {
@@ -30,8 +30,8 @@ def on_message(client, userdata, msg):
                "status": data.get("seco", "N/A")
             }
             client.publish(FOG_TOPIC, json.dumps(result))
-            print(f"Processed:, Umidade={umidade} | Filtered={filtered:.2f}")
-        else:
+            print(f"Processed:, Umidade={umidade} | Filtered={filtered:.2f}") 
+        else:       
             print(f"ESP32 INFO: {payload}")
     
     except Exception as e:
@@ -69,7 +69,7 @@ guest_filter_func = exports["filter_value"]
 # ================================
 # MQTT
 # ================================
-client = mqtt.Client()
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 client.on_connect = on_connect
 client.on_message = on_message
 client.connect(BROKER, 1883, 60)
