@@ -30,7 +30,7 @@ def on_message(client, userdata, msg):
                "status": data.get("seco", "N/A")
             }
             client.publish(FOG_TOPIC, json.dumps(result))
-            print(f"Processed:, Umidade={umidade} | Filtered={filtered:.2f}") 
+            print(f"Processed: Umidade={umidade} | Filtered={filtered:.2f}") 
         else:       
             print(f"ESP32 INFO: {payload}")
     
@@ -69,7 +69,7 @@ guest_filter_func = exports["filter_value"]
 # ================================
 # MQTT
 # ================================
-client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 client.connect(BROKER, 1883, 60)
