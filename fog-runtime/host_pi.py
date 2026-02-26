@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
         payload = msg.payload.decode()
         data = json.loads(payload) if payload.startswith("{") else {"raw": payload}
         umidade = data.get("umidade", 0)
-        filtered = guest_filter_func(umidade)
+        filtered = guest_filter_func(store, umidade)
         result = {
             "device_id": DEVICE_ID,
             "timestamp": int(time.time()),
