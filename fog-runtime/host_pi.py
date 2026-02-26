@@ -2,15 +2,26 @@ import paho.mqtt.client as mqtt
 from wasmtime import Store, Engine, Linker, Module, FuncType, ValType
 import time
 import json
+import csv
 
 BROKER = "localhost"
 ESP_TOPIC = "ic/esp32/#"
 FOG_TOPIC = "ic/fog/processed"
 DEVICE_ID = "RaspberryPi-Fog1"
+LOG_FILE = "dados_umidade.csv"
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT Broker with result code", rc)
     client.subscribe(ESP_TOPIC)
+
+def save_to_csv(data_dict):
+    file_exists = os.path.isfile(LOG_FILE)
+    with open(LOG_FILE, 'a', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=data_dict.keys())
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(data_dict)
+
 
 def on_message(client, userdata, msg):
     try:
@@ -18,53 +29,51 @@ def on_message(client, userdata, msg):
         data = json.loads(payload) if payload.startswith("{") else None
         
         if data and "umidade" in data:
-
-            umidade = data["umidade"]
-            filtered = guest_filter_func(store, umidade)
+            umidade_bruta = data["umidade"]
+            
+            # Chama o filtro exponencial do C: ALPHA * raw + (1 - ALPHA) * filtered_value
+            umidade_filtrada = guest_filter_func(store, umidade_bruta)
             
             result = {
-               "device_id": DEVICE_ID,
-               "timestamp": int(time.time()),
-               "raw": umidade,
-               "filtered": filtered,
-               "status": data.get("seco", "N/A")
+                "timestamp": time.strftime('%Y-%m-%d %H:%M:%S'),
+                "device": DEVICE_ID,
+                "raw": umidade_bruta,
+                "filtered": round(umidade_filtrada, 2),
+                "is_dry": data.get("seco", 0)
             }
+            
+            save_to_csv(result)
             client.publish(FOG_TOPIC, json.dumps(result))
-            print(f"Processed: Umidade={umidade} | Filtered={filtered:.2f}") 
-        else:       
+            print(f"Processed: {umidade_bruta} -> {result['filtered']}")
+        else:
             print(f"ESP32 INFO: {payload}")
-    
+            
     except Exception as e:
-        print("Error processing message:", e)
+        print(f"Error: {e}")
 
 # ================================
-# WASM INIT
+# WASM SETUP
 # ================================
-from wasmtime import Store, Engine, Linker, Module, FuncType
-
 engine = Engine()
 linker = Linker(engine)
 store = Store(engine)
 
-# A função precisa do argumento 'caller'
-def wasm_log_caller(caller, valor_do_wasm):
-    print(f"GUEST WASM LOG: {valor_do_wasm}")
+def wasm_log_caller(caller, ptr):
+    # Lê a string da memória do WASM (o ptr é o endereço)
+    mem = caller.get_export("memory").memory()
+    # Busca a string até encontrar o caractere nulo \0
+    data = mem.read(caller, ptr, 64).split(b'\0')[0]
+    print(f"📥 [WASM LOG]: {data.decode('utf-8')}")
 
-# Defina o tipo: sem argumentos [], sem retorno []
 log_type = FuncType([ValType.i32()], [])
-
-# CORREÇÃO: Remova o 'store' do primeiro argumento.
-# A assinatura correta para a maioria das versões recentes é:
-# linker.define_func(modulo, nome, tipo, callback)
 linker.define_func("env", "wasm_log", log_type, wasm_log_caller)
 
 module = Module.from_file(engine, "guest_pi.wasm")
 instance = linker.instantiate(store, module)
+guest_filter_func = instance.exports(store)["filter_value"]
 
-# Acessa a função exportada
-# Nota: em algumas versões é instance.exports(store), em outras é apenas instance.exports
-exports = instance.exports(store)
-guest_filter_func = exports["filter_value"]
+start = instance.exports(store).get("_start") or instance.exports(store).get("main")
+
 
 # ================================
 # MQTT
