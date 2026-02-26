@@ -15,18 +15,25 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     try:
         payload = msg.payload.decode()
-        data = json.loads(payload) if payload.startswith("{") else {"raw": payload}
-        umidade = data.get("umidade", 0)
-        filtered = guest_filter_func(store, umidade)
-        result = {
-            "device_id": DEVICE_ID,
-            "timestamp": int(time.time()),
-            "raw": umidade,
-            "filtered": filtered,
-            "original_msg": payload
-        }
-        client.publish(FOG_TOPIC, json.dumps(result))
-        print("Processed:", result)
+        data = json.loads(payload) if payload.startswith("{") else None
+        
+        if data and "umidade" in data:
+
+            umidade = data("umidade")
+            filtered = guest_filter_func(store, umidade)
+            
+            result = {
+               "device_id": DEVICE_ID,
+               "timestamp": int(time.time()),
+               "raw": umidade,
+               "filtered": filtered,
+               "status": data.get("seco", "N/A")
+            }
+            client.publish(FOG_TOPIC, json.dumps(result))
+            print(f"Processed:, Umidade={umidade} | Filtered={filtered:.2f}")
+        else:
+            print(f"ESP32 INFO: {payload}")
+    
     except Exception as e:
         print("Error processing message:", e)
 
