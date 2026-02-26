@@ -40,11 +40,11 @@ linker = Linker(engine)
 store = Store(engine)
 
 # A função precisa do argumento 'caller'
-def wasm_log_caller(caller):
-    print("GUEST WASM LOG called")
+def wasm_log_caller(caller, valor_do_wasm):
+    print(f"GUEST WASM LOG: {valor_do_wasm}")
 
 # Defina o tipo: sem argumentos [], sem retorno []
-log_type = FuncType([], [])
+log_type = FuncType([ValType.i32()], [])
 
 # CORREÇÃO: Remova o 'store' do primeiro argumento.
 # A assinatura correta para a maioria das versões recentes é:
