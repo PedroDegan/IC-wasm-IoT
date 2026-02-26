@@ -1,0 +1,7 @@
+// WASM Build comands
+
+clang --target=wasm32 -nostdlib -O3 -c guest.c -o guest.o
+
+wasm-ld guest.o -o guest.wasm --no-entry --export-all --allow-undefined
+
+xxd -i guest.wasm > guest.h

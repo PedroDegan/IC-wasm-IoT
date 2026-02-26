@@ -75,7 +75,7 @@ Investigate the use of WebAssembly as a portable distributed execution model for
 
 # 🔄 Phase 4 — Distributed Communication Layer
 
-- [ ] Implement MQTT client on Edge
+- [X] Implement MQTT client on Edge
 - [ ] Define structured topic architecture
 - [ ] Transmit data between WASM-enabled nodes
 - [ ] Evaluate QoS reliability
