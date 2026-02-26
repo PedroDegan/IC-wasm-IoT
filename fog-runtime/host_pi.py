@@ -48,20 +48,26 @@ def on_message(client, userdata, msg):
 # WASM INIT
 # -----------------------------
 store = wasmtime.Store()
-module = wasmtime.Module.from_file(store.engine, "guest_pi.wasm")
-linker = wasmtime.Linker(store)  # <-- usar store aqui
+engine = store.engine
+linker = wasmtime.Linker(engine)
 
 # função de log do WASM
 def wasm_log_caller():
     print("GUEST WASM LOG called")
 
+# cria o tipo da função: sem parâmetros, sem retorno
 ftype = wasmtime.FuncType([], [])
-linker.define_func(store, "env", "wasm_log", ftype, wasm_log_caller)  # <-- store como primeiro arg
+linker.define_func(store, "env", "wasm_log", ftype, wasm_log_caller)
 
+# carrega módulo WASM
+module = wasmtime.Module.from_file(engine, "guest_pi.wasm")
+
+# instancia via linker
 instance = linker.instantiate(store, module)
 
-# acessa a função exportada
-def guest_filter_func(value):
+# acessa a função exportada do WASM (ex: filter_value)
+# Assumimos assinatura (i32) -> i32
+def guest_filter_func(value: int) -> int:
     return instance.exports(store)["filter_value"](store, value)
 
 # -----------------------------
