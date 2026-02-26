@@ -56,7 +56,7 @@ def wasm_log():
     print("GUEST WASM LOG called")
 
 # define import "env"
-linker.define("env", "wasm_log", wasmtime.Func(store, wasmtime.FuncType([], []), wasm_log))
+linker.define("env", "wasm_log", item=wasmtime.Func(store, wasmtime.FuncType([], []), wasm_log))
 
 # instancia via linker
 instance = linker.instantiate(store, module)
