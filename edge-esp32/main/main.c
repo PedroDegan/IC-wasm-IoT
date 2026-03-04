@@ -28,7 +28,7 @@ static int s_retry_num = 0;
 static bool usando_backup = false;
 
 // --- CONFIG MQTT ---
-#define MQTT_BROKER_URI "mqtt://192.168.0.122"  // >>> COLOQUE IP DA RASPBERRY
+#define MQTT_BROKER_URI "mqtt://192.168.0.122"
 
 static esp_mqtt_client_handle_t mqtt_client = NULL; 
 
@@ -191,10 +191,12 @@ static int32_t host_read_sensor(wasm_exec_env_t exec_env, int32_t sensor_type) {
     for (int i = 0; i < 16; i++) {
         adc_oneshot_read(adc1_handle, MOISTURE_ADC_CHAN, &raw);
         sum += raw;
-        vTaskDelay(pdMS_TO_TICKS(10));   // >>> MODIFIED (remove sys_delay_ms)
+        vTaskDelay(pdMS_TO_TICKS(10)); 
     }
 
-    return sum / 16;
+    int final_raw = sum / 16;
+    ESP_LOGI("SENSOR_RAW", "Valor Bruto Lido: %d", final_raw);
+    return final_raw;
 }
 
 static void host_set_output(wasm_exec_env_t exec_env, int32_t pin, int32_t state) {
@@ -206,7 +208,13 @@ static void host_delay_ms(wasm_exec_env_t exec_env, int32_t ms) {
 }
 
 static void host_log_int(wasm_exec_env_t exec_env, int32_t value) {
-    ESP_LOGI("WASM_VAL", "Sensor = %d", value);
+    ESP_LOGI("WASM_VAL", "Umidade do Solo = [%d%%]", value);
+
+    char bar[21];
+    int filled = value / 5; // 100% = 20 blocos
+    for(int i=0; i<20; i++) bar[i] = (i < filled) ? '#' : '-';
+    bar[20] = '\0';
+    ESP_LOGI("WASM_LOG", "Status: [%s]", bar);
 }
 
 static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {

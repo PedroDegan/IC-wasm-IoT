@@ -270,4 +270,520 @@ entry 0x40080638
 [0;32mI (265445) WASM_LOG: Rega finalizada.[0m
 [0;32mI (268605) WASM_VAL: Sensor = 2670[0m
 [0;32mI (268605) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
-[0;32m
+[0;32mI (271605) WASM_LOG: Rega finalizada.[0m
+[0;32mI (274765) WASM_VAL: Sensor = 2677[0m
+[0;32mI (274765) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (277765) WASM_LOG: Rega finalizada.[0m
+[0;32mI (280925) WASM_VAL: Sensor = 2669[0m
+[0;32mI (280925) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (283925) WASM_LOG: Rega finalizada.[0m
+[0;32mI (287085) WASM_VAL: Sensor = 2668[0m
+[0;32mI (287085) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (290085) WASM_LOG: Rega finalizada.[0m
+[0;32mI (293245) WASM_VAL: Sensor = 2661[0m
+[0;32mI (293245) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (296245) WASM_LOG: Rega finalizada.[0m
+[0;32mI (299405) WASM_VAL: Sensor = 2671[0m
+[0;32mI (299405) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (302405) WASM_LOG: Rega finalizada.[0m
+[0;32mI (305565) WASM_VAL: Sensor = 2659[0m
+[0;32mI (305565) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (308565) WASM_LOG: Rega finalizada.[0m
+[0;32mI (311725) WASM_VAL: Sensor = 2657[0m
+[0;32mI (311725) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (314735) WASM_LOG: Rega finalizada.[0m
+[0;32mI (317895) WASM_VAL: Sensor = 2662[0m
+[0;32mI (317895) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (320895) WASM_LOG: Rega finalizada.[0m
+[0;32mI (324055) WASM_VAL: Sensor = 1572[0m
+[0;32mI (324055) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (327215) WASM_VAL: Sensor = 1538[0m
+[0;32mI (327215) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (330375) WASM_VAL: Sensor = 2081[0m
+[0;32mI (330375) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (333375) WASM_LOG: Rega finalizada.[0m
+[0;32mI (336535) WASM_VAL: Sensor = 2680[0m
+[0;32mI (336535) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (339535) WASM_LOG: Rega finalizada.[0m
+[0;32mI (342695) WASM_VAL: Sensor = 2654[0m
+[0;32mI (342695) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (345695) WASM_LOG: Rega finalizada.[0m
+[0;32mI (348855) WASM_VAL: Sensor = 2668[0m
+[0;32mI (348855) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (351855) WASM_LOG: Rega finalizada.[0m
+[0;32mI (355015) WASM_VAL: Sensor = 2674[0m
+[0;32mI (355015) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (358015) WASM_LOG: Rega finalizada.[0m
+[0;32mI (361175) WASM_VAL: Sensor = 2667[0m
+[0;32mI (361175) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (364175) WASM_LOG: Rega finalizada.[0m
+[0;32mI (367335) WASM_VAL: Sensor = 2665[0m
+[0;32mI (367335) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (370335) WASM_LOG: Rega finalizada.[0m
+[0;32mI (373495) WASM_VAL: Sensor = 2666[0m
+[0;32mI (373495) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (376495) WASM_LOG: Rega finalizada.[0m
+[0;32mI (379655) WASM_VAL: Sensor = 2670[0m
+[0;32mI (379655) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (382655) WASM_LOG: Rega finalizada.[0m
+[0;32mI (385815) WASM_VAL: Sensor = 2667[0m
+[0;32mI (385815) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (388825) WASM_LOG: Rega finalizada.[0m
+[0;32mI (391985) WASM_VAL: Sensor = 2665[0m
+[0;32mI (391985) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (394985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (398145) WASM_VAL: Sensor = 2660[0m
+[0;32mI (398145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (401155) WASM_LOG: Rega finalizada.[0m
+[0;32mI (404315) WASM_VAL: Sensor = 2674[0m
+[0;32mI (404315) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (407315) WASM_LOG: Rega finalizada.[0m
+[0;32mI (410475) WASM_VAL: Sensor = 2666[0m
+[0;32mI (410475) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (413475) WASM_LOG: Rega finalizada.[0m
+[0;32mI (416635) WASM_VAL: Sensor = 2667[0m
+[0;32mI (416635) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (419635) WASM_LOG: Rega finalizada.[0m
+[0;32mI (422795) WASM_VAL: Sensor = 2667[0m
+[0;32mI (422795) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (425795) WASM_LOG: Rega finalizada.[0m
+[0;32mI (428955) WASM_VAL: Sensor = 2676[0m
+[0;32mI (428955) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (431955) WASM_LOG: Rega finalizada.[0m
+[0;32mI (435115) WASM_VAL: Sensor = 2669[0m
+[0;32mI (435115) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (438115) WASM_LOG: Rega finalizada.[0m
+[0;32mI (441275) WASM_VAL: Sensor = 2669[0m
+[0;32mI (441275) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (444275) WASM_LOG: Rega finalizada.[0m
+[0;32mI (447435) WASM_VAL: Sensor = 2666[0m
+[0;32mI (447435) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (450435) WASM_LOG: Rega finalizada.[0m
+[0;32mI (453595) WASM_VAL: Sensor = 2662[0m
+[0;32mI (453595) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (456595) WASM_LOG: Rega finalizada.[0m
+[0;32mI (459755) WASM_VAL: Sensor = 2665[0m
+[0;32mI (459755) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (462755) WASM_LOG: Rega finalizada.[0m
+[0;32mI (465915) WASM_VAL: Sensor = 2665[0m
+[0;32mI (465915) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (468915) WASM_LOG: Rega finalizada.[0m
+[0;32mI (472075) WASM_VAL: Sensor = 2664[0m
+[0;32mI (472075) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (475075) WASM_LOG: Rega finalizada.[0m
+[0;32mI (478235) WASM_VAL: Sensor = 2667[0m
+[0;32mI (478235) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (481235) WASM_LOG: Rega finalizada.[0m
+[0;32mI (484395) WASM_VAL: Sensor = 2671[0m
+[0;32mI (484395) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (487395) WASM_LOG: Rega finalizada.[0m
+[0;32mI (490555) WASM_VAL: Sensor = 2677[0m
+[0;32mI (490555) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (493555) WASM_LOG: Rega finalizada.[0m
+[0;32mI (496715) WASM_VAL: Sensor = 2674[0m
+[0;32mI (496715) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (499715) WASM_LOG: Rega finalizada.[0m
+[0;32mI (502875) WASM_VAL: Sensor = 2659[0m
+[0;32mI (502875) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (505875) WASM_LOG: Rega finalizada.[0m
+[0;32mI (509035) WASM_VAL: Sensor = 2659[0m
+[0;32mI (509035) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (512035) WASM_LOG: Rega finalizada.[0m
+[0;32mI (515195) WASM_VAL: Sensor = 2663[0m
+[0;32mI (515195) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (518205) WASM_LOG: Rega finalizada.[0m
+[0;32mI (521365) WASM_VAL: Sensor = 2674[0m
+[0;32mI (521365) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (524365) WASM_LOG: Rega finalizada.[0m
+[0;32mI (527525) WASM_VAL: Sensor = 2661[0m
+[0;32mI (527525) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (530525) WASM_LOG: Rega finalizada.[0m
+[0;32mI (533685) WASM_VAL: Sensor = 2674[0m
+[0;32mI (533685) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (536685) WASM_LOG: Rega finalizada.[0m
+[0;32mI (539845) WASM_VAL: Sensor = 2662[0m
+[0;32mI (539845) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (542845) WASM_LOG: Rega finalizada.[0m
+[0;32mI (546005) WASM_VAL: Sensor = 2673[0m
+[0;32mI (546005) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (549005) WASM_LOG: Rega finalizada.[0m
+[0;32mI (552165) WASM_VAL: Sensor = 2659[0m
+[0;32mI (552165) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (555165) WASM_LOG: Rega finalizada.[0m
+[0;32mI (558325) WASM_VAL: Sensor = 2662[0m
+[0;32mI (558325) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (561325) WASM_LOG: Rega finalizada.[0m
+[0;32mI (564485) WASM_VAL: Sensor = 2666[0m
+[0;32mI (564485) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (567485) WASM_LOG: Rega finalizada.[0m
+[0;32mI (570645) WASM_VAL: Sensor = 2663[0m
+[0;32mI (570645) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (573655) WASM_LOG: Rega finalizada.[0m
+[0;32mI (576815) WASM_VAL: Sensor = 2659[0m
+[0;32mI (576815) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (579815) WASM_LOG: Rega finalizada.[0m
+[0;32mI (582975) WASM_VAL: Sensor = 2673[0m
+[0;32mI (582975) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (585985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (589145) WASM_VAL: Sensor = 2666[0m
+[0;32mI (589145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (592145) WASM_LOG: Rega finalizada.[0m
+[0;32mI (595305) WASM_VAL: Sensor = 2667[0m
+[0;32mI (595305) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (598305) WASM_LOG: Rega finalizada.[0m
+[0;32mI (601465) WASM_VAL: Sensor = 2668[0m
+[0;32mI (601465) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (604475) WASM_LOG: Rega finalizada.[0m
+[0;32mI (607635) WASM_VAL: Sensor = 2670[0m
+[0;32mI (607635) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (610635) WASM_LOG: Rega finalizada.[0m
+[0;32mI (613795) WASM_VAL: Sensor = 2671[0m
+[0;32mI (613795) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (616795) WASM_LOG: Rega finalizada.[0m
+[0;32mI (619955) WASM_VAL: Sensor = 2670[0m
+[0;32mI (619955) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (622955) WASM_LOG: Rega finalizada.[0m
+[0;32mI (626115) WASM_VAL: Sensor = 2677[0m
+[0;32mI (626115) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (629115) WASM_LOG: Rega finalizada.[0m
+[0;32mI (632275) WASM_VAL: Sensor = 2662[0m
+[0;32mI (632275) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (635275) WASM_LOG: Rega finalizada.[0m
+[0;32mI (638435) WASM_VAL: Sensor = 2665[0m
+[0;32mI (638435) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (641435) WASM_LOG: Rega finalizada.[0m
+[0;32mI (644595) WASM_VAL: Sensor = 2678[0m
+[0;32mI (644595) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (647595) WASM_LOG: Rega finalizada.[0m
+[0;32mI (650755) WASM_VAL: Sensor = 2666[0m
+[0;32mI (650755) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (653755) WASM_LOG: Rega finalizada.[0m
+[0;32mI (656915) WASM_VAL: Sensor = 2676[0m
+[0;32mI (656915) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (659915) WASM_LOG: Rega finalizada.[0m
+[0;32mI (663075) WASM_VAL: Sensor = 2679[0m
+[0;32mI (663075) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (666075) WASM_LOG: Rega finalizada.[0m
+[0;32mI (669235) WASM_VAL: Sensor = 2669[0m
+[0;32mI (669235) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (672235) WASM_LOG: Rega finalizada.[0m
+[0;32mI (675395) WASM_VAL: Sensor = 2668[0m
+[0;32mI (675395) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (678395) WASM_LOG: Rega finalizada.[0m
+[0;32mI (681555) WASM_VAL: Sensor = 2667[0m
+[0;32mI (681555) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (684555) WASM_LOG: Rega finalizada.[0m
+[0;32mI (687715) WASM_VAL: Sensor = 2673[0m
+[0;32mI (687715) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (690715) WASM_LOG: Rega finalizada.[0m
+[0;32mI (693875) WASM_VAL: Sensor = 2677[0m
+[0;32mI (693875) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (696885) WASM_LOG: Rega finalizada.[0m
+[0;32mI (700045) WASM_VAL: Sensor = 2668[0m
+[0;32mI (700045) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (703045) WASM_LOG: Rega finalizada.[0m
+[0;32mI (706205) WASM_VAL: Sensor = 2674[0m
+[0;32mI (706205) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (709205) WASM_LOG: Rega finalizada.[0m
+[0;32mI (712365) WASM_VAL: Sensor = 2672[0m
+[0;32mI (712365) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (715365) WASM_LOG: Rega finalizada.[0m
+[0;32mI (718525) WASM_VAL: Sensor = 2670[0m
+[0;32mI (718525) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (721525) WASM_LOG: Rega finalizada.[0m
+[0;32mI (724685) WASM_VAL: Sensor = 2666[0m
+[0;32mI (724685) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (727685) WASM_LOG: Rega finalizada.[0m
+[0;32mI (730845) WASM_VAL: Sensor = 2670[0m
+[0;32mI (730845) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (733855) WASM_LOG: Rega finalizada.[0m
+[0;32mI (737015) WASM_VAL: Sensor = 2674[0m
+[0;32mI (737015) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (740015) WASM_LOG: Rega finalizada.[0m
+[0;32mI (743175) WASM_VAL: Sensor = 2671[0m
+[0;32mI (743175) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (746175) WASM_LOG: Rega finalizada.[0m
+[0;32mI (749335) WASM_VAL: Sensor = 2667[0m
+[0;32mI (749335) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (752335) WASM_LOG: Rega finalizada.[0m
+[0;32mI (755495) WASM_VAL: Sensor = 2670[0m
+[0;32mI (755495) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (758495) WASM_LOG: Rega finalizada.[0m
+[0;32mI (761655) WASM_VAL: Sensor = 2673[0m
+[0;32mI (761655) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (764655) WASM_LOG: Rega finalizada.[0m
+[0;32mI (767815) WASM_VAL: Sensor = 2671[0m
+[0;32mI (767815) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (770815) WASM_LOG: Rega finalizada.[0m
+[0;32mI (773975) WASM_VAL: Sensor = 2666[0m
+[0;32mI (773975) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (776975) WASM_LOG: Rega finalizada.[0m
+[0;32mI (780135) WASM_VAL: Sensor = 2667[0m
+[0;32mI (780135) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (783135) WASM_LOG: Rega finalizada.[0m
+[0;32mI (786295) WASM_VAL: Sensor = 2674[0m
+[0;32mI (786295) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (789295) WASM_LOG: Rega finalizada.[0m
+[0;32mI (792455) WASM_VAL: Sensor = 2672[0m
+[0;32mI (792455) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (795455) WASM_LOG: Rega finalizada.[0m
+[0;32mI (798615) WASM_VAL: Sensor = 2674[0m
+[0;32mI (798615) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (801615) WASM_LOG: Rega finalizada.[0m
+[0;32mI (804775) WASM_VAL: Sensor = 2671[0m
+[0;32mI (804775) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (807775) WASM_LOG: Rega finalizada.[0m
+[0;32mI (810935) WASM_VAL: Sensor = 2666[0m
+[0;32mI (810935) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (813935) WASM_LOG: Rega finalizada.[0m
+[0;32mI (817095) WASM_VAL: Sensor = 2675[0m
+[0;32mI (817095) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (820095) WASM_LOG: Rega finalizada.[0m
+[0;32mI (823255) WASM_VAL: Sensor = 2672[0m
+[0;32mI (823255) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (826255) WASM_LOG: Rega finalizada.[0m
+[0;32mI (829415) WASM_VAL: Sensor = 2669[0m
+[0;32mI (829415) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (832425) WASM_LOG: Rega finalizada.[0m
+[0;32mI (835585) WASM_VAL: Sensor = 2672[0m
+[0;32mI (835585) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (838585) WASM_LOG: Rega finalizada.[0m
+[0;32mI (841745) WASM_VAL: Sensor = 2677[0m
+[0;32mI (841745) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (844755) WASM_LOG: Rega finalizada.[0m
+[0;32mI (847915) WASM_VAL: Sensor = 2666[0m
+[0;32mI (847915) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (850915) WASM_LOG: Rega finalizada.[0m
+[0;32mI (854075) WASM_VAL: Sensor = 2676[0m
+[0;32mI (854075) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (857075) WASM_LOG: Rega finalizada.[0m
+[0;32mI (860235) WASM_VAL: Sensor = 2667[0m
+[0;32mI (860235) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (863235) WASM_LOG: Rega finalizada.[0m
+[0;32mI (866395) WASM_VAL: Sensor = 2668[0m
+[0;32mI (866395) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (869395) WASM_LOG: Rega finalizada.[0m
+[0;32mI (872555) WASM_VAL: Sensor = 2673[0m
+[0;32mI (872555) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (875555) WASM_LOG: Rega finalizada.[0m
+[0;32mI (878715) WASM_VAL: Sensor = 2666[0m
+[0;32mI (878715) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (881715) WASM_LOG: Rega finalizada.[0m
+[0;32mI (884875) WASM_VAL: Sensor = 2673[0m
+[0;32mI (884875) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (887875) WASM_LOG: Rega finalizada.[0m
+[0;32mI (891035) WASM_VAL: Sensor = 2677[0m
+[0;32mI (891035) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (894035) WASM_LOG: Rega finalizada.[0m
+[0;32mI (897195) WASM_VAL: Sensor = 2679[0m
+[0;32mI (897195) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (900195) WASM_LOG: Rega finalizada.[0m
+[0;32mI (903355) WASM_VAL: Sensor = 2673[0m
+[0;32mI (903355) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (906355) WASM_LOG: Rega finalizada.[0m
+[0;32mI (909515) WASM_VAL: Sensor = 2675[0m
+[0;32mI (909515) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (912515) WASM_LOG: Rega finalizada.[0m
+[0;32mI (915675) WASM_VAL: Sensor = 2671[0m
+[0;32mI (915675) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (918675) WASM_LOG: Rega finalizada.[0m
+[0;32mI (921835) WASM_VAL: Sensor = 2673[0m
+[0;32mI (921835) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (924835) WASM_LOG: Rega finalizada.[0m
+[0;32mI (927995) WASM_VAL: Sensor = 2676[0m
+[0;32mI (927995) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (930995) WASM_LOG: Rega finalizada.[0m
+[0;32mI (934155) WASM_VAL: Sensor = 2671[0m
+[0;32mI (934155) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (937155) WASM_LOG: Rega finalizada.[0m
+[0;32mI (940315) WASM_VAL: Sensor = 2671[0m
+[0;32mI (940315) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (943325) WASM_LOG: Rega finalizada.[0m
+[0;32mI (946485) WASM_VAL: Sensor = 2672[0m
+[0;32mI (946485) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (949485) WASM_LOG: Rega finalizada.[0m
+[0;32mI (952645) WASM_VAL: Sensor = 2675[0m
+[0;32mI (952645) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (955655) WASM_LOG: Rega finalizada.[0m
+[0;32mI (958815) WASM_VAL: Sensor = 2673[0m
+[0;32mI (958815) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (961815) WASM_LOG: Rega finalizada.[0m
+[0;32mI (964975) WASM_VAL: Sensor = 2675[0m
+[0;32mI (964975) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (967975) WASM_LOG: Rega finalizada.[0m
+[0;32mI (971135) WASM_VAL: Sensor = 2670[0m
+[0;32mI (971135) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (974135) WASM_LOG: Rega finalizada.[0m
+[0;32mI (977295) WASM_VAL: Sensor = 2676[0m
+[0;32mI (977295) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (980295) WASM_LOG: Rega finalizada.[0m
+[0;32mI (983455) WASM_VAL: Sensor = 2676[0m
+[0;32mI (983455) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (986455) WASM_LOG: Rega finalizada.[0m
+[0;32mI (989615) WASM_VAL: Sensor = 2677[0m
+[0;32mI (989615) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (992625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (995785) WASM_VAL: Sensor = 2664[0m
+[0;32mI (995785) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (998785) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1001945) WASM_VAL: Sensor = 2672[0m
+[0;32mI (1001945) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1004945) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1008105) WASM_VAL: Sensor = 2674[0m
+[0;32mI (1008105) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1011105) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1014265) WASM_VAL: Sensor = 2670[0m
+[0;32mI (1014265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1017265) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1020425) WASM_VAL: Sensor = 2681[0m
+[0;32mI (1020425) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1023435) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1026595) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1026595) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1029595) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1032755) WASM_VAL: Sensor = 2664[0m
+[0;32mI (1032755) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1035755) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1038915) WASM_VAL: Sensor = 2677[0m
+[0;32mI (1038915) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1041925) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1045085) WASM_VAL: Sensor = 2674[0m
+[0;32mI (1045085) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1048085) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1051245) WASM_VAL: Sensor = 2671[0m
+[0;32mI (1051245) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1054245) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1057405) WASM_VAL: Sensor = 2674[0m
+[0;32mI (1057405) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1060405) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1063565) WASM_VAL: Sensor = 2671[0m
+[0;32mI (1063565) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1066565) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1069725) WASM_VAL: Sensor = 2670[0m
+[0;32mI (1069725) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1072725) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1075885) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1075885) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1078885) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1082045) WASM_VAL: Sensor = 2661[0m
+[0;32mI (1082045) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1085045) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1088205) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1088205) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1091205) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1094365) WASM_VAL: Sensor = 2669[0m
+[0;32mI (1094365) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1097375) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1100535) WASM_VAL: Sensor = 2681[0m
+[0;32mI (1100535) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1103535) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1106695) WASM_VAL: Sensor = 2666[0m
+[0;32mI (1106695) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1109695) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1112855) WASM_VAL: Sensor = 2659[0m
+[0;32mI (1112855) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1115855) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1119015) WASM_VAL: Sensor = 2672[0m
+[0;32mI (1119015) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1122015) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1125175) WASM_VAL: Sensor = 2673[0m
+[0;32mI (1125175) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1128185) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1131345) WASM_VAL: Sensor = 2664[0m
+[0;32mI (1131345) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1134345) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1137505) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1137505) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1140505) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1143665) WASM_VAL: Sensor = 2673[0m
+[0;32mI (1143665) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1146665) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1149825) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1149825) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1152825) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1155985) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1155985) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1158985) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1162145) WASM_VAL: Sensor = 2666[0m
+[0;32mI (1162145) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1165145) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1168305) WASM_VAL: Sensor = 2663[0m
+[0;32mI (1168305) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1171305) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1174465) WASM_VAL: Sensor = 2662[0m
+[0;32mI (1174465) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1177465) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1180625) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1180625) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1183625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1186785) WASM_VAL: Sensor = 2666[0m
+[0;32mI (1186785) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1189785) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1192945) WASM_VAL: Sensor = 2661[0m
+[0;32mI (1192945) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1195945) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1199105) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1199105) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1202105) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1205265) WASM_VAL: Sensor = 2659[0m
+[0;32mI (1205265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1208275) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1211435) WASM_VAL: Sensor = 2671[0m
+[0;32mI (1211435) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1214435) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1217595) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1217595) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1220595) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1223755) WASM_VAL: Sensor = 2664[0m
+[0;32mI (1223755) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1226755) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1229915) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1229915) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1232915) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1236075) WASM_VAL: Sensor = 2665[0m
+[0;32mI (1236075) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1239085) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1242245) WASM_VAL: Sensor = 2668[0m
+[0;32mI (1242245) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1245245) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1248405) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1248405) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1251405) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1254565) WASM_VAL: Sensor = 2679[0m
+[0;32mI (1254565) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1257565) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1260725) WASM_VAL: Sensor = 2670[0m
+[0;32mI (1260725) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1263725) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1266885) WASM_VAL: Sensor = 2669[0m
+[0;32mI (1266885) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1269885) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1273045) WASM_VAL: Sensor = 2662[0m
+[0;32mI (1273045) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1276045) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1279205) WASM_VAL: Sensor = 2664[0m
+[0;32mI (1279205) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1282205) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1285365) WASM_VAL: Sensor = 2670[0m
+[0;32mI (1285365) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1288365) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1291525) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1291525) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1294535) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1297695) WASM_VAL: Sensor = 2669[0m
+[0;32mI (1297695) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1300695) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1303855) WASM_VAL: Sensor = 2668[0m
+[0;32mI (1303855) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1306855) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1310015) WASM_VAL: Sensor = 2668[0m
+[0;32mI (1310015) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1313015) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1316175) WASM_VAL: Sensor = 2667[0m
+[0;32mI (1316175) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1319175) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1322335) WASM_VAL: Sensor = 2664[0m
+[0;32mI (1322335) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (1325335) WASM_LOG: Rega finalizada.[0m
+[0;32mI (1328495) WASM_VAL: Sensor = 2669[0m
+[0;32mI (1328495) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m

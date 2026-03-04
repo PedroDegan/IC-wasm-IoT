@@ -31,21 +31,24 @@ def on_message(client, userdata, msg):
         
         if data and "umidade" in data:
             umidade_bruta = data["umidade"]
+            # Pega a porcentagem calculada pela ESP32 (campo "pct" que criamos no C)
+            porcentagem_esp = data.get("pct", 0) 
             
-            # Chama o filtro exponencial do C: ALPHA * raw + (1 - ALPHA) * filtered_value
+            # Chama o filtro exponencial do WASM na Raspberry
             umidade_filtrada = guest_filter_func(store, umidade_bruta)
             
             result = {
                 "timestamp": time.strftime('%Y-%m-%d %H:%M:%S'),
                 "device": DEVICE_ID,
                 "raw": umidade_bruta,
+                "pct": porcentagem_esp,        # <<< NOVA COLUNA
                 "filtered": round(umidade_filtrada, 2),
                 "is_dry": data.get("seco", 0)
             }
             
             save_to_csv(result)
             client.publish(FOG_TOPIC, json.dumps(result))
-            print(f"Processed: {umidade_bruta} -> {result['filtered']}")
+            print(f"Processed: Raw {umidade_bruta} ({porcentagem_esp}%) -> Filtered: {result['filtered']}")
         else:
             print(f"ESP32 INFO: {payload}")
             

@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "wamr-simple",
-    "project_version":    "173cba5-dirty",
+    "project_version":    "35f3084-dirty",
     "project_path":       "/home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32",
     "idf_path":           "/home/pedrod/esp/esp-idf",
     "build_dir":          "/home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build",
