@@ -54,9 +54,9 @@ Investigate the use of WebAssembly as a portable distributed execution model for
 
 # 🌫️ Phase 2 — WASM Execution on Fog (Raspberry Pi)
 
-- [ ] Deploy WASM irrigation module on Raspberry Pi
-- [ ] Implement host runtime for Fog environment
-- [ ] Execute filtering (EMA) and anomaly detection inside WASM
+- [X] Deploy WASM irrigation module on Raspberry Pi
+- [X] Implement host runtime for Fog environment
+- [X] Execute filtering (EMA) and anomaly detection inside WASM
 - [ ] Compare native vs WASM execution
 - [ ] Measure latency and memory usage
 - [ ] Analyze portability constraints
@@ -65,9 +65,9 @@ Investigate the use of WebAssembly as a portable distributed execution model for
 
 # ☁️ Phase 3 — WASM Execution on Cloud / Server
 
-- [ ] Deploy identical WASM module on server environment
-- [ ] Implement WASI-based runtime (e.g., Wasmtime)
-- [ ] Execute cloud-side logic within WASM sandbox
+- [X] Deploy identical WASM module on server environment
+- [X] Implement WASI-based runtime (e.g., Wasmtime)
+- [X] Execute cloud-side logic within WASM sandbox
 - [ ] Compare native vs WASM server execution
 - [ ] Evaluate scalability implications
 
@@ -76,9 +76,9 @@ Investigate the use of WebAssembly as a portable distributed execution model for
 # 🔄 Phase 4 — Distributed Communication Layer
 
 - [X] Implement MQTT client on Edge
-- [ ] Define structured topic architecture
-- [ ] Transmit data between WASM-enabled nodes
-- [ ] Evaluate QoS reliability
+- [X] Define structured topic architecture
+- [X] Transmit data between WASM-enabled nodes
+- [X] Evaluate QoS reliability
 - [ ] Measure end-to-end pipeline latency
 - [ ] Analyze bandwidth consumption
 
@@ -138,6 +138,8 @@ For each strategy:
 - [ ] Evaluate portability limits of WASI
 - [ ] Perform qualitative and quantitative analysis
 - [ ] Document experimental methodology
+- [ ] Analyze synchronization overhead between network threads (MQTT) and WASM runtimes.
+- [ ] Evaluate data consistency in multi-threaded host environments.
 
 ---
 
