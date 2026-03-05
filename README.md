@@ -53,7 +53,7 @@ WebAssembly can act as a lightweight, secure, and portable execution layer capab
 
 ## 🟣 Fog Layer — Raspberry Pi (WASM-Enabled Processing)
 
-- Executes filtering logic inside WASM runtime (planned)
+- Orchestrates MQTT communication and acts as the central message broker between Edge and Cloud
 - MQTT subscriber
 - Applies temporal filtering and anomaly detection
 - Performs smoothing (EMA / moving average)
@@ -65,7 +65,7 @@ WebAssembly can act as a lightweight, secure, and portable execution layer capab
 
 ## 🟢 Cloud Layer — Server (WASM + Native Comparison)
 
-- Executes analytics logic inside WASM runtime (planned)
+- Executes real-time analytics and digital twin logic using Wasmtime (Python-based host). Implements dual-stream processing: Raw Data vs. WASM-Filtered Data
 - Receives filtered data from Fog node
 - Stores historical data
 - Provides visualization endpoints
@@ -85,6 +85,15 @@ WebAssembly can act as a lightweight, secure, and portable execution layer capab
 5. Fog forwards processed data
 6. Cloud executes analytics (WASM or native)
 7. Results are stored and visualized
+
+---
+
+# ✨ Key Features Demonstrated
+
+- **True Cross-Architecture Portability:** The exact same `.wasm` binary, compiled from C, executes seamlessly on **Xtensa (ESP32)** and **x86_64 (Linux/Windows)** without a single line of code change or recompilation.
+- **Remote Dynamic Calibration:** Implemented a bi-directional control loop where logic thresholds (e.g., irrigation triggers) are updated via MQTT and applied instantly to the WASM Guest memory without rebooting the node.
+- **Hybrid Execution Logic:** Demonstration of a "Digital Twin" approach, where the same filtering algorithm runs on the Edge (for immediate action) and in the Cloud (for high-level analytics and UI visualization).
+- **Thread-Safe Data Bridging:** A robust synchronization strategy using file-buffered I/O to bridge asynchronous MQTT network threads with the Streamlit reactive UI.
 
 ---
 
@@ -143,12 +152,12 @@ For each configuration, the following metrics are analyzed:
 
 # 🌱 Current Implementation Status
 
-- WASM execution validated on ESP32
-- Smart irrigation prototype functional
-- MQTT pipeline under integration
-- Fog filtering layer under development
-- Full continuum WASM deployment planned
-- Deployment strategy comparison framework in progress
+- [x] **WASM Edge Execution:** Irrigation logic running on ESP32 via WAMR.
+- [x] **Cross-Continuum Portability:** Same `.wasm` binary executing on both ESP32 (Xtensa) and Laptop (x86_64).
+- [x] **Bi-Directional MQTT Pipeline:** - `ic/esp32/data`: Telemetry from Edge to Cloud.
+    - `ic/esp32/config`: Remote calibration from Cloud to Edge.
+- [x] **Cloud Analytics Node:** High-level dashboard processing raw data via WASM filters in real-time.
+- [x] **Concurrency Solution:** Implemented file-buffered data bridge to ensure thread-safe UI updates.
 
 ---
 
@@ -167,7 +176,6 @@ This project aims to demonstrate:
 
 # 🚀 Next Steps
 
-- Deploy identical WASM modules on Fog and Cloud
 - Implement runtime comparison (Native vs WASM)
 - Finalize MQTT structured protocol
 - Enable TLS-secured communication
