@@ -12,5 +12,6 @@ idf_component_register(
         esp_adc
         esp_event
         mdns
+        json
 )
 

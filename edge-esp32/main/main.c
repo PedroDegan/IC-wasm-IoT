@@ -17,6 +17,8 @@
 #include "mqtt_client.h"      
 #include "mdns.h"          
 
+#include "cJSON.h"
+
 // --- CONFIG WIFI ---
 #define WIFI_SSID_2     "Preguica"        
 #define WIFI_PASS_2  "$GuiGiPe14"      
@@ -41,6 +43,10 @@ static esp_mqtt_client_handle_t mqtt_client = NULL;
 
 static adc_oneshot_unit_handle_t adc1_handle = NULL;
 #define LOG_TAG "WAMR_IRRIGADOR"
+
+int g_adc_seco = 2600;
+int g_adc_molhado = 1100;
+int g_limiar_seco = 1700;
 
 
 
@@ -107,29 +113,33 @@ static void wifi_init(void) {
 // MQTT INIT
 // ============================================================
 
-static void mqtt_event_handler(void *handler_args,
-                                esp_event_base_t base,
-                                int32_t event_id,
-                                void *event_data)
-{
-    //esp_mqtt_event_handle_t event = event_data;
-
+static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data) {
+    esp_mqtt_event_handle_t event = event_data;
     switch ((esp_mqtt_event_id_t)event_id) {
-
         case MQTT_EVENT_CONNECTED:
-            ESP_LOGI("MQTT", "Conectado ao broker!");
-            esp_mqtt_client_publish(mqtt_client,
-                                    "teste",
-                                    "ESP32 online",
-                                    0, 1, 0);
+            esp_mqtt_client_subscribe(mqtt_client, "ic/esp32/config", 1);
+            ESP_LOGI("MQTT", "Inscrito no tópico de configuração");
             break;
 
-        case MQTT_EVENT_ERROR:
-            ESP_LOGE("MQTT", "Erro na conexao MQTT");
-            break;
+        case MQTT_EVENT_DATA:
+            if (strncmp(event->topic, "ic/esp32/config", event->topic_len) == 0) {
+                cJSON *json = cJSON_ParseWithLength(event->data, event->data_len);
+                if (json) {
+                    cJSON *seco = cJSON_GetObjectItem(json, "seco");
+                    cJSON *molhado = cJSON_GetObjectItem(json, "molhado");
+                    cJSON *limiar = cJSON_GetObjectItem(json, "limiar");
 
-        default:
+                    if (seco) g_adc_seco = seco->valueint;
+                    if (molhado) g_adc_molhado = molhado->valueint;
+                    if (limiar) g_limiar_seco = limiar->valueint;
+
+                    ESP_LOGW("CONFIG", "Novos Limites: S:%d M:%d L:%d", 
+                             g_adc_seco, g_adc_molhado, g_limiar_seco);
+                    cJSON_Delete(json);
+                }
+            }
             break;
+        default: break;
     }
 }
 
@@ -233,6 +243,13 @@ static void host_print(wasm_exec_env_t exec_env, uint32_t msg_offset) {
     ESP_LOGI("WASM_LOG", "%s", native_msg);
 }
 
+static int32_t host_get_config(wasm_exec_env_t exec_env, int32_t type) {
+    if (type == 0) return g_adc_seco;
+    if (type == 1) return g_adc_molhado;
+    if (type == 2) return g_limiar_seco;
+    return 0;
+}
+
 
 
 // ============================================================
@@ -277,6 +294,7 @@ static NativeSymbol extended_native_symbols[] = {
     { "log_int",     host_log_int,     "(i)",  NULL },
 
     { "mqtt_publish", host_mqtt_publish, "(ii)i", NULL },
+    { "get_config", host_get_config, "(i)i", NULL },
 };
 
 

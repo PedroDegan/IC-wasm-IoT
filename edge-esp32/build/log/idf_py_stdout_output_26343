@@ -1,0 +1,168 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/wamr-simple.elf /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Feb 26 2026 16:25:38[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=25b9ch (154524) map[0m
+[0;32mI (140) esp_image: segment 1: paddr=00035bc4 vaddr=3ffb0000 size=066cch ( 26316) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0003c298 vaddr=40080000 size=03d80h ( 15744) load[0m
+[0;32mI (157) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=d4594h (869780) map[0m
+[0;32mI (454) esp_image: segment 4: paddr=001145bc vaddr=40083d80 size=14a34h ( 84532) load[0m
+[0;32mI (487) esp_image: segment 5: paddr=00128ff8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (500) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (500) boot: Disabling RNG early entropy source...[0m
+[0;32mI (510) cpu_start: Multicore app[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) app_init: Application information:[0m
+[0;32mI (519) app_init: Project name:     wamr-simple[0m
+[0;32mI (523) app_init: App version:      35f3084-dirty[0m
+[0;32mI (528) app_init: Compile time:     Mar  4 2026 19:48:30[0m
+[0;32mI (533) app_init: ELF file SHA256:  39133c748...[0m
+[0;32mI (537) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (541) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (545) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (549) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (553) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (559) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFBB9B0 len 00024650 (145 KiB): DRAM[0m
+[0;32mI (569) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (575) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (580) heap_init: At 400987B4 len 0000784C (30 KiB): IRAM[0m
+[0;32mI (587) spi_flash: detected chip: generic[0m
+[0;32mI (589) spi_flash: flash io: dio[0m
+[0;33mW (592) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+[0;32mI (645) wifi:wifi driver task: 3ffc4450, prio:23, stack:6656, core=0[0m
+[0;32mI (655) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (655) wifi:wifi certification version: v7.0[0m
+[0;32mI (655) wifi:config NVS flash: enabled[0m
+[0;32mI (655) wifi:config nano formatting: disabled[0m
+[0;32mI (665) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (665) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (665) wifi:Init management short buffer num: 32[0m
+[0;32mI (675) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (675) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (685) wifi:Init static rx buffer num: 10[0m
+[0;32mI (685) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: accept mbox: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5760[0m
+[0;32mI (705) wifi_init: tcp rx win: 5760[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (715) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (725) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (815) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (895) wifi:mode : sta (80:64:6f:e8:6c:80)[0m
+[0;32mI (895) wifi:enable tsf[0m
+[0;32mI (3315) WIFI: Tentando conectar...[0m
+[0;32mI (3895) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3895) mDNS: Buscando IP do broker: raspberrypi.local[0m
+[0;32mI (5735) WIFI: Tentando conectar...[0m
+[0;33mW (5995) mDNS: Ainda buscando...[0m
+[0;32mI (8145) WIFI: Tentando conectar...[0m
+[0;33mW (9095) mDNS: Ainda buscando...[0m
+[0;32mI (10565) WIFI: Tentando conectar...[0m
+[0;33mW (12195) mDNS: Ainda buscando...[0m
+[0;32mI (12975) WIFI: Tentando conectar...[0m
+[0;33mW (15295) mDNS: Ainda buscando...[0m
+[0;33mW (15395) WIFI: Falha na rede principal. Tentando backup...[0m
+[0;33mW (15395) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (15435) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (15435) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (15455) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (15465) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (15475) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:5, ssn:0, winSize:64[0m
+[0;32mI (15495) wifi:connected with Preguica, aid = 3, channel 6, BW20, bssid = 48:4b:d4:a0:09:80[0m
+[0;32mI (15495) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (15505) wifi:pm start, type: 1[0m
+
+[0;32mI (15505) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (15525) wifi:<ba-add>idx:1 (ifx:0, 48:4b:d4:a0:09:80), tid:6, ssn:0, winSize:64[0m
+[0;32mI (15545) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (16555) esp_netif_handlers: sta ip: 192.168.0.66, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (16555) WIFI: Conectado com sucesso![0m
+[0;32mI (17595) mDNS: Broker encontrado em: mqtt://192.168.0.122[0m
+[0;32mI (17615) wifi:<ba-del>idx:0, tid:5[0m
+[0;32mI (17615) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:0, ssn:0, winSize:64[0m
+[0;32mI (17675) MQTT: Conectado ao broker![0m
+[0;32mI (19625) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (19635) main_task: Returned from app_main()[0m
+[0;32mI (19795) SENSOR_RAW: Valor Bruto Lido: 30[0m
+[0;32mI (19795) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (19795) WASM_LOG: Status: [####################][0m
+[0;32mI (19795) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (22965) SENSOR_RAW: Valor Bruto Lido: 1[0m
+[0;32mI (22965) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (22965) WASM_LOG: Status: [####################][0m
+[0;32mI (22965) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (26125) SENSOR_RAW: Valor Bruto Lido: 1[0m
+[0;32mI (26125) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (26125) WASM_LOG: Status: [####################][0m
+[0;32mI (26125) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (29285) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (29285) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (29285) WASM_LOG: Status: [####################][0m
+[0;32mI (29285) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (32445) SENSOR_RAW: Valor Bruto Lido: 2583[0m
+[0;32mI (32445) WASM_VAL: Umidade do Solo = [2%][0m
+[0;32mI (32445) WASM_LOG: Status: [--------------------][0m
+[0;32mI (32445) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (35455) WASM_LOG: Rega finalizada.[0m
+[0;32mI (38615) SENSOR_RAW: Valor Bruto Lido: 2649[0m
+[0;32mI (38615) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (38615) WASM_LOG: Status: [--------------------][0m
+[0;32mI (38615) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (41625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (44785) SENSOR_RAW: Valor Bruto Lido: 2208[0m
+[0;32mI (44785) WASM_VAL: Umidade do Solo = [27%][0m
+[0;32mI (44785) WASM_LOG: Status: [#####---------------][0m
+[0;32mI (44785) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (47795) WASM_LOG: Rega finalizada.[0m
+[0;32mI (50955) SENSOR_RAW: Valor Bruto Lido: 2416[0m
+[0;32mI (50955) WASM_VAL: Umidade do Solo = [13%][0m
+[0;32mI (50955) WASM_LOG: Status: [##------------------][0m
+[0;32mI (50955) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (53965) WASM_LOG: Rega finalizada.[0m
+[0;32mI (57125) SENSOR_RAW: Valor Bruto Lido: 5[0m
+[0;32mI (57125) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (57125) WASM_LOG: Status: [####################][0m
+[0;32mI (57125) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (60295) SENSOR_RAW: Valor Bruto Lido: 3[0m
+[0;32mI (60295) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (60295) WASM_LOG: Status: [####################][0m
+[0;32mI (60295) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (63455) SENSOR_RAW: Valor Bruto Lido: 2[0m
+[0;32mI (63455) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (63455) WASM_LOG: Status: [####################][0m
+[0;32mI (63455) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (66615) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (66615) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (66615) WASM_LOG: Status: [####################][0m
+[0;32mI (66615) WASM_LOG: Status: Solo OK.[0m

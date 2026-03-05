@@ -1,0 +1,1042 @@
+Command: /home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/pedrod/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/wamr-simple.elf /home/pedrod/projects/UFABC/IC/IC-wasm-IoT/edge-esp32/build/bootloader/bootloader.elf -m '/home/pedrod/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/pedrod/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Feb 26 2026 16:25:38[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=25b9ch (154524) map[0m
+[0;32mI (140) esp_image: segment 1: paddr=00035bc4 vaddr=3ffb0000 size=066cch ( 26316) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0003c298 vaddr=40080000 size=03d80h ( 15744) load[0m
+[0;32mI (157) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=d4594h (869780) map[0m
+[0;32mI (454) esp_image: segment 4: paddr=001145bc vaddr=40083d80 size=14a34h ( 84532) load[0m
+[0;32mI (487) esp_image: segment 5: paddr=00128ff8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (500) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (500) boot: Disabling RNG early entropy source...[0m
+[0;32mI (510) cpu_start: Multicore app[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) app_init: Application information:[0m
+[0;32mI (519) app_init: Project name:     wamr-simple[0m
+[0;32mI (523) app_init: App version:      35f3084-dirty[0m
+[0;32mI (528) app_init: Compile time:     Mar  4 2026 19:48:30[0m
+[0;32mI (533) app_init: ELF file SHA256:  39133c748...[0m
+[0;32mI (537) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (541) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (545) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (549) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (553) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (559) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFBB9B0 len 00024650 (145 KiB): DRAM[0m
+[0;32mI (569) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (575) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (580) heap_init: At 400987B4 len 0000784C (30 KiB): IRAM[0m
+[0;32mI (587) spi_flash: detected chip: generic[0m
+[0;32mI (589) spi_flash: flash io: dio[0m
+[0;33mW (592) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+[0;32mI (645) wifi:wifi driver task: 3ffc44d4, prio:23, stack:6656, core=0[0m
+[0;32mI (655) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (655) wifi:wifi certification version: v7.0[0m
+[0;32mI (655) wifi:config NVS flash: enabled[0m
+[0;32mI (655) wifi:config nano formatting: disabled[0m
+[0;32mI (665) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (665) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (665) wifi:Init management short buffer num: 32[0m
+[0;32mI (675) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (675) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (685) wifi:Init static rx buffer num: 10[0m
+[0;32mI (685) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: accept mbox: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5760[0m
+[0;32mI (705) wifi_init: tcp rx win: 5760[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (715) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (725) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (765) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (835) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (865) wifi:mode : sta (80:64:6f:e8:6c:80)[0m
+[0;32mI (865) wifi:enable tsf[0m
+[0;32mI (3285) WIFI: Tentando conectar...[0m
+[0;32mI (3865) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3865) mDNS: Buscando IP do broker: raspberrypi.local[0m
+[0;32mI (5705) WIFI: Tentando conectar...[0m
+[0;33mW (5965) mDNS: Ainda buscando...[0m
+[0;32mI (8115) WIFI: Tentando conectar...[0m
+[0;33mW (9065) mDNS: Ainda buscando...[0m
+[0;32mI (10535) WIFI: Tentando conectar...[0m
+[0;33mW (12165) mDNS: Ainda buscando...[0m
+[0;32mI (12955) WIFI: Tentando conectar...[0m
+[0;33mW (15265) mDNS: Ainda buscando...[0m
+[0;33mW (15365) WIFI: Falha na rede principal. Tentando backup...[0m
+[0;33mW (15365) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (15455) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (15455) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (15455) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (15465) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (15485) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:5, ssn:0, winSize:64[0m
+[0;32mI (15495) wifi:connected with Preguica, aid = 3, channel 6, BW20, bssid = 48:4b:d4:a0:09:80[0m
+[0;32mI (15495) wifi:security: WPA2-PSK, phy: bgn, rssi: -59[0m
+[0;32mI (15515) wifi:pm start, type: 1[0m
+
+[0;32mI (15515) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (15525) wifi:<ba-add>idx:1 (ifx:0, 48:4b:d4:a0:09:80), tid:6, ssn:0, winSize:64[0m
+[0;32mI (15545) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (16545) esp_netif_handlers: sta ip: 192.168.0.66, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (16545) WIFI: Conectado com sucesso![0m
+[0;32mI (17385) mDNS: Broker encontrado em: mqtt://192.168.0.122[0m
+[0;32mI (17405) wifi:<ba-del>idx:0, tid:5[0m
+[0;32mI (17405) wifi:<ba-add>idx:0 (ifx:0, 48:4b:d4:a0:09:80), tid:0, ssn:0, winSize:64[0m
+[0;32mI (17445) MQTT: Conectado ao broker![0m
+[0;32mI (19415) WASM_LOG: Iniciando Sistema de Irrigacao WASM...[0m
+[0;32mI (19425) main_task: Returned from app_main()[0m
+[0;32mI (19585) SENSOR_RAW: Valor Bruto Lido: 27[0m
+[0;32mI (19585) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (19585) WASM_LOG: Status: [####################][0m
+[0;32mI (19585) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (22755) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (22755) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (22755) WASM_LOG: Status: [####################][0m
+[0;32mI (22755) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (25925) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (25925) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (25925) WASM_LOG: Status: [####################][0m
+[0;32mI (25925) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (29085) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (29085) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (29085) WASM_LOG: Status: [####################][0m
+[0;32mI (29085) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (32245) SENSOR_RAW: Valor Bruto Lido: 2651[0m
+[0;32mI (32245) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (32245) WASM_LOG: Status: [--------------------][0m
+[0;32mI (32245) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (35255) WASM_LOG: Rega finalizada.[0m
+[0;32mI (38415) SENSOR_RAW: Valor Bruto Lido: 2305[0m
+[0;32mI (38415) WASM_VAL: Umidade do Solo = [20%][0m
+[0;32mI (38415) WASM_LOG: Status: [####----------------][0m
+[0;32mI (38415) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (41425) WASM_LOG: Rega finalizada.[0m
+[0;32mI (44585) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (44585) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (44585) WASM_LOG: Status: [####################][0m
+[0;32mI (44585) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (47755) SENSOR_RAW: Valor Bruto Lido: 2653[0m
+[0;32mI (47755) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (47755) WASM_LOG: Status: [--------------------][0m
+[0;32mI (47755) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (50765) WASM_LOG: Rega finalizada.[0m
+[0;32mI (53925) SENSOR_RAW: Valor Bruto Lido: 2652[0m
+[0;32mI (53925) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (53925) WASM_LOG: Status: [--------------------][0m
+[0;32mI (53925) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (56935) WASM_LOG: Rega finalizada.[0m
+[0;32mI (60095) SENSOR_RAW: Valor Bruto Lido: 2651[0m
+[0;32mI (60095) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (60095) WASM_LOG: Status: [--------------------][0m
+[0;32mI (60095) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (63105) WASM_LOG: Rega finalizada.[0m
+[0;32mI (66265) SENSOR_RAW: Valor Bruto Lido: 2654[0m
+[0;32mI (66265) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (66265) WASM_LOG: Status: [--------------------][0m
+[0;32mI (66265) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (69275) WASM_LOG: Rega finalizada.[0m
+[0;32mI (72435) SENSOR_RAW: Valor Bruto Lido: 2655[0m
+[0;32mI (72435) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (72435) WASM_LOG: Status: [--------------------][0m
+[0;32mI (72435) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (75445) WASM_LOG: Rega finalizada.[0m
+[0;32mI (78605) SENSOR_RAW: Valor Bruto Lido: 1335[0m
+[0;32mI (78605) WASM_VAL: Umidade do Solo = [85%][0m
+[0;32mI (78605) WASM_LOG: Status: [#################---][0m
+[0;32mI (78605) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (81775) SENSOR_RAW: Valor Bruto Lido: 1325[0m
+[0;32mI (81775) WASM_VAL: Umidade do Solo = [85%][0m
+[0;32mI (81775) WASM_LOG: Status: [#################---][0m
+[0;32mI (81775) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (84945) SENSOR_RAW: Valor Bruto Lido: 1322[0m
+[0;32mI (84945) WASM_VAL: Umidade do Solo = [86%][0m
+[0;32mI (84945) WASM_LOG: Status: [#################---][0m
+[0;32mI (84945) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (88115) SENSOR_RAW: Valor Bruto Lido: 1330[0m
+[0;32mI (88115) WASM_VAL: Umidade do Solo = [85%][0m
+[0;32mI (88115) WASM_LOG: Status: [#################---][0m
+[0;32mI (88115) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (91285) SENSOR_RAW: Valor Bruto Lido: 1327[0m
+[0;32mI (91285) WASM_VAL: Umidade do Solo = [85%][0m
+[0;32mI (91285) WASM_LOG: Status: [#################---][0m
+[0;32mI (91285) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (94455) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (94455) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (94455) WASM_LOG: Status: [####################][0m
+[0;32mI (94455) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (97615) SENSOR_RAW: Valor Bruto Lido: 2641[0m
+[0;32mI (97615) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (97615) WASM_LOG: Status: [--------------------][0m
+[0;32mI (97615) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (100625) WASM_LOG: Rega finalizada.[0m
+[0;32mI (103785) SENSOR_RAW: Valor Bruto Lido: 216[0m
+[0;32mI (103785) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (103785) WASM_LOG: Status: [####################][0m
+[0;32mI (103785) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (106955) SENSOR_RAW: Valor Bruto Lido: 2276[0m
+[0;32mI (106955) WASM_VAL: Umidade do Solo = [22%][0m
+[0;32mI (106955) WASM_LOG: Status: [####----------------][0m
+[0;32mI (106955) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (109965) WASM_LOG: Rega finalizada.[0m
+[0;32mI (113125) SENSOR_RAW: Valor Bruto Lido: 2648[0m
+[0;32mI (113125) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (113125) WASM_LOG: Status: [--------------------][0m
+[0;32mI (113125) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (116135) WASM_LOG: Rega finalizada.[0m
+[0;32mI (119295) SENSOR_RAW: Valor Bruto Lido: 2660[0m
+[0;32mI (119295) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (119295) WASM_LOG: Status: [--------------------][0m
+[0;32mI (119295) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (122305) WASM_LOG: Rega finalizada.[0m
+[0;32mI (125465) SENSOR_RAW: Valor Bruto Lido: 2640[0m
+[0;32mI (125465) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (125465) WASM_LOG: Status: [--------------------][0m
+[0;32mI (125465) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (128475) WASM_LOG: Rega finalizada.[0m
+[0;32mI (131635) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (131635) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (131635) WASM_LOG: Status: [####################][0m
+[0;32mI (131635) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (134805) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (134805) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (134805) WASM_LOG: Status: [####################][0m
+[0;32mI (134805) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (137975) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (137975) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (137975) WASM_LOG: Status: [####################][0m
+[0;32mI (137975) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (141135) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (141135) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (141135) WASM_LOG: Status: [####################][0m
+[0;32mI (141135) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (144305) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (144305) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (144305) WASM_LOG: Status: [####################][0m
+[0;32mI (144305) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (147475) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (147475) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (147475) WASM_LOG: Status: [####################][0m
+[0;32mI (147475) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (150645) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (150645) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (150645) WASM_LOG: Status: [####################][0m
+[0;32mI (150645) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (153815) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (153815) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (153815) WASM_LOG: Status: [####################][0m
+[0;32mI (153815) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (156985) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (156985) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (156985) WASM_LOG: Status: [####################][0m
+[0;32mI (156985) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (160155) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (160155) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (160155) WASM_LOG: Status: [####################][0m
+[0;32mI (160155) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (163325) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (163325) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (163325) WASM_LOG: Status: [####################][0m
+[0;32mI (163325) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (166495) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (166495) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (166495) WASM_LOG: Status: [####################][0m
+[0;32mI (166495) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (169665) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (169665) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (169665) WASM_LOG: Status: [####################][0m
+[0;32mI (169665) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (172835) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (172835) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (172835) WASM_LOG: Status: [####################][0m
+[0;32mI (172835) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (176005) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (176005) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (176005) WASM_LOG: Status: [####################][0m
+[0;32mI (176005) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (179175) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (179175) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (179175) WASM_LOG: Status: [####################][0m
+[0;32mI (179175) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (182345) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (182345) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (182345) WASM_LOG: Status: [####################][0m
+[0;32mI (182345) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (185515) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (185515) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (185515) WASM_LOG: Status: [####################][0m
+[0;32mI (185515) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (188685) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (188685) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (188685) WASM_LOG: Status: [####################][0m
+[0;32mI (188685) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (191855) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (191855) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (191855) WASM_LOG: Status: [####################][0m
+[0;32mI (191855) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (195025) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (195025) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (195025) WASM_LOG: Status: [####################][0m
+[0;32mI (195025) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (198195) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (198195) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (198195) WASM_LOG: Status: [####################][0m
+[0;32mI (198195) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (201355) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (201355) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (201355) WASM_LOG: Status: [####################][0m
+[0;32mI (201355) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (204525) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (204525) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (204525) WASM_LOG: Status: [####################][0m
+[0;32mI (204525) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (207695) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (207695) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (207695) WASM_LOG: Status: [####################][0m
+[0;32mI (207695) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (210865) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (210865) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (210865) WASM_LOG: Status: [####################][0m
+[0;32mI (210865) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (214035) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (214035) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (214035) WASM_LOG: Status: [####################][0m
+[0;32mI (214035) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (217205) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (217205) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (217205) WASM_LOG: Status: [####################][0m
+[0;32mI (217205) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (220375) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (220375) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (220375) WASM_LOG: Status: [####################][0m
+[0;32mI (220375) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (223545) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (223545) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (223545) WASM_LOG: Status: [####################][0m
+[0;32mI (223545) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (226715) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (226715) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (226715) WASM_LOG: Status: [####################][0m
+[0;32mI (226715) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (229885) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (229885) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (229885) WASM_LOG: Status: [####################][0m
+[0;32mI (229885) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (233055) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (233055) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (233055) WASM_LOG: Status: [####################][0m
+[0;32mI (233055) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (236225) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (236225) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (236225) WASM_LOG: Status: [####################][0m
+[0;32mI (236225) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (239395) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (239395) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (239395) WASM_LOG: Status: [####################][0m
+[0;32mI (239395) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (242565) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (242565) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (242565) WASM_LOG: Status: [####################][0m
+[0;32mI (242565) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (245735) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (245735) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (245735) WASM_LOG: Status: [####################][0m
+[0;32mI (245735) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (248905) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (248905) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (248905) WASM_LOG: Status: [####################][0m
+[0;32mI (248905) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (252075) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (252075) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (252075) WASM_LOG: Status: [####################][0m
+[0;32mI (252075) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (255245) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (255245) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (255245) WASM_LOG: Status: [####################][0m
+[0;32mI (255245) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (258415) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (258415) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (258415) WASM_LOG: Status: [####################][0m
+[0;32mI (258415) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (261575) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (261575) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (261575) WASM_LOG: Status: [####################][0m
+[0;32mI (261575) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (264745) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (264745) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (264745) WASM_LOG: Status: [####################][0m
+[0;32mI (264745) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (267915) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (267915) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (267915) WASM_LOG: Status: [####################][0m
+[0;32mI (267915) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (271085) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (271085) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (271085) WASM_LOG: Status: [####################][0m
+[0;32mI (271085) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (274255) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (274255) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (274255) WASM_LOG: Status: [####################][0m
+[0;32mI (274255) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (277425) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (277425) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (277425) WASM_LOG: Status: [####################][0m
+[0;32mI (277425) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (280595) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (280595) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (280595) WASM_LOG: Status: [####################][0m
+[0;32mI (280595) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (283765) SENSOR_RAW: Valor Bruto Lido: 2650[0m
+[0;32mI (283765) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (283765) WASM_LOG: Status: [--------------------][0m
+[0;32mI (283765) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (286775) WASM_LOG: Rega finalizada.[0m
+[0;32mI (289935) SENSOR_RAW: Valor Bruto Lido: 2652[0m
+[0;32mI (289935) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (289935) WASM_LOG: Status: [--------------------][0m
+[0;32mI (289935) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (292945) WASM_LOG: Rega finalizada.[0m
+[0;32mI (296105) SENSOR_RAW: Valor Bruto Lido: 2645[0m
+[0;32mI (296105) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (296105) WASM_LOG: Status: [--------------------][0m
+[0;32mI (296105) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (299115) WASM_LOG: Rega finalizada.[0m
+[0;32mI (302275) SENSOR_RAW: Valor Bruto Lido: 2652[0m
+[0;32mI (302275) WASM_VAL: Umidade do Solo = [0%][0m
+[0;32mI (302275) WASM_LOG: Status: [--------------------][0m
+[0;32mI (302275) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (305285) WASM_LOG: Rega finalizada.[0m
+[0;32mI (308445) SENSOR_RAW: Valor Bruto Lido: 2279[0m
+[0;32mI (308445) WASM_VAL: Umidade do Solo = [22%][0m
+[0;32mI (308445) WASM_LOG: Status: [####----------------][0m
+[0;32mI (308445) WASM_LOG: Status: Solo Seco! Ligando Bomba.[0m
+[0;32mI (311455) WASM_LOG: Rega finalizada.[0m
+[0;32mI (314615) SENSOR_RAW: Valor Bruto Lido: 1362[0m
+[0;32mI (314615) WASM_VAL: Umidade do Solo = [83%][0m
+[0;32mI (314615) WASM_LOG: Status: [################----][0m
+[0;32mI (314615) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (317785) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (317785) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (317785) WASM_LOG: Status: [####################][0m
+[0;32mI (317785) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (320955) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (320955) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (320955) WASM_LOG: Status: [####################][0m
+[0;32mI (320955) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (324125) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (324125) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (324125) WASM_LOG: Status: [####################][0m
+[0;32mI (324125) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (327295) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (327295) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (327295) WASM_LOG: Status: [####################][0m
+[0;32mI (327295) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (330465) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (330465) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (330465) WASM_LOG: Status: [####################][0m
+[0;32mI (330465) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (333635) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (333635) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (333635) WASM_LOG: Status: [####################][0m
+[0;32mI (333635) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (336805) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (336805) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (336805) WASM_LOG: Status: [####################][0m
+[0;32mI (336805) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (339975) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (339975) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (339975) WASM_LOG: Status: [####################][0m
+[0;32mI (339975) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (343145) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (343145) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (343145) WASM_LOG: Status: [####################][0m
+[0;32mI (343145) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (346315) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (346315) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (346315) WASM_LOG: Status: [####################][0m
+[0;32mI (346315) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (349485) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (349485) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (349485) WASM_LOG: Status: [####################][0m
+[0;32mI (349485) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (352655) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (352655) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (352655) WASM_LOG: Status: [####################][0m
+[0;32mI (352655) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (355825) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (355825) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (355825) WASM_LOG: Status: [####################][0m
+[0;32mI (355825) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (358995) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (358995) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (358995) WASM_LOG: Status: [####################][0m
+[0;32mI (358995) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (362165) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (362165) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (362165) WASM_LOG: Status: [####################][0m
+[0;32mI (362165) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (365335) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (365335) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (365335) WASM_LOG: Status: [####################][0m
+[0;32mI (365335) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (368505) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (368505) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (368505) WASM_LOG: Status: [####################][0m
+[0;32mI (368505) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (371675) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (371675) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (371675) WASM_LOG: Status: [####################][0m
+[0;32mI (371675) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (374845) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (374845) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (374845) WASM_LOG: Status: [####################][0m
+[0;32mI (374845) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (378015) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (378015) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (378015) WASM_LOG: Status: [####################][0m
+[0;32mI (378015) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (381185) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (381185) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (381185) WASM_LOG: Status: [####################][0m
+[0;32mI (381185) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (384355) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (384355) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (384355) WASM_LOG: Status: [####################][0m
+[0;32mI (384355) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (387525) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (387525) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (387525) WASM_LOG: Status: [####################][0m
+[0;32mI (387525) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (390695) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (390695) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (390695) WASM_LOG: Status: [####################][0m
+[0;32mI (390695) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (393865) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (393865) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (393865) WASM_LOG: Status: [####################][0m
+[0;32mI (393865) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (397035) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (397035) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (397035) WASM_LOG: Status: [####################][0m
+[0;32mI (397035) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (400205) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (400205) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (400205) WASM_LOG: Status: [####################][0m
+[0;32mI (400205) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (403375) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (403375) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (403375) WASM_LOG: Status: [####################][0m
+[0;32mI (403375) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (406545) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (406545) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (406545) WASM_LOG: Status: [####################][0m
+[0;32mI (406545) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (409715) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (409715) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (409715) WASM_LOG: Status: [####################][0m
+[0;32mI (409715) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (412885) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (412885) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (412885) WASM_LOG: Status: [####################][0m
+[0;32mI (412885) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (416055) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (416055) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (416055) WASM_LOG: Status: [####################][0m
+[0;32mI (416055) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (419225) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (419225) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (419225) WASM_LOG: Status: [####################][0m
+[0;32mI (419225) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (422395) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (422395) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (422395) WASM_LOG: Status: [####################][0m
+[0;32mI (422395) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (425565) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (425565) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (425565) WASM_LOG: Status: [####################][0m
+[0;32mI (425565) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (428735) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (428735) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (428735) WASM_LOG: Status: [####################][0m
+[0;32mI (428735) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (431895) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (431895) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (431895) WASM_LOG: Status: [####################][0m
+[0;32mI (431895) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (435065) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (435065) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (435065) WASM_LOG: Status: [####################][0m
+[0;32mI (435065) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (438235) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (438235) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (438235) WASM_LOG: Status: [####################][0m
+[0;32mI (438235) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (441405) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (441405) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (441405) WASM_LOG: Status: [####################][0m
+[0;32mI (441405) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (444575) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (444575) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (444575) WASM_LOG: Status: [####################][0m
+[0;32mI (444575) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (447745) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (447745) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (447745) WASM_LOG: Status: [####################][0m
+[0;32mI (447745) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (450915) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (450915) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (450915) WASM_LOG: Status: [####################][0m
+[0;32mI (450915) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (454085) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (454085) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (454085) WASM_LOG: Status: [####################][0m
+[0;32mI (454085) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (457255) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (457255) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (457255) WASM_LOG: Status: [####################][0m
+[0;32mI (457255) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (460425) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (460425) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (460425) WASM_LOG: Status: [####################][0m
+[0;32mI (460425) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (463595) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (463595) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (463595) WASM_LOG: Status: [####################][0m
+[0;32mI (463595) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (466765) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (466765) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (466765) WASM_LOG: Status: [####################][0m
+[0;32mI (466765) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (469935) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (469935) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (469935) WASM_LOG: Status: [####################][0m
+[0;32mI (469935) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (473105) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (473105) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (473105) WASM_LOG: Status: [####################][0m
+[0;32mI (473105) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (476275) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (476275) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (476275) WASM_LOG: Status: [####################][0m
+[0;32mI (476275) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (479445) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (479445) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (479445) WASM_LOG: Status: [####################][0m
+[0;32mI (479445) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (482615) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (482615) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (482615) WASM_LOG: Status: [####################][0m
+[0;32mI (482615) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (485785) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (485785) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (485785) WASM_LOG: Status: [####################][0m
+[0;32mI (485785) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (488955) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (488955) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (488955) WASM_LOG: Status: [####################][0m
+[0;32mI (488955) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (492115) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (492115) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (492115) WASM_LOG: Status: [####################][0m
+[0;32mI (492115) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (495285) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (495285) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (495285) WASM_LOG: Status: [####################][0m
+[0;32mI (495285) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (498455) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (498455) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (498455) WASM_LOG: Status: [####################][0m
+[0;32mI (498455) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (501625) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (501625) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (501625) WASM_LOG: Status: [####################][0m
+[0;32mI (501625) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (504795) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (504795) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (504795) WASM_LOG: Status: [####################][0m
+[0;32mI (504795) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (507965) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (507965) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (507965) WASM_LOG: Status: [####################][0m
+[0;32mI (507965) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (511135) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (511135) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (511135) WASM_LOG: Status: [####################][0m
+[0;32mI (511135) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (514305) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (514305) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (514305) WASM_LOG: Status: [####################][0m
+[0;32mI (514305) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (517475) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (517475) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (517475) WASM_LOG: Status: [####################][0m
+[0;32mI (517475) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (520645) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (520645) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (520645) WASM_LOG: Status: [####################][0m
+[0;32mI (520645) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (523815) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (523815) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (523815) WASM_LOG: Status: [####################][0m
+[0;32mI (523815) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (526985) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (526985) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (526985) WASM_LOG: Status: [####################][0m
+[0;32mI (526985) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (530155) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (530155) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (530155) WASM_LOG: Status: [####################][0m
+[0;32mI (530155) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (533325) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (533325) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (533325) WASM_LOG: Status: [####################][0m
+[0;32mI (533325) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (536495) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (536495) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (536495) WASM_LOG: Status: [####################][0m
+[0;32mI (536495) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (539665) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (539665) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (539665) WASM_LOG: Status: [####################][0m
+[0;32mI (539665) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (542835) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (542835) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (542835) WASM_LOG: Status: [####################][0m
+[0;32mI (542835) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (546005) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (546005) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (546005) WASM_LOG: Status: [####################][0m
+[0;32mI (546005) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (549175) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (549175) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (549175) WASM_LOG: Status: [####################][0m
+[0;32mI (549175) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (552345) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (552345) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (552345) WASM_LOG: Status: [####################][0m
+[0;32mI (552345) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (555515) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (555515) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (555515) WASM_LOG: Status: [####################][0m
+[0;32mI (555515) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (558675) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (558675) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (558675) WASM_LOG: Status: [####################][0m
+[0;32mI (558675) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (561845) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (561845) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (561845) WASM_LOG: Status: [####################][0m
+[0;32mI (561845) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (565015) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (565015) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (565015) WASM_LOG: Status: [####################][0m
+[0;32mI (565015) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (568185) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (568185) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (568185) WASM_LOG: Status: [####################][0m
+[0;32mI (568185) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (571355) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (571355) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (571355) WASM_LOG: Status: [####################][0m
+[0;32mI (571355) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (574525) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (574525) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (574525) WASM_LOG: Status: [####################][0m
+[0;32mI (574525) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (577695) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (577695) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (577695) WASM_LOG: Status: [####################][0m
+[0;32mI (577695) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (580865) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (580865) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (580865) WASM_LOG: Status: [####################][0m
+[0;32mI (580865) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (584035) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (584035) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (584035) WASM_LOG: Status: [####################][0m
+[0;32mI (584035) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (587205) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (587205) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (587205) WASM_LOG: Status: [####################][0m
+[0;32mI (587205) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (590375) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (590375) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (590375) WASM_LOG: Status: [####################][0m
+[0;32mI (590375) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (593545) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (593545) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (593545) WASM_LOG: Status: [####################][0m
+[0;32mI (593545) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (596715) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (596715) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (596715) WASM_LOG: Status: [####################][0m
+[0;32mI (596715) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (599885) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (599885) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (599885) WASM_LOG: Status: [####################][0m
+[0;32mI (599885) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (603055) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (603055) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (603055) WASM_LOG: Status: [####################][0m
+[0;32mI (603055) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (606225) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (606225) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (606225) WASM_LOG: Status: [####################][0m
+[0;32mI (606225) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (609395) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (609395) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (609395) WASM_LOG: Status: [####################][0m
+[0;32mI (609395) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (612565) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (612565) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (612565) WASM_LOG: Status: [####################][0m
+[0;32mI (612565) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (615725) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (615725) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (615725) WASM_LOG: Status: [####################][0m
+[0;32mI (615725) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (618895) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (618895) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (618895) WASM_LOG: Status: [####################][0m
+[0;32mI (618895) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (622065) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (622065) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (622065) WASM_LOG: Status: [####################][0m
+[0;32mI (622065) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (625235) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (625235) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (625235) WASM_LOG: Status: [####################][0m
+[0;32mI (625235) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (628405) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (628405) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (628405) WASM_LOG: Status: [####################][0m
+[0;32mI (628405) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (631575) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (631575) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (631575) WASM_LOG: Status: [####################][0m
+[0;32mI (631575) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (634745) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (634745) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (634745) WASM_LOG: Status: [####################][0m
+[0;32mI (634745) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (637915) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (637915) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (637915) WASM_LOG: Status: [####################][0m
+[0;32mI (637915) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (641085) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (641085) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (641085) WASM_LOG: Status: [####################][0m
+[0;32mI (641085) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (644255) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (644255) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (644255) WASM_LOG: Status: [####################][0m
+[0;32mI (644255) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (647425) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (647425) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (647425) WASM_LOG: Status: [####################][0m
+[0;32mI (647425) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (650595) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (650595) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (650595) WASM_LOG: Status: [####################][0m
+[0;32mI (650595) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (653765) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (653765) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (653765) WASM_LOG: Status: [####################][0m
+[0;32mI (653765) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (656935) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (656935) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (656935) WASM_LOG: Status: [####################][0m
+[0;32mI (656935) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (660105) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (660105) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (660105) WASM_LOG: Status: [####################][0m
+[0;32mI (660105) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (663275) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (663275) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (663275) WASM_LOG: Status: [####################][0m
+[0;32mI (663275) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (666445) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (666445) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (666445) WASM_LOG: Status: [####################][0m
+[0;32mI (666445) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (669615) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (669615) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (669615) WASM_LOG: Status: [####################][0m
+[0;32mI (669615) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (672785) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (672785) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (672785) WASM_LOG: Status: [####################][0m
+[0;32mI (672785) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (675955) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (675955) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (675955) WASM_LOG: Status: [####################][0m
+[0;32mI (675955) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (679125) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (679125) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (679125) WASM_LOG: Status: [####################][0m
+[0;32mI (679125) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (682295) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (682295) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (682295) WASM_LOG: Status: [####################][0m
+[0;32mI (682295) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (685465) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (685465) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (685465) WASM_LOG: Status: [####################][0m
+[0;32mI (685465) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (688635) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (688635) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (688635) WASM_LOG: Status: [####################][0m
+[0;32mI (688635) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (691805) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (691805) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (691805) WASM_LOG: Status: [####################][0m
+[0;32mI (691805) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (694975) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (694975) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (694975) WASM_LOG: Status: [####################][0m
+[0;32mI (694975) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (698145) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (698145) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (698145) WASM_LOG: Status: [####################][0m
+[0;32mI (698145) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (701315) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (701315) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (701315) WASM_LOG: Status: [####################][0m
+[0;32mI (701315) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (704485) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (704485) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (704485) WASM_LOG: Status: [####################][0m
+[0;32mI (704485) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (707655) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (707655) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (707655) WASM_LOG: Status: [####################][0m
+[0;32mI (707655) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (710825) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (710825) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (710825) WASM_LOG: Status: [####################][0m
+[0;32mI (710825) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (713995) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (713995) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (713995) WASM_LOG: Status: [####################][0m
+[0;32mI (713995) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (717165) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (717165) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (717165) WASM_LOG: Status: [####################][0m
+[0;32mI (717165) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (720335) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (720335) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (720335) WASM_LOG: Status: [####################][0m
+[0;32mI (720335) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (723505) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (723505) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (723505) WASM_LOG: Status: [####################][0m
+[0;32mI (723505) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (726675) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (726675) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (726675) WASM_LOG: Status: [####################][0m
+[0;32mI (726675) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (729845) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (729845) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (729845) WASM_LOG: Status: [####################][0m
+[0;32mI (729845) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (733015) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (733015) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (733015) WASM_LOG: Status: [####################][0m
+[0;32mI (733015) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (736185) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (736185) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (736185) WASM_LOG: Status: [####################][0m
+[0;32mI (736185) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (739355) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (739355) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (739355) WASM_LOG: Status: [####################][0m
+[0;32mI (739355) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (742525) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (742525) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (742525) WASM_LOG: Status: [####################][0m
+[0;32mI (742525) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (745695) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (745695) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (745695) WASM_LOG: Status: [####################][0m
+[0;32mI (745695) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (748865) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (748865) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (748865) WASM_LOG: Status: [####################][0m
+[0;32mI (748865) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (752035) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (752035) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (752035) WASM_LOG: Status: [####################][0m
+[0;32mI (752035) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (755205) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (755205) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (755205) WASM_LOG: Status: [####################][0m
+[0;32mI (755205) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (758375) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (758375) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (758375) WASM_LOG: Status: [####################][0m
+[0;32mI (758375) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (761545) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (761545) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (761545) WASM_LOG: Status: [####################][0m
+[0;32mI (761545) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (764715) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (764715) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (764715) WASM_LOG: Status: [####################][0m
+[0;32mI (764715) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (767885) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (767885) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (767885) WASM_LOG: Status: [####################][0m
+[0;32mI (767885) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (771055) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (771055) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (771055) WASM_LOG: Status: [####################][0m
+[0;32mI (771055) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (774225) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (774225) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (774225) WASM_LOG: Status: [####################][0m
+[0;32mI (774225) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (777395) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (777395) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (777395) WASM_LOG: Status: [####################][0m
+[0;32mI (777395) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (780565) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (780565) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (780565) WASM_LOG: Status: [####################][0m
+[0;32mI (780565) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (783735) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (783735) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (783735) WASM_LOG: Status: [####################][0m
+[0;32mI (783735) WASM_LOG: Status: Solo OK.[0m
+[0;32mI (786905) SENSOR_RAW: Valor Bruto Lido: 0[0m
+[0;32mI (786905) WASM_VAL: Umidade do Solo = [100%][0m
+[0;32mI (786905) WASM_LOG: Status: [####################][0m
+[0;32mI (786905) WASM_LOG: Status: Solo OK.[0m

@@ -7,6 +7,7 @@ extern void delay_ms(int ms);
 extern void wasm_log(const char* msg);
 extern void log_int(int value);
 extern int mqtt_publish(const char* topic, const char* msg);
+extern int get_config(int type);
 
 // ============================================================
 // DEFINICOES E CALIBRACAO
@@ -45,9 +46,11 @@ void int_to_str(int value, char *buffer) {
     buffer[i] = '\0';
 }
 
-// Funcao corrigida para usar as constantes definidas no topo
 int raw_to_percentage(int raw) {
-    int pct = 100 - ((raw - ADC_MOLHADO) * 100 / (ADC_SECO - ADC_MOLHADO));
+    int seco = get_config(0);    // Pega o valor atual do Host
+    int molhado = get_config(1); // Pega o valor atual do Host
+    
+    int pct = 100 - ((raw - molhado) * 100 / (seco - molhado));
     if (pct > 100) pct = 100;
     if (pct < 0) pct = 0;
     return pct;
@@ -99,22 +102,28 @@ int main() {
     mqtt_publish("ic/esp32/status", "Sistema iniciado");
 
     while(1) {
-        // Lendo o sensor (Isso faltava no seu loop!)
+        // 1. Primeiro lemos o sensor
         int umidade = read_sensor(0);
 
-        // Calculando a porcentagem usando a funcao auxiliar
+        // 2. Depois pegamos as configurações atualizadas do Host
+        int limiar = get_config(2); 
+        
+        // 3. Agora calculamos a flag usando o valor lido e o limiar dinâmico
+        int seco_flag = (umidade > limiar) ? 1 : 0;
+
+        // 4. Calculando a porcentagem
         int porcentagem = raw_to_percentage(umidade);
         
         // Log da porcentagem no terminal (via Host)
         log_int(porcentagem);
 
-        int seco_flag = (umidade > LIMIAR_SECO) ? 1 : 0;
-
-        // Montando o JSON com todos os campos
+        // 5. Montando o JSON com todos os campos
+        // Usamos a seco_flag que acabamos de calcular com o limiar dinâmico
         build_json(mqtt_buffer, umidade, seco_flag, porcentagem);
         mqtt_publish("ic/esp32/data", mqtt_buffer);
 
-        if (umidade > LIMIAR_SECO) {
+        // Lógica de atuação baseada no limiar dinâmico
+        if (seco_flag) {
             wasm_log("Status: Solo Seco! Ligando Bomba.");
             set_output(LED_GREEN, 0);
             set_output(LED_RED, 1);
