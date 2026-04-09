@@ -22,9 +22,11 @@ def save_to_csv(data_dict):
 
 def on_message(client, userdata, msg):
     try:
-        data = json.loads(msg.payload.decode())
+        if not payload.startswith("{"):
+            print(f"ESP32 INFO: {payload}")
+            return
+            data = json.loads(payload)
         if "raw" not in data:
-            print(f"ESP32 INFO: {msg.payload.decode()}")
             return
 
         raw     = data["raw"]
@@ -60,7 +62,7 @@ store   = Store(engine)
 log_type = FuncType([ValType.i32()], [])
 linker.define_func("env", "wasm_log", log_type, lambda c, p: None)
 log_int_type = FuncType([ValType.i32()], [])
-linker.define_func("env", "log_int",  log_int_type, lambda c, v: print(f"[WASM] {v}%"))
+linker.define_func("env", "log_int",  log_int_type, lambda caller, v: print(f"[WASM] {v}%"))
 
 module      = Module.from_file(engine, "guest.wasm")
 instance    = linker.instantiate(store, module)
