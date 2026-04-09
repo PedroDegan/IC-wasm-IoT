@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-from wasmtime import Store, Engine, Linker, Module, FuncType, ValType
+from wasmtime import Store, Engine, Linker, Module, FuncType, ValType, Func
 import time, json, csv, os
 
 BROKER    = "localhost"
@@ -54,13 +54,14 @@ engine  = Engine()
 linker  = Linker(engine)
 store   = Store(engine)
 
-log_type = FuncType([ValType.i32()], [])
-linker.define_func("env", "wasm_log", log_type, lambda: None)
+log_type     = FuncType([ValType.i32()], [])
 log_int_type = FuncType([ValType.i32()], [])
-linker.define_func("env", "log_int",  log_int_type, lambda: print(f"[WASM] {v}%"))
 
-module      = Module.from_file(engine, "guest.wasm")
-instance    = linker.instantiate(store, module)
+linker.define("env", "wasm_log", Func(store, log_type,     lambda p: None))
+linker.define("env", "log_int",  Func(store, log_int_type, lambda v: print(f"[WASM] {v}%")))
+
+module       = Module.from_file(engine, "guest.wasm")
+instance     = linker.instantiate(store, module)
 wasm_process = instance.exports(store)["process"]
 
 # MQTT
