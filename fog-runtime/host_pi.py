@@ -22,23 +22,20 @@ def save_to_csv(data_dict):
 
 def on_message(client, userdata, msg):
     try:
+        payload = msg.payload.decode()
         if not payload.startswith("{"):
             print(f"ESP32 INFO: {payload}")
             return
-            data = json.loads(payload)
+        data = json.loads(payload)
         if "raw" not in data:
             return
-
         raw     = data["raw"]
         seco    = data.get("seco",    2600)
         molhado = data.get("molhado", 1100)
         limiar  = data.get("limiar",  1700)
-
-        # Chama process() — mesmo .wasm do edge
         result_packed = wasm_process(store, raw, seco, molhado, limiar)
         pct     = result_packed & 0xFF
         irrigar = (result_packed >> 8) & 0x1
-
         result = {
             "timestamp": time.strftime('%Y-%m-%d %H:%M:%S'),
             "device":    DEVICE_ID,
@@ -46,11 +43,9 @@ def on_message(client, userdata, msg):
             "pct":       pct,
             "irrigar":   irrigar,
         }
-
         save_to_csv(result)
         client.publish(FOG_TOPIC, json.dumps(result))
         print(f"Processed: raw={raw} pct={pct}% irrigar={irrigar}")
-
     except Exception as e:
         print(f"Error: {e}")
 
