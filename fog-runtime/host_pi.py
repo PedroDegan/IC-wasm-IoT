@@ -57,8 +57,8 @@ store   = Store(engine)
 log_type     = FuncType([ValType.i32()], [])
 log_int_type = FuncType([ValType.i32()], [])
 
-linker.define("env", "wasm_log", Func(store, log_type,     lambda p: None))
-linker.define("env", "log_int",  Func(store, log_int_type, lambda v: print(f"[WASM] {v}%")))
+linker.define(store, "env", "wasm_log", Func(store, log_type,     lambda p: None))
+linker.define(store, "env", "log_int",  Func(store, log_int_type, lambda v: print(f"[WASM] {v}%")))
 
 module       = Module.from_file(engine, "guest.wasm")
 instance     = linker.instantiate(store, module)
