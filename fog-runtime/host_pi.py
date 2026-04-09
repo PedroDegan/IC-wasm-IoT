@@ -58,7 +58,7 @@ def on_message(client, userdata, msg):
             "raw":         raw,
             "pct":         pct,
             "irrigar":     irrigar,
-            "t_wasm_ms":   round(t_was,m, 4),
+            "t_wasm_ms":   round(t_wasm, 4),
             "t_native_ms": round(t_native, 4),
         }
         save_to_csv(result)
