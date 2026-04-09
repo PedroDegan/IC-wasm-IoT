@@ -29,8 +29,8 @@ def on_message(client, userdata, msg):
         payload = msg.payload.decode()
         data = json.loads(payload) if payload.startswith("{") else None
         
-        if data and "umidade" in data:
-            umidade_bruta = data["umidade"]
+        if data and "raw" in data:
+            umidade_bruta = data["raw"]
             # Pega a porcentagem calculada pela ESP32 (campo "pct" que criamos no C)
             porcentagem_esp = data.get("pct", 0) 
             
@@ -43,7 +43,7 @@ def on_message(client, userdata, msg):
                 "raw": umidade_bruta,
                 "pct": porcentagem_esp,        # <<< NOVA COLUNA
                 "filtered": round(umidade_filtrada, 2),
-                "is_dry": data.get("seco", 0)
+                "is_dry": data.get("irrigar", 0)
             }
             
             save_to_csv(result)
