@@ -34,14 +34,32 @@ def on_message(client, userdata, msg):
         molhado = data.get("molhado", 1100)
         limiar  = data.get("limiar",  1700)
         result_packed = wasm_process(store, raw, seco, molhado, limiar)
+
+        # WASM timing
+        t0 = time.perf_counter()
+        result_packed = wasm_process(store, raw, seco, molhado, limiar)
+        t_wasm = (time.perf_counter() - t0) * 1000
+
+        # Native timing
+        t0 = time.perf_counter()
+        _range = max(seco - molhado, 1)
+        pct_native  = max(0, min(100, 100 - ((raw - molhado) * 100 // _range)))
+        irrigar_native = 1 if raw > limiar else 0
+        t_native = (time.perf_counter() - t0) * 1000
+
+        print(f"WASM: {t_wasm:.4f}ms | Native: {t_native:.4f}ms")
+        
+
         pct     = result_packed & 0xFF
         irrigar = (result_packed >> 8) & 0x1
         result = {
-            "timestamp": time.strftime('%Y-%m-%d %H:%M:%S'),
-            "device":    DEVICE_ID,
-            "raw":       raw,
-            "pct":       pct,
-            "irrigar":   irrigar,
+            "timestamp":   time.strftime('%Y-%m-%d %H:%M:%S'),
+            "device":      DEVICE_ID,
+            "raw":         raw,
+            "pct":         pct,
+            "irrigar":     irrigar,
+            "t_wasm_ms":   round(t_was,m, 4),
+            "t_native_ms": round(t_native, 4),
         }
         save_to_csv(result)
         client.publish(FOG_TOPIC, json.dumps(result))
