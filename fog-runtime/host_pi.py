@@ -55,7 +55,7 @@ linker  = Linker(engine)
 store   = Store(engine)
 
 log_type = FuncType([ValType.i32()], [])
-linker.define_func("env", "wasm_log", log_type, lambda c, p: None)
+linker.define_func("env", "wasm_log", log_type, lambda caller, p: None)
 log_int_type = FuncType([ValType.i32()], [])
 linker.define_func("env", "log_int",  log_int_type, lambda caller, v: print(f"[WASM] {v}%"))
 
